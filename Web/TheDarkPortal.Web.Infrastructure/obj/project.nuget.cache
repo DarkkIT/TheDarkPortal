@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "NZolV+Y1yQZ3skpyE9PzDVm4WUTDeZVND5Pp/07DrJy2UQ43IZ0kkEjtgS51XboAKFCT+HiTZCVDTzZvTFVIHw==",
+  "success": true,
+  "projectFilePath": "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\darkk\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
+    "C:\\Users\\darkk\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512"
+  ],
+  "logs": []
+}

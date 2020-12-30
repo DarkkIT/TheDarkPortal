@@ -1,0 +1,69 @@
+﻿@model TheDarkPortal.Web.ViewModels.Card.CombinedViewModel;
+
+@{
+    this.ViewData["Title"] = "My Cards";
+}
+
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/mycards.css" asp-append-version="true" />
+</head>
+
+
+<div class="col-md-12" style="z-index: 1;">
+    <div class="row justify-content-center">
+        <div class="row">
+            <p style="color: orangered;">--- Silver: @Model.Currency.Silver --- </p>
+            <p style="color: orangered">Gold: @Model.Currency.Gold --- </p>
+            <p style="color: orangered;">Platinum: @Model.Currency.Platinum ---</p>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 row justify-content-around">
+    <div id="scrollable" class="col-md-7 border border-primary">
+        <div class="row">
+
+            @foreach (var card in Model.Cards.Cards)
+            {
+                <div class="card m-4" style="width: 13rem;">
+                    <a class="text-dark" asp-controller="Cards" asp-action="CardDetails" asp-route-id="@card.Id">
+                        <img class="card-img-top" src="@card.ImagePath" alt="Card image cap">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@card.Name</h5>
+                        <div class="">
+                            <div class="row justify-content-around">
+                                <p><i class="fas fa-angle-double-right"></i>@card.Power</p>
+                                <p><i class="fas fa-shield-alt"></i>@card.Defense</p>
+                                <p><i class="fas fa-heartbeat"></i>@card.Health</p>
+                            </div>
+                            <div class="row justify-content-around">
+                                <p>Tire @card.Tire</p>
+                                <p>Level @card.Level</p>
+                            </div>
+                        </div>
+                        <a class="btn btn-primary" asp-controller="Fuse" asp-action="AddToFuse" asp-route-id="@card.Id">To Fuse</a>
+                        <a class="btn btn-primary" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@card.Id">Delete</a>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+
+
+    <div class="col-md-4 justify-content-between">
+        <div class="border border-primary" style="height: 490px;">
+
+        </div>
+        <div class="border border-primary mt-5" style="height: 180px;">
+
+        </div>
+    </div>
+
+</div>
+

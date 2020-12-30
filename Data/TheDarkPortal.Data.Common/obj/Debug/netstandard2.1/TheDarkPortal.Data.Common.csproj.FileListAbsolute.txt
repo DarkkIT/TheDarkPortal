@@ -1,0 +1,9 @@
+D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Common\bin\Debug\netstandard2.1\TheDarkPortal.Data.Common.deps.json
+D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Common\bin\Debug\netstandard2.1\TheDarkPortal.Data.Common.dll
+D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Common\bin\Debug\netstandard2.1\TheDarkPortal.Data.Common.pdb
+D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Common\obj\Debug\netstandard2.1\TheDarkPortal.Data.Common.csprojAssemblyReference.cache
+D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Common\obj\Debug\netstandard2.1\TheDarkPortal.Data.Common.AssemblyInfoInputs.cache
+D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Common\obj\Debug\netstandard2.1\TheDarkPortal.Data.Common.AssemblyInfo.cs
+D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Common\obj\Debug\netstandard2.1\TheDarkPortal.Data.Common.csproj.CoreCompileInputs.cache
+D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Common\obj\Debug\netstandard2.1\TheDarkPortal.Data.Common.dll
+D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Common\obj\Debug\netstandard2.1\TheDarkPortal.Data.Common.pdb

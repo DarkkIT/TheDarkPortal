@@ -1,0 +1,9 @@
+D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Messaging\bin\Debug\netstandard2.1\TheDarkPortal.Services.Messaging.deps.json
+D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Messaging\bin\Debug\netstandard2.1\TheDarkPortal.Services.Messaging.dll
+D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Messaging\bin\Debug\netstandard2.1\TheDarkPortal.Services.Messaging.pdb
+D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Messaging\obj\Debug\netstandard2.1\TheDarkPortal.Services.Messaging.csprojAssemblyReference.cache
+D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Messaging\obj\Debug\netstandard2.1\TheDarkPortal.Services.Messaging.AssemblyInfoInputs.cache
+D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Messaging\obj\Debug\netstandard2.1\TheDarkPortal.Services.Messaging.AssemblyInfo.cs
+D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Messaging\obj\Debug\netstandard2.1\TheDarkPortal.Services.Messaging.csproj.CoreCompileInputs.cache
+D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Messaging\obj\Debug\netstandard2.1\TheDarkPortal.Services.Messaging.dll
+D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Messaging\obj\Debug\netstandard2.1\TheDarkPortal.Services.Messaging.pdb

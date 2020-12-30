@@ -1,0 +1,55 @@
+﻿@model TheDarkPortal.Web.ViewModels.Card.CardListViewModel;
+
+@{
+    this.ViewData["Title"] = "Cards";
+}
+
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+
+<div class="col-md-6 offset-3">
+    <form asp-action="Index" method="get">
+        <div class="form-actions no-color col justify-content-center">
+            <p class="col-md-6 offset-3 text-center">Find by name</p>
+            <p  class="col-md-6 offset-3">
+                <input class="col-md-12" type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+            </p>
+            <p class="col-md-6 offset-3">
+                <input type="submit" value="Search" class="btn btn-default" /> |
+                <a asp-action="Index">Back to Full List</a>
+            </p>
+        </div>
+    </form>
+</div>
+
+<div class=" col-md-6 offset-3">
+    <div class="row">
+
+        @foreach (var card in Model.Cards)
+        {
+            <div class="card m-4" style="width: 13rem;">
+                <img class="card-img-top" src="@card.ImagePath" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">@card.Name</h5>
+                    <div>
+                        <div class="row justify-content-around">
+                            <p><i class="fas fa-angle-double-right"></i>@card.Power</p>
+                            <p><i class="fas fa-shield-alt"></i>@card.Defense</p>
+                            <p><i class="fas fa-heartbeat"></i>@card.Health</p>
+                        </div>
+                        <div class="row justify-content-around">
+                            <p>Tire @card.Tire</p>
+                            <p>Level @card.Level</p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary" asp-controller="Cards" asp-action="AddCardToMyCards" asp-route-id="@card.Id">Buy</a>
+                </div>
+            </div>
+        }
+
+    </div>
+</div>
+
+<partial name="_PagingPartial" model="@Model" />

@@ -1,0 +1,15 @@
+﻿.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+
+
+}
+.card {
+    height: 28rem;
+}
+
+#scrollable {
+    height: 45rem;
+    overflow-y: scroll;
+}

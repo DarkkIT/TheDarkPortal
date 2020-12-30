@@ -1,0 +1,28 @@
+﻿@model TheDarkPortal.Web.ViewModels.Card.CardViewModel;
+
+@{
+    this.ViewData["Title"] = "Card Details";
+}
+
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+</head>
+
+
+<div>
+    <div class="card m-4" style="width: 18rem;">
+
+        <img class="card-img-top" src="@Model.ImagePath" alt="Card image cap">
+
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <div class="row justify-content-around">
+                <p><i class="fas fa-angle-double-right"></i>@Model.Power</p>
+                <p><i class="fas fa-shield-alt"></i>@Model.Defense</p>
+                <p><i class="fas fa-heartbeat"></i>@Model.Health</p>
+            </div>
+            <a class="btn btn-primary" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@Model.Id">Delete</a>
+        </div>
+    </div>
+</div>

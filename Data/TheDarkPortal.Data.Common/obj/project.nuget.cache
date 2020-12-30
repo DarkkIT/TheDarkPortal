@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "dsxvEL5Z9oQ0VwYOIRojYhLFzy/k/CMhDXtqu961HP+zN+q3xN9GyhZLK65GASHFpFJiiZNvxydQuQ9OTqRmmA==",
+  "success": true,
+  "projectFilePath": "D:\\VisualStudio\\TheDarkPortal\\Data\\TheDarkPortal.Data.Common\\TheDarkPortal.Data.Common.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\darkk\\.nuget\\packages\\stylecop.analyzers\\1.2.0-beta.312\\stylecop.analyzers.1.2.0-beta.312.nupkg.sha512",
+    "C:\\Users\\darkk\\.nuget\\packages\\stylecop.analyzers.unstable\\1.2.0.312\\stylecop.analyzers.unstable.1.2.0.312.nupkg.sha512",
+    "C:\\Users\\darkk\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
