@@ -1,2 +1,2 @@
 # TheDarkPortal
- 
+ Idle Card Game
