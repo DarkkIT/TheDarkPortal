@@ -32,9 +32,9 @@
                 appUser.UserName = username;
                 appUser.Email = username;
                 appUser.PhoneNumber = "0888999999";
-                appUser.Silver = 37000;
-                appUser.Gold = 30000;
-                appUser.Platinum = 30000;
+                appUser.Silver = 500000;
+                appUser.Gold = 500000;
+                appUser.Platinum = 200000;
                 IdentityResult result = new IdentityResult();
 
                 if (username == "darkk334582@yahoo.com")

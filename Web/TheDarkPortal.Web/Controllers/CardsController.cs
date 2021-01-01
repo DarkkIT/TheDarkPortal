@@ -8,6 +8,7 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using TheDarkPortal.Services.Data.Cards;
+    using TheDarkPortal.Services.Data.Fuse;
     using TheDarkPortal.Services.Data.User;
     using TheDarkPortal.Web.ViewModels.Card;
 
@@ -16,11 +17,13 @@
     {
         private readonly ICardService cardService;
         private readonly IUserService userService;
+        private readonly IFuseService fuseService;
 
-        public CardsController(ICardService cardService, IUserService userService)
+        public CardsController(ICardService cardService, IUserService userService, IFuseService fuseService)
         {
             this.cardService = cardService;
             this.userService = userService;
+            this.fuseService = fuseService;
         }
 
         public IActionResult Index(string searchType, string searchString, int id = 1)
@@ -58,15 +61,18 @@
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             var userCadrs = this.cardService.GetUserCardsCollection<CardViewModel>(id, 2, userId);
-
             var userCrdsList = new CardListViewModel { Cards = userCadrs, PageNumber = id, CardCount = this.cardService.GetUserCardCount(userId), ItemsPerPage = 2 };
 
             var currencis = this.userService.GetUserCurrencis(userId);
 
-            var viewModel = new CombinedViewModel
+            var fuseCards = this.fuseService.GetUserFuseCards<FuseCardViewModel>(userId);
+            var userFuseCards = new FuseCardListViewModel { Cards = fuseCards, PageNumber = id, CardCount = 2, ItemsPerPage = 2 };
+
+            var viewModel = new CombinedMyCardsViewModel
             {
                 Cards = userCrdsList,
                 Currency = currencis,
+                FuseCards = userFuseCards,
             };
 
             return this.View(viewModel);
@@ -95,6 +101,24 @@
             await this.cardService.LevelUp(id, userId);
 
             return this.RedirectToAction(nameof(this.CardDetails), new { id = id });
+        }
+
+        public async Task<IActionResult> ToFuse(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            await this.fuseService.AddToFuse(id, userId);
+
+            return this.RedirectToAction(nameof(this.MyCards));
+        }
+
+        public async Task<IActionResult> RemoveFromFuse(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            await this.fuseService.RemoveFromFuse(id, userId);
+
+            return this.RedirectToAction(nameof(this.MyCards));
         }
     }
 }

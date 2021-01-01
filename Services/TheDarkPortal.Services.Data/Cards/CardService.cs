@@ -19,17 +19,20 @@
         private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
         private readonly IRepository<Card> cardRepository;
         private readonly IRepository<UserCard> userCardRepository;
+        private readonly IRepository<UserFuseCouple> userFuseCoupleRepository;
 
         public CardService(
             IDeletableEntityRepository<CardLevelOne> cardLevelOneRepository,
             IDeletableEntityRepository<ApplicationUser> userRepository,
             IRepository<Card> cardRepository,
-            IRepository<UserCard> userCardRepository)
+            IRepository<UserCard> userCardRepository,
+            IRepository<UserFuseCouple> userFuseCoupleRepository)
         {
             this.cardLevelOneRepository = cardLevelOneRepository;
             this.userRepository = userRepository;
             this.cardRepository = cardRepository;
             this.userCardRepository = userCardRepository;
+            this.userFuseCoupleRepository = userFuseCoupleRepository;
         }
 
         public async Task AddCardToMyCards(int cardId, string userId)
@@ -123,6 +126,14 @@
         {
             var userCard = this.userCardRepository.All().FirstOrDefault(x => x.UserId == userId && x.CardId == id);
             var cardId = userCard.CardId;
+
+            var userFuseCouple = this.userFuseCoupleRepository.All().FirstOrDefault(x => x.CardId == cardId);
+
+            if (userFuseCouple != null)
+            {
+                this.userFuseCoupleRepository.Delete(userFuseCouple);
+                await this.userFuseCoupleRepository.SaveChangesAsync();
+            }
 
             this.userCardRepository.Delete(userCard);
             await this.userCardRepository.SaveChangesAsync();

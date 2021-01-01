@@ -1,4 +1,4 @@
-﻿@model TheDarkPortal.Web.ViewModels.Card.CombinedViewModel;
+﻿@model TheDarkPortal.Web.ViewModels.Card.CombinedMyCardsViewModel;
 
 @{
     this.ViewData["Title"] = "My Cards";
@@ -27,9 +27,11 @@
 
             @foreach (var card in Model.Cards.Cards)
             {
-                <div id="myCardModel" class="card m-4" style="width: 13rem;">
+                <div class="card m-4" style="width: 13rem;">
                     <a class="text-dark" asp-controller="Cards" asp-action="CardDetails" asp-route-id="@card.Id">
-                        <img class="card-img-top" src="@card.ImagePath" alt="Card image cap">
+                        <div id="myCardModel">
+                            <img class="card-img-top" src="@card.ImagePath" alt="Card image cap">
+                        </div>
                     </a>
                     <div class="card-body">
                         <h5 class="card-title">@card.Name</h5>
@@ -44,7 +46,7 @@
                                 <p>Level @card.Level</p>
                             </div>
                         </div>
-                        <a class="btn btn-primary" asp-controller="Fuse" asp-action="AddToFuse" asp-route-id="@card.Id">To Fuse</a>
+                        <a class="btn btn-primary" asp-controller="Cards" asp-action="ToFuse" asp-route-id="@card.Id">To Fuse</a>
                         <a class="btn btn-primary" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@card.Id">Delete</a>
                     </div>
                 </div>
@@ -58,7 +60,34 @@
 
     <div class="col-md-4 justify-content-between">
         <div class="border border-primary" style="height: 490px;">
+            <div class="row justify-content-around">
+                @foreach (var fuseCard in Model.FuseCards.Cards)
+                {
+                    <div class="card m-4" style="width: 13rem;">
 
+                        <div id="myCardModel">
+                            <img class="card-img-top" src="@fuseCard.ImagePath" alt="Card image cap">
+                        </div>
+
+                        <div class="card-body">
+                            <h5 class="card-title">@fuseCard.Name</h5>
+                            <div class="">
+                                <div class="row justify-content-around">
+                                    <p><i class="fas fa-angle-double-right"></i>@fuseCard.Power</p>
+                                    <p><i class="fas fa-shield-alt"></i>@fuseCard.Defense</p>
+                                    <p><i class="fas fa-heartbeat"></i>@fuseCard.Health</p>
+                                </div>
+                                <div class="row justify-content-around">
+                                    <p>Tire @fuseCard.Tire</p>
+                                    <p>Level @fuseCard.Level</p>
+                                </div>
+                            </div>
+
+                            <a class="btn btn-primary" asp-controller="Cards" asp-action="RemoveFromFuse" asp-route-id="@fuseCard.Id">Remove</a>
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
         <div class="border border-primary mt-5" style="height: 180px;">
 

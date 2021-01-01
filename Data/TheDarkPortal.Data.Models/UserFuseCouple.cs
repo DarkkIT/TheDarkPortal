@@ -8,9 +8,9 @@
 
     public class UserFuseCouple : BaseModel<int>
     {
-        public int FuseCardId { get; set; }
+        public int CardId { get; set; }
 
-        public FuseCard FuseCard { get; set; }
+        public Card Card { get; set; }
 
         public string UserId { get; set; }
 
