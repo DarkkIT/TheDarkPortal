@@ -24,5 +24,7 @@
         Task DeleteCard(int id, string userId);
 
         CardViewModel CardDetails(int id);
+
+        Task LevelUp(int id, string userId);
     }
 }

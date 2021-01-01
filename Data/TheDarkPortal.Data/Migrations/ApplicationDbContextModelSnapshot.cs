@@ -282,6 +282,9 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<int>("Level")
                         .HasColumnType("int");
 
+                    b.Property<double>("LevelPrice")
+                        .HasColumnType("float");
+
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
 
@@ -432,6 +435,9 @@ namespace TheDarkPortal.Data.Migrations
 
                     b.Property<int>("Level")
                         .HasColumnType("int");
+
+                    b.Property<double>("LevelPrice")
+                        .HasColumnType("float");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");

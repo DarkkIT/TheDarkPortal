@@ -13,3 +13,6 @@
     height: 45rem;
     overflow-y: scroll;
 }
+#myCardModel :hover {
+    transform: scale(1.02);
+}

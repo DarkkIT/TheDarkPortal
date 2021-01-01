@@ -6,6 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
+    using TheDarkPortal.Common;
     using TheDarkPortal.Data.Common.Repositories;
     using TheDarkPortal.Data.Models;
     using TheDarkPortal.Data.Models.Cards;
@@ -36,15 +37,16 @@
             var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
             var cardLevelOne = this.cardLevelOneRepository.All().FirstOrDefault(x => x.Id == cardId);
 
-            if (user.Silver >= (int)cardLevelOne.Price)
+            if (user.Gold >= (int)cardLevelOne.Price)
             {
-                user.Silver -= (int)cardLevelOne.Price;
+                user.Gold -= (int)cardLevelOne.Price;
 
                 var card = new Card
                 {
                     Name = cardLevelOne.Name,
                     Tire = cardLevelOne.Tire,
                     Level = cardLevelOne.Level,
+                    LevelPrice = cardLevelOne.LevelPrice,
                     Power = cardLevelOne.Power,
                     Defense = cardLevelOne.Defense,
                     Health = cardLevelOne.Health,
@@ -104,9 +106,10 @@
                     Name = x.Card.Name,
                     Tire = x.Card.Tire,
                     Level = x.Card.Level,
-                    Power = Math.Floor((x.Card.Power + (x.Card.Level * 100)) * x.Card.Tire),
-                    Defense = Math.Floor((x.Card.Defense + (x.Card.Level * 100)) * x.Card.Tire),
-                    Health = Math.Floor((x.Card.Health + (x.Card.Level * 200)) * x.Card.Tire),
+                    LevelPrice = x.Card.LevelPrice,
+                    Power = x.Card.Power,
+                    Defense = x.Card.Defense,
+                    Health = x.Card.Health,
                     Element = x.Card.Element,
                     Price = x.Card.Price,
                 })
@@ -138,6 +141,8 @@
             {
                 Id = card.Id,
                 Name = card.Name,
+                Level = card.Level,
+                LevelPrice = card.LevelPrice,
                 Tire = card.Tire,
                 Power = card.Power,
                 Defense = card.Defense,
@@ -146,6 +151,37 @@
             };
 
             return cardViewModel;
+        }
+
+        public async Task LevelUp(int id, string userId)
+        {
+            var card = this.cardRepository.All().FirstOrDefault(x => x.Id == id);
+            var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
+
+            if (card.Level >= GlobalConstants.CardMinLevel && card.Level < GlobalConstants.CardMaxLevel)
+            {
+                if (user.Silver >= (int)Math.Floor(card.LevelPrice))
+                {
+                    card.Level += 1;
+                    user.Silver -= (int)Math.Floor(card.LevelPrice);
+
+                    card.LevelPrice = (int)Math.Floor(card.LevelPrice * 1.08);
+                    card.Power = Math.Floor(card.Power * 1.02);
+                    card.Defense = Math.Floor(card.Defense * 1.02);
+                    card.Health = Math.Floor(card.Health * 1.02);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+
+            await this.cardRepository.SaveChangesAsync();
+            await this.userRepository.SaveChangesAsync();
         }
     }
 }

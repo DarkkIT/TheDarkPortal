@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\TheDarkPortal.Data.Common\TheDarkPortal.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\TheDarkPortal.Data.Models\TheDarkPortal.Data.Models.csproj" />
+    <ProjectReference Include="..\..\TheDarkPortal.Common\TheDarkPortal.Common.csproj" />
     <ProjectReference Include="..\..\Web\TheDarkPortal.Web.ViewModels\TheDarkPortal.Web.ViewModels.csproj" />
     <ProjectReference Include="..\TheDarkPortal.Services.Mapping\TheDarkPortal.Services.Mapping.csproj" />
   </ItemGroup>

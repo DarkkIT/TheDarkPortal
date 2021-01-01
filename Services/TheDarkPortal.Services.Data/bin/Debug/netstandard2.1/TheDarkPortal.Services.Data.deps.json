@@ -10,6 +10,7 @@
       "TheDarkPortal.Services.Data/1.0.0": {
         "dependencies": {
           "StyleCop.Analyzers": "1.2.0-beta.312",
+          "TheDarkPortal.Common": "1.0.0",
           "TheDarkPortal.Data.Common": "1.0.0",
           "TheDarkPortal.Data.Models": "1.0.0",
           "TheDarkPortal.Services.Mapping": "1.0.0",
@@ -315,6 +316,11 @@
           }
         }
       },
+      "TheDarkPortal.Common/1.0.0": {
+        "runtime": {
+          "TheDarkPortal.Common.dll": {}
+        }
+      },
       "TheDarkPortal.Data.Common/1.0.0": {
         "dependencies": {
           "System.ComponentModel.Annotations": "5.0.0"
@@ -566,6 +572,11 @@
       "sha512": "sha512-ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
       "path": "system.runtime.compilerservices.unsafe/5.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    },
+    "TheDarkPortal.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "TheDarkPortal.Data.Common/1.0.0": {
       "type": "project",

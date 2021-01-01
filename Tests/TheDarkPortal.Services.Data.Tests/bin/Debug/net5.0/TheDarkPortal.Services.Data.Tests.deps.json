@@ -1924,6 +1924,7 @@
       },
       "TheDarkPortal.Services.Data/1.0.0": {
         "dependencies": {
+          "TheDarkPortal.Common": "1.0.0",
           "TheDarkPortal.Data.Common": "1.0.0",
           "TheDarkPortal.Data.Models": "1.0.0",
           "TheDarkPortal.Services.Mapping": "1.0.0",

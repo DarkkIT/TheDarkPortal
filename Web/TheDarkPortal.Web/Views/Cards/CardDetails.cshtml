@@ -10,19 +10,31 @@
 </head>
 
 
-<div>
-    <div class="card m-4" style="width: 18rem;">
+<div class="row col-md-6 offset-3">
+    <div class="card col-md-6 offset-3" style="width: 20rem;">
 
         <img class="card-img-top" src="@Model.ImagePath" alt="Card image cap">
 
         <div class="card-body">
-            <h5 class="card-title">@Model.Name</h5>
-            <div class="row justify-content-around">
+            <h3 class="card-title">@Model.Name</h3>
+            <div class="row justify-content-around mb-3" style="font-size: 20px;">
                 <p><i class="fas fa-angle-double-right"></i>@Model.Power</p>
                 <p><i class="fas fa-shield-alt"></i>@Model.Defense</p>
                 <p><i class="fas fa-heartbeat"></i>@Model.Health</p>
             </div>
-            <a class="btn btn-primary" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@Model.Id">Delete</a>
+            <div class="row justify-content-around" style="font-size: 20px; font-weight: bold;">
+                <p>Tire @Model.Tire</p>
+                <p>Level @Model.Level</p>
+            </div>
+            <hr />
+            <div class="row justify-content-around">
+                <p>Tire @Model.Tire</p>
+                <p>Level Price @Model.LevelPrice</p>
+            </div>
+            <div class=" row justify-content-around">
+                <a class="btn btn-primary" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@Model.Id">Delete</a>
+                <a class="btn btn-primary" asp-controller="Cards" asp-action="LevelUp" asp-route-id="@Model.Id">Level Up</a>
+            </div>
         </div>
     </div>
 </div>

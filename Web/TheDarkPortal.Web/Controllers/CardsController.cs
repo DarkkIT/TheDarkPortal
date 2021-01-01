@@ -87,5 +87,14 @@
 
             return this.View(viewModel);
         }
+
+        public async Task<IActionResult> LevelUp(int id)
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            await this.cardService.LevelUp(id, userId);
+
+            return this.RedirectToAction(nameof(this.CardDetails), new { id = id });
+        }
     }
 }

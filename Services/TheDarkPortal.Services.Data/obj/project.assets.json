@@ -343,6 +343,16 @@
           "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
+      "TheDarkPortal.Common/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "compile": {
+          "bin/placeholder/TheDarkPortal.Common.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TheDarkPortal.Common.dll": {}
+        }
+      },
       "TheDarkPortal.Data.Common/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -1190,6 +1200,11 @@
         "version.txt"
       ]
     },
+    "TheDarkPortal.Common/1.0.0": {
+      "type": "project",
+      "path": "../../TheDarkPortal.Common/TheDarkPortal.Common.csproj",
+      "msbuildProject": "../../TheDarkPortal.Common/TheDarkPortal.Common.csproj"
+    },
     "TheDarkPortal.Data.Common/1.0.0": {
       "type": "project",
       "path": "../../Data/TheDarkPortal.Data.Common/TheDarkPortal.Data.Common.csproj",
@@ -1214,6 +1229,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
       "StyleCop.Analyzers >= 1.2.0-beta.312",
+      "TheDarkPortal.Common >= 1.0.0",
       "TheDarkPortal.Data.Common >= 1.0.0",
       "TheDarkPortal.Data.Models >= 1.0.0",
       "TheDarkPortal.Services.Mapping >= 1.0.0",
@@ -1260,6 +1276,9 @@
             },
             "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj": {
               "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj"
+            },
+            "D:\\VisualStudio\\TheDarkPortal\\TheDarkPortal.Common\\TheDarkPortal.Common.csproj": {
+              "projectPath": "D:\\VisualStudio\\TheDarkPortal\\TheDarkPortal.Common\\TheDarkPortal.Common.csproj"
             },
             "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web.ViewModels\\TheDarkPortal.Web.ViewModels.csproj": {
               "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web.ViewModels\\TheDarkPortal.Web.ViewModels.csproj"

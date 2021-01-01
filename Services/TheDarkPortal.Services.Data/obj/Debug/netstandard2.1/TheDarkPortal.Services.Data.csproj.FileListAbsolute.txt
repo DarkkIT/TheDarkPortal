@@ -16,3 +16,5 @@ D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Data\obj\Debug\net
 D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Data\obj\Debug\netstandard2.1\TheDarkPortal.Services.Data.pdb
 D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Data\bin\Debug\netstandard2.1\TheDarkPortal.Web.ViewModels.dll
 D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Data\bin\Debug\netstandard2.1\TheDarkPortal.Web.ViewModels.pdb
+D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Data\bin\Debug\netstandard2.1\TheDarkPortal.Common.dll
+D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Data\bin\Debug\netstandard2.1\TheDarkPortal.Common.pdb

@@ -27,7 +27,7 @@
 
             @foreach (var card in Model.Cards.Cards)
             {
-                <div class="card m-4" style="width: 13rem;">
+                <div id="myCardModel" class="card m-4" style="width: 13rem;">
                     <a class="text-dark" asp-controller="Cards" asp-action="CardDetails" asp-route-id="@card.Id">
                         <img class="card-img-top" src="@card.ImagePath" alt="Card image cap">
                     </a>

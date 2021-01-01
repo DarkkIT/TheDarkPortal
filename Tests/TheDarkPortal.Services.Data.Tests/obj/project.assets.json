@@ -2745,6 +2745,7 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "dependencies": {
+          "TheDarkPortal.Common": "1.0.0",
           "TheDarkPortal.Data.Common": "1.0.0",
           "TheDarkPortal.Data.Models": "1.0.0",
           "TheDarkPortal.Services.Mapping": "1.0.0",
