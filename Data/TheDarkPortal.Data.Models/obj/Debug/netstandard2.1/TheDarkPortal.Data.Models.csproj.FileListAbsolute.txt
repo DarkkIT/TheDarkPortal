@@ -10,3 +10,15 @@ D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Models\obj\Debug\netstanda
 D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Models\obj\Debug\netstandard2.1\TheDarkPortal.Data.Models.csproj.CopyComplete
 D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Models\obj\Debug\netstandard2.1\TheDarkPortal.Data.Models.dll
 D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data.Models\obj\Debug\netstandard2.1\TheDarkPortal.Data.Models.pdb
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data.Models\bin\Debug\netstandard2.1\TheDarkPortal.Data.Models.deps.json
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data.Models\bin\Debug\netstandard2.1\TheDarkPortal.Data.Models.dll
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data.Models\bin\Debug\netstandard2.1\TheDarkPortal.Data.Models.pdb
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data.Models\bin\Debug\netstandard2.1\TheDarkPortal.Data.Common.dll
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data.Models\bin\Debug\netstandard2.1\TheDarkPortal.Data.Common.pdb
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data.Models\obj\Debug\netstandard2.1\TheDarkPortal.Data.Models.csprojAssemblyReference.cache
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data.Models\obj\Debug\netstandard2.1\TheDarkPortal.Data.Models.AssemblyInfoInputs.cache
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data.Models\obj\Debug\netstandard2.1\TheDarkPortal.Data.Models.AssemblyInfo.cs
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data.Models\obj\Debug\netstandard2.1\TheDarkPortal.Data.Models.csproj.CoreCompileInputs.cache
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data.Models\obj\Debug\netstandard2.1\TheDarkPortal.Data.Models.csproj.CopyComplete
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data.Models\obj\Debug\netstandard2.1\TheDarkPortal.Data.Models.dll
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data.Models\obj\Debug\netstandard2.1\TheDarkPortal.Data.Models.pdb

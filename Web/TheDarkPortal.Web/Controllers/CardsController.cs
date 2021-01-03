@@ -44,6 +44,10 @@
 
             var viewModel = new CardListViewModel { Cards = userCards, PageNumber = id, CardCount = this.cardService.GetCount(), ItemsPerPage = 3 };
 
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var currencies = this.userService.GetUserCurrencis(userId);
+            viewModel.Currencies = currencies;
+
             return this.View(viewModel);
         }
 
@@ -63,7 +67,7 @@
             var userCadrs = this.cardService.GetUserCardsCollection<CardViewModel>(id, 2, userId);
             var userCrdsList = new CardListViewModel { Cards = userCadrs, PageNumber = id, CardCount = this.cardService.GetUserCardCount(userId), ItemsPerPage = 2 };
 
-            var currencis = this.userService.GetUserCurrencis(userId);
+            var currencies = this.userService.GetUserCurrencis(userId);
 
             var fuseCards = this.fuseService.GetUserFuseCards<FuseCardViewModel>(userId);
             var userFuseCards = new FuseCardListViewModel { Cards = fuseCards, PageNumber = id, CardCount = 2, ItemsPerPage = 2 };
@@ -71,7 +75,7 @@
             var viewModel = new CombinedMyCardsViewModel
             {
                 Cards = userCrdsList,
-                Currency = currencis,
+                Currencies = currencies,
                 FuseCards = userFuseCards,
             };
 
@@ -80,8 +84,8 @@
 
         public async Task<IActionResult> DeleteCard(int id)
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             await this.cardService.DeleteCard(id, userId);
 
             return this.RedirectToAction(nameof(this.MyCards));
@@ -89,7 +93,11 @@
 
         public IActionResult CardDetails(int id)
         {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var currencies = this.userService.GetUserCurrencis(userId);
+
             var viewModel = this.cardService.CardDetails(id);
+            viewModel.Currencies = currencies;
 
             return this.View(viewModel);
         }

@@ -8227,23 +8227,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\darkk\\.nuget\\packages\\": {},
+    "C:\\Users\\Rex\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web\\TheDarkPortal.Web.csproj",
+      "projectUniqueName": "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web\\TheDarkPortal.Web.csproj",
       "projectName": "TheDarkPortal.Web",
-      "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web\\TheDarkPortal.Web.csproj",
-      "packagesPath": "C:\\Users\\darkk\\.nuget\\packages\\",
-      "outputPath": "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web\\obj\\",
+      "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web\\TheDarkPortal.Web.csproj",
+      "packagesPath": "C:\\Users\\Rex\\.nuget\\packages\\",
+      "outputPath": "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\darkk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Rex\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8251,39 +8251,38 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://packagesource": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\VisualStudio\\TheDarkPortal\\Data\\TheDarkPortal.Data.Models\\TheDarkPortal.Data.Models.csproj": {
-              "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Data\\TheDarkPortal.Data.Models\\TheDarkPortal.Data.Models.csproj"
+            "D:\\C# - Projects\\TheDarkPortal\\Data\\TheDarkPortal.Data.Models\\TheDarkPortal.Data.Models.csproj": {
+              "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Data\\TheDarkPortal.Data.Models\\TheDarkPortal.Data.Models.csproj"
             },
-            "D:\\VisualStudio\\TheDarkPortal\\Data\\TheDarkPortal.Data\\TheDarkPortal.Data.csproj": {
-              "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Data\\TheDarkPortal.Data\\TheDarkPortal.Data.csproj"
+            "D:\\C# - Projects\\TheDarkPortal\\Data\\TheDarkPortal.Data\\TheDarkPortal.Data.csproj": {
+              "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Data\\TheDarkPortal.Data\\TheDarkPortal.Data.csproj"
             },
-            "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Data\\TheDarkPortal.Services.Data.csproj": {
-              "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Data\\TheDarkPortal.Services.Data.csproj"
+            "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services.Data\\TheDarkPortal.Services.Data.csproj": {
+              "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services.Data\\TheDarkPortal.Services.Data.csproj"
             },
-            "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj": {
-              "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj"
+            "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj": {
+              "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj"
             },
-            "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Messaging\\TheDarkPortal.Services.Messaging.csproj": {
-              "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Messaging\\TheDarkPortal.Services.Messaging.csproj"
+            "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services.Messaging\\TheDarkPortal.Services.Messaging.csproj": {
+              "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services.Messaging\\TheDarkPortal.Services.Messaging.csproj"
             },
-            "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services\\TheDarkPortal.Services.csproj": {
-              "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services\\TheDarkPortal.Services.csproj"
+            "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services\\TheDarkPortal.Services.csproj": {
+              "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services\\TheDarkPortal.Services.csproj"
             },
-            "D:\\VisualStudio\\TheDarkPortal\\TheDarkPortal.Common\\TheDarkPortal.Common.csproj": {
-              "projectPath": "D:\\VisualStudio\\TheDarkPortal\\TheDarkPortal.Common\\TheDarkPortal.Common.csproj"
+            "D:\\C# - Projects\\TheDarkPortal\\TheDarkPortal.Common\\TheDarkPortal.Common.csproj": {
+              "projectPath": "D:\\C# - Projects\\TheDarkPortal\\TheDarkPortal.Common\\TheDarkPortal.Common.csproj"
             },
-            "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj": {
-              "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj"
+            "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj": {
+              "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj"
             },
-            "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web.ViewModels\\TheDarkPortal.Web.ViewModels.csproj": {
-              "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web.ViewModels\\TheDarkPortal.Web.ViewModels.csproj"
+            "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web.ViewModels\\TheDarkPortal.Web.ViewModels.csproj": {
+              "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web.ViewModels\\TheDarkPortal.Web.ViewModels.csproj"
             }
           }
         }

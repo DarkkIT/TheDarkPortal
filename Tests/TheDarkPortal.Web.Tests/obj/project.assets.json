@@ -11173,23 +11173,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\darkk\\.nuget\\packages\\": {},
+    "C:\\Users\\Rex\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VisualStudio\\TheDarkPortal\\Tests\\TheDarkPortal.Web.Tests\\TheDarkPortal.Web.Tests.csproj",
+      "projectUniqueName": "D:\\C# - Projects\\TheDarkPortal\\Tests\\TheDarkPortal.Web.Tests\\TheDarkPortal.Web.Tests.csproj",
       "projectName": "TheDarkPortal.Web.Tests",
-      "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Tests\\TheDarkPortal.Web.Tests\\TheDarkPortal.Web.Tests.csproj",
-      "packagesPath": "C:\\Users\\darkk\\.nuget\\packages\\",
-      "outputPath": "D:\\VisualStudio\\TheDarkPortal\\Tests\\TheDarkPortal.Web.Tests\\obj\\",
+      "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Tests\\TheDarkPortal.Web.Tests\\TheDarkPortal.Web.Tests.csproj",
+      "packagesPath": "C:\\Users\\Rex\\.nuget\\packages\\",
+      "outputPath": "D:\\C# - Projects\\TheDarkPortal\\Tests\\TheDarkPortal.Web.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\darkk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Rex\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -11197,15 +11197,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://packagesource": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web\\TheDarkPortal.Web.csproj": {
-              "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web\\TheDarkPortal.Web.csproj"
+            "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web\\TheDarkPortal.Web.csproj": {
+              "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web\\TheDarkPortal.Web.csproj"
             }
           }
         }

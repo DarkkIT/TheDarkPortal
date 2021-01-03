@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj": {}
+    "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj": {
+    "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj",
+        "projectUniqueName": "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj",
         "projectName": "TheDarkPortal.Web.Infrastructure",
-        "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\darkk\\.nuget\\packages\\",
-        "outputPath": "D:\\VisualStudio\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\obj\\",
+        "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\TheDarkPortal.Web.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\Rex\\.nuget\\packages\\",
+        "outputPath": "D:\\C# - Projects\\TheDarkPortal\\Web\\TheDarkPortal.Web.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\darkk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Rex\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,7 +25,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://packagesource": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

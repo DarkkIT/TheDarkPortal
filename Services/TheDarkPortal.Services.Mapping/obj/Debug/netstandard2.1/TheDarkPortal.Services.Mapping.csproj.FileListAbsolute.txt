@@ -7,3 +7,12 @@ D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\obj\Debug\
 D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\obj\Debug\netstandard2.1\TheDarkPortal.Services.Mapping.csproj.CoreCompileInputs.cache
 D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\obj\Debug\netstandard2.1\TheDarkPortal.Services.Mapping.dll
 D:\VisualStudio\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\obj\Debug\netstandard2.1\TheDarkPortal.Services.Mapping.pdb
+D:\C# - Projects\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\bin\Debug\netstandard2.1\TheDarkPortal.Services.Mapping.deps.json
+D:\C# - Projects\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\bin\Debug\netstandard2.1\TheDarkPortal.Services.Mapping.dll
+D:\C# - Projects\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\bin\Debug\netstandard2.1\TheDarkPortal.Services.Mapping.pdb
+D:\C# - Projects\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\obj\Debug\netstandard2.1\TheDarkPortal.Services.Mapping.csprojAssemblyReference.cache
+D:\C# - Projects\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\obj\Debug\netstandard2.1\TheDarkPortal.Services.Mapping.AssemblyInfoInputs.cache
+D:\C# - Projects\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\obj\Debug\netstandard2.1\TheDarkPortal.Services.Mapping.AssemblyInfo.cs
+D:\C# - Projects\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\obj\Debug\netstandard2.1\TheDarkPortal.Services.Mapping.csproj.CoreCompileInputs.cache
+D:\C# - Projects\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\obj\Debug\netstandard2.1\TheDarkPortal.Services.Mapping.dll
+D:\C# - Projects\TheDarkPortal\Services\TheDarkPortal.Services.Mapping\obj\Debug\netstandard2.1\TheDarkPortal.Services.Mapping.pdb

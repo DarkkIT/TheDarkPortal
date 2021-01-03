@@ -160,23 +160,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\darkk\\.nuget\\packages\\": {},
+    "C:\\Users\\Rex\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VisualStudio\\TheDarkPortal\\Data\\TheDarkPortal.Data.Common\\TheDarkPortal.Data.Common.csproj",
+      "projectUniqueName": "D:\\C# - Projects\\TheDarkPortal\\Data\\TheDarkPortal.Data.Common\\TheDarkPortal.Data.Common.csproj",
       "projectName": "TheDarkPortal.Data.Common",
-      "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Data\\TheDarkPortal.Data.Common\\TheDarkPortal.Data.Common.csproj",
-      "packagesPath": "C:\\Users\\darkk\\.nuget\\packages\\",
-      "outputPath": "D:\\VisualStudio\\TheDarkPortal\\Data\\TheDarkPortal.Data.Common\\obj\\",
+      "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Data\\TheDarkPortal.Data.Common\\TheDarkPortal.Data.Common.csproj",
+      "packagesPath": "C:\\Users\\Rex\\.nuget\\packages\\",
+      "outputPath": "D:\\C# - Projects\\TheDarkPortal\\Data\\TheDarkPortal.Data.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\darkk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Rex\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -184,7 +184,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://packagesource": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

@@ -21,3 +21,26 @@ D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\TheDarkPo
 D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\ref\TheDarkPortal.Data.dll
 D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\TheDarkPortal.Data.pdb
 D:\VisualStudio\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\TheDarkPortal.Data.genruntimeconfig.cache
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\appsettings.json
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\TheDarkPortal.Data.deps.json
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\TheDarkPortal.Data.runtimeconfig.json
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\TheDarkPortal.Data.runtimeconfig.dev.json
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\TheDarkPortal.Data.dll
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\ref\TheDarkPortal.Data.dll
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\TheDarkPortal.Data.pdb
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\TheDarkPortal.Common.dll
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\TheDarkPortal.Data.Common.dll
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\TheDarkPortal.Data.Models.dll
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\TheDarkPortal.Common.pdb
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\TheDarkPortal.Data.Common.pdb
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\bin\Debug\net5.0\TheDarkPortal.Data.Models.pdb
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\TheDarkPortal.Data.csprojAssemblyReference.cache
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\TheDarkPortal.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\TheDarkPortal.Data.AssemblyInfoInputs.cache
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\TheDarkPortal.Data.AssemblyInfo.cs
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\TheDarkPortal.Data.csproj.CoreCompileInputs.cache
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\TheDarkPortal.Data.csproj.CopyComplete
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\TheDarkPortal.Data.dll
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\ref\TheDarkPortal.Data.dll
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\TheDarkPortal.Data.pdb
+D:\C# - Projects\TheDarkPortal\Data\TheDarkPortal.Data\obj\Debug\net5.0\TheDarkPortal.Data.genruntimeconfig.cache

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj": {}
+    "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj": {}
   },
   "projects": {
-    "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj": {
+    "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj",
+        "projectUniqueName": "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj",
         "projectName": "TheDarkPortal.Services.Mapping",
-        "projectPath": "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj",
-        "packagesPath": "C:\\Users\\darkk\\.nuget\\packages\\",
-        "outputPath": "D:\\VisualStudio\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\obj\\",
+        "projectPath": "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\TheDarkPortal.Services.Mapping.csproj",
+        "packagesPath": "C:\\Users\\Rex\\.nuget\\packages\\",
+        "outputPath": "D:\\C# - Projects\\TheDarkPortal\\Services\\TheDarkPortal.Services.Mapping\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\darkk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Rex\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,7 +25,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://packagesource": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
