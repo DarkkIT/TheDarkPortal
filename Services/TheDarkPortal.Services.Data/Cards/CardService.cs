@@ -117,6 +117,9 @@
                     Price = x.Card.Price,
                 })
                 .To<CardViewModel>()
+                .OrderByDescending(x => x.Tire)
+                .ThenByDescending(x => x.Name)
+                .ThenByDescending(x => x.Level)
                 .ToList();
 
             return cards;
