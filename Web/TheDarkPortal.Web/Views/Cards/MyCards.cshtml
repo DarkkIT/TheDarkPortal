@@ -32,7 +32,7 @@
 
             @foreach (var card in Model.Cards.Cards)
             {
-                <div class="card m-4" style="width: 13rem;">
+                <div class="card m-4" style="width: 12rem;">
                     <a class="text-dark" asp-controller="Cards" asp-action="CardDetails" asp-route-id="@card.Id">
                         <div id="myCardModel">
                             <img class="card-img-top" src="@card.ImagePath" alt="Card image cap">
@@ -71,7 +71,7 @@
 
                 @foreach (var fuseCard in Model.FuseCards.Cards)
                 {
-                    <div class="card m-4" style="width: 13rem;">
+                    <div class="card m-4" style="width: 12rem;">
 
                         <div id="myCardModel">
                             <img class="card-img-top" src="@fuseCard.ImagePath" alt="Card image cap">
