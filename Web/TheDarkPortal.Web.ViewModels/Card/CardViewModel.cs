@@ -7,7 +7,7 @@
     using TheDarkPortal.Data.Models.Cards;
     using TheDarkPortal.Services.Mapping;
 
-    public class CardViewModel : IMapFrom<CardLevelOne>
+    public class CardViewModel : BaseUserStatsViewModel, IMapFrom<CardLevelOne>
     {
         public int Id { get; set; }
 

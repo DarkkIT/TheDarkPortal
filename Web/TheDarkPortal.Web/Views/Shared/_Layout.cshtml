@@ -53,12 +53,12 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container-fluid">
-            &copy; @DateTime.Now.Year - @GlobalConstants.SystemName - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        @if (Model.Currencies != null)
+        {
+        <div>
+            <partial name="_UserCurrencyPartial" model="@Model.Currencies" />
         </div>
-        @*<div>
-            <partial name="_UserCurrencyPartial" model="@Model" />
-        </div>*@
+        }
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
