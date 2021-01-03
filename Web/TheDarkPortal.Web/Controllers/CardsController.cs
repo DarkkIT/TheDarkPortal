@@ -133,9 +133,9 @@
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            ////TODO: Implement
 
-            ////await this.fuseService.Fuse(userId);
+          //TODO: Implement
+          //await this.fuseService.Fuse(userId);
 
             return this.RedirectToAction(nameof(this.MyCards));
         }
