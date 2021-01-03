@@ -25,7 +25,5 @@
         public string Element { get; set; }
 
         public int Price { get; set; }
-
-        public bool IsBattleSetCard { get; set; }
     }
 }

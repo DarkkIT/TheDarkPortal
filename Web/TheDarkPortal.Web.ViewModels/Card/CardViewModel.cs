@@ -27,8 +27,6 @@
 
         public string Element { get; set; }
 
-        public bool IsBattleSetCard { get; set; }
-
         public string ImagePath => "/images/" + this.Name + "-" + this.Tire + ".jpg";
     }
 }

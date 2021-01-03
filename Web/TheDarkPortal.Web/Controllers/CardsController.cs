@@ -137,23 +137,5 @@
 
             return this.RedirectToAction(nameof(this.MyCards));
         }
-
-        public async Task<IActionResult> AddCardToBattleSet(int id)
-        {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-
-            await this.cardService.AddCardToBattleCardsSet(id, userId);
-
-            return this.RedirectToAction(nameof(this.MyCards));
-        }
-
-        public async Task<IActionResult> RemoveCardFromBattleSet(int id)
-        {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-
-            await this.cardService.RemoveCardFromBattleCardsSet(id, userId);
-
-            return this.RedirectToAction(nameof(this.MyCards));
-        }
     }
 }

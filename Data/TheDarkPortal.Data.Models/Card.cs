@@ -32,8 +32,6 @@
 
         public int Price { get; set; }
 
-        public bool IsBattleSetCard { get; set; }
-
         public virtual ICollection<UserCard> UserCards { get; set; }
 
         public virtual ICollection<UserFuseCouple> UserFuseCouples { get; set; }

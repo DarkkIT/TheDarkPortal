@@ -279,9 +279,6 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<double>("Health")
                         .HasColumnType("float");
 
-                    b.Property<bool>("IsBattleSetCard")
-                        .HasColumnType("bit");
-
                     b.Property<int>("Level")
                         .HasColumnType("int");
 
@@ -432,9 +429,6 @@ namespace TheDarkPortal.Data.Migrations
 
                     b.Property<double>("Health")
                         .HasColumnType("float");
-
-                    b.Property<bool>("IsBattleSetCard")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
