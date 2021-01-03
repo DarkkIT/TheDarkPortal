@@ -12,27 +12,18 @@
     <link rel="stylesheet" href="~/css/mycards.css" asp-append-version="true" />
 </head>
 
-@*<header>
-    <div class="col-md-12" style="z-index: 1;">
-        <div class="row justify-content-center">
-            <div class="row">
-                <p style="color: orangered;">--- Silver: @Model.Currency.Silver --- </p>
-                <p style="color: orangered">Gold: @Model.Currency.Gold --- </p>
-                <p style="color: orangered;">Platinum: @Model.Currency.Platinum ---</p>
-            </div>
-        </div>
-    </div>
-</header>*@
-
 
 
 <div class="col-md-12 row justify-content-around">
+
+    @*-------All User Cards-------*@
+
     <div id="scrollable" class="col-md-7 border border-primary">
         <div class="row">
 
             @foreach (var card in Model.Cards.Cards)
             {
-                <div class="card m-4" style="width: 12rem;">
+                <div class="card m-3" style="width: 11rem;">
                     <a class="text-dark" asp-controller="Cards" asp-action="CardDetails" asp-route-id="@card.Id">
                         <div id="myCardModel">
                             <img class="card-img-top" src="@card.ImagePath" alt="Card image cap">
@@ -51,8 +42,24 @@
                                 <p>Level @card.Level</p>
                             </div>
                         </div>
-                        <a class="btn btn-primary" asp-controller="Cards" asp-action="ToFuse" asp-route-id="@card.Id">To Fuse</a>
-                        <a class="btn btn-primary" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@card.Id">Delete</a>
+                        <a class="btn btn-primary btn-sm" asp-controller="Cards" asp-action="ToFuse" asp-route-id="@card.Id">To Fuse</a>
+                        <a class="btn btn-primary btn-sm" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@card.Id">Delete</a>
+                        @if (card.IsBattleSetCard)
+                        {
+                            <a class="btn btn-primary btn-sm disabled" asp-controller="Cards" asp-action="AddCardToBattleSet" asp-route-id="@card.Id">Add To Battle Set</a>
+                        }
+                        else
+                        {
+                            @if (Model.Cards.Cards.Where(x => x.IsBattleSetCard == true).Count() >= 4)
+                            {
+                                <a class="btn btn-primary btn-sm disabled" asp-controller="Cards" asp-action="AddCardToBattleSet" asp-route-id="@card.Id">Add To Battle Set</a>
+                            }
+                            else
+                            {
+                                <a class="btn btn-primary btn-sm" asp-controller="Cards" asp-action="AddCardToBattleSet" asp-route-id="@card.Id">Add To Battle Set</a>
+
+                            }
+                        }
                     </div>
                 </div>
             }
@@ -62,6 +69,7 @@
     </div>
 
 
+    @*-------Fuse Cards-------*@
 
     <div class="col-md-4 justify-content-between">
 
@@ -120,14 +128,51 @@
     </div>
 </div>
 
-@*<footer>
-        <div class="col-md-12" style="z-index: 1;">
-            <div class="row justify-content-center">
-                <div class="row">
-                    <p style="color: orangered;">--- Silver: @Model.Currency.Silver --- </p>
-                    <p style="color: orangered">Gold: @Model.Currency.Gold --- </p>
-                    <p style="color: orangered;">Platinum: @Model.Currency.Platinum ---</p>
+
+<div class="col-md-12 row justify-content-around mt-5">
+
+    @*-------Battle Cards Set--------*@
+
+    <div class="row col-md-7 border border-primary">
+
+        <div class="row">
+            @foreach (var card in Model.Cards.Cards.Where(x => x.IsBattleSetCard == true))
+            {
+                <div class="card m-2" style="width: 11rem;">
+                    <a class="text-dark" asp-controller="Cards" asp-action="CardDetails" asp-route-id="@card.Id">
+                        <div id="myCardModel">
+                            <img class="card-img-top" src="@card.ImagePath" alt="Card image cap">
+                        </div>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@card.Name</h5>
+                        <div class="">
+                            <div class="row justify-content-around">
+                                <p><i class="fas fa-angle-double-right"></i>@card.Power</p>
+                                <p><i class="fas fa-shield-alt"></i>@card.Defense</p>
+                                <p><i class="fas fa-heartbeat"></i>@card.Health</p>
+                            </div>
+                            <div class="row justify-content-around">
+                                <p>Tire @card.Tire</p>
+                                <p>Level @card.Level</p>
+                            </div>
+                        </div>
+
+                        <a class="btn btn-primary btn-sm" asp-controller="Cards" asp-action="RemoveCardFromBattleSet" asp-route-id="@card.Id">Remove from Battle Set</a>
+
+                    </div>
                 </div>
-            </div>
+            }
+
         </div>
-</footer>*@
+
+    </div>
+    <div class="col-md-4 border border-primary" >
+        <div class="row justify-content-around">
+
+        </div>
+
+    </div>
+
+</div>
+
