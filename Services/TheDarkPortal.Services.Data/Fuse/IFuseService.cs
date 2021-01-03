@@ -14,5 +14,7 @@
         IEnumerable<FuseCardViewModel> GetUserFuseCards<T>(string userId);
 
         Task RemoveFromFuse(int id, string userId);
+
+        Task Fuse(string userId);
     }
 }

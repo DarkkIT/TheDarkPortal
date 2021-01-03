@@ -28,7 +28,7 @@
 
         public string Element { get; set; }
 
-        public string ImagePath => "/images/" + this.Name + ".jpg";
+        public string ImagePath => "/images/" + this.Name + "-" + this.Tire + ".jpg";
 
         public void CreateMappings(IProfileExpression configuration)
         {

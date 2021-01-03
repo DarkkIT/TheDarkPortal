@@ -120,5 +120,14 @@
 
             return this.RedirectToAction(nameof(this.MyCards));
         }
+
+        public async Task<IActionResult> Fuse()
+        {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            ////await this.fuseService.Fuse(userId);
+
+            return this.RedirectToAction(nameof(this.MyCards));
+        }
     }
 }

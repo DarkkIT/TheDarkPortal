@@ -8,6 +8,7 @@
 
     using TheDarkPortal.Data.Common.Repositories;
     using TheDarkPortal.Data.Models;
+    using TheDarkPortal.Data.Models.Cards;
     using TheDarkPortal.Services.Mapping;
     using TheDarkPortal.Web.ViewModels.Card;
 
@@ -52,9 +53,9 @@
                 {
                     var cardOneId = this.userFuseCoupleRepository.All().FirstOrDefault(x => x.UserId == userId).CardId;
 
-                    var cardOneName = this.cardRepositiry.All().FirstOrDefault(x => x.Id == cardOneId);
+                    var cardOne = this.cardRepositiry.All().FirstOrDefault(x => x.Id == cardOneId);
 
-                    if (cardOneName.Name == card.Name && cardOneId != id)
+                    if (cardOne.Name == card.Name && cardOneId != id && cardOne.Tire == card.Tire)
                     {
                         var fuseCouple = new UserFuseCouple
                         {
@@ -76,6 +77,27 @@
             }
 
             await this.userFuseCoupleRepository.SaveChangesAsync();
+        }
+
+        public async Task Fuse(string userId)
+        {
+            ////var fuseCards = this.userFuseCoupleRepository.All().Where(x => x.UserId == userId).ToList();
+
+            ////var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
+
+            ////if (fuseCards.Count() == 2)
+            ////{
+            ////    foreach (var fuseCouple in fuseCards)
+            ////    {
+            ////        this.userFuseCoupleRepository.Delete(fuseCouple);
+            ////    }
+
+            ////    await this.userFuseCoupleRepository.SaveChangesAsync();
+            ////}
+            ////else
+            ////{
+            ////    return;
+            ////}
         }
 
         public IEnumerable<FuseCardViewModel> GetUserFuseCards<T>(string userId)

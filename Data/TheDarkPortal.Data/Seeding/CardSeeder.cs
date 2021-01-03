@@ -33,6 +33,21 @@
 
             cardList.Add(card1);
 
+            var card101 = new CardLevelOne
+            {
+                Name = "Bood Dragon",
+                Tire = 2,
+                Level = 1,
+                LevelPrice = 50,
+                Power = 2000,
+                Defense = 2000,
+                Health = 5000,
+                Element = "Air",
+                Price = 2250,
+            };
+
+            cardList.Add(card101);
+
             var card2 = new CardLevelOne
             {
                 Name = "Witch",
