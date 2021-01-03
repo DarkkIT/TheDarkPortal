@@ -1,0 +1,50 @@
+﻿@model TheDarkPortal.Web.ViewModels.User.UserListViewModel;
+@{
+    this.ViewData["Title"] = "Arena";
+}
+
+
+<div class="row justify-content-around">
+
+    <div class="col-md-6 border border-primary">
+
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th scope="col">Position</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Points</th>
+                    <th scope="col">Battle Set</th>
+                    <th scope="col">Battle</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (var user in Model.ArenaUsers)
+                {
+                    <tr>
+                        <td>@(1)</td>
+                        <td>@user.NickName</td>
+                        <td>@user.ArenaPoints</td>
+                        <td>
+                            @foreach (var battleCard in user.BattleCards)
+                            {
+                                <img src="@battleCard.ImagePath" alt="Alternate Text" style="max-width: 4rem;" />
+                            }
+                        </td>
+                        <td>
+                            <a class="btn btn-primary" asp-controller="Arena" asp-action="Battle" asp-route-id="@user.Id">Battle</a>
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-5 border border-primary">
+
+    </div>
+</div>

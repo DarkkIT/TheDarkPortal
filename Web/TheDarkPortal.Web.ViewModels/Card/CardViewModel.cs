@@ -13,6 +13,8 @@
 
         public string Name { get; set; }
 
+        public double PowerN { get; set; }
+
         public int Tire { get; set; }
 
         public int Level { get; set; }

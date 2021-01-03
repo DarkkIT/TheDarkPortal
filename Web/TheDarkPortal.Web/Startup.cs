@@ -17,6 +17,7 @@
     using TheDarkPortal.Data.Repositories;
     using TheDarkPortal.Data.Seeding;
     using TheDarkPortal.Services.Data;
+    using TheDarkPortal.Services.Data.Arena;
     using TheDarkPortal.Services.Data.Cards;
     using TheDarkPortal.Services.Data.Fuse;
     using TheDarkPortal.Services.Data.User;
@@ -76,6 +77,7 @@
             services.AddTransient<ICardService, CardService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IFuseService, FuseService>();
+            services.AddTransient<IArenaService, ArenaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
