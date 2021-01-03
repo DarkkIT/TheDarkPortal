@@ -1,9 +1,0 @@
-D:\VisualStudio\TheDarkPortal\Web\TheDarkPortal.Web.Infrastructure\bin\Debug\netstandard2.1\TheDarkPortal.Web.Infrastructure.deps.json
-D:\VisualStudio\TheDarkPortal\Web\TheDarkPortal.Web.Infrastructure\bin\Debug\netstandard2.1\TheDarkPortal.Web.Infrastructure.dll
-D:\VisualStudio\TheDarkPortal\Web\TheDarkPortal.Web.Infrastructure\bin\Debug\netstandard2.1\TheDarkPortal.Web.Infrastructure.pdb
-D:\VisualStudio\TheDarkPortal\Web\TheDarkPortal.Web.Infrastructure\obj\Debug\netstandard2.1\TheDarkPortal.Web.Infrastructure.csprojAssemblyReference.cache
-D:\VisualStudio\TheDarkPortal\Web\TheDarkPortal.Web.Infrastructure\obj\Debug\netstandard2.1\TheDarkPortal.Web.Infrastructure.AssemblyInfoInputs.cache
-D:\VisualStudio\TheDarkPortal\Web\TheDarkPortal.Web.Infrastructure\obj\Debug\netstandard2.1\TheDarkPortal.Web.Infrastructure.AssemblyInfo.cs
-D:\VisualStudio\TheDarkPortal\Web\TheDarkPortal.Web.Infrastructure\obj\Debug\netstandard2.1\TheDarkPortal.Web.Infrastructure.csproj.CoreCompileInputs.cache
-D:\VisualStudio\TheDarkPortal\Web\TheDarkPortal.Web.Infrastructure\obj\Debug\netstandard2.1\TheDarkPortal.Web.Infrastructure.dll
-D:\VisualStudio\TheDarkPortal\Web\TheDarkPortal.Web.Infrastructure\obj\Debug\netstandard2.1\TheDarkPortal.Web.Infrastructure.pdb
