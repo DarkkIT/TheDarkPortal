@@ -26,5 +26,11 @@
         CardViewModel CardDetails(int id);
 
         Task LevelUp(int id, string userId);
+
+        Task AddCardToBattleCardsSet(int cardId, string userId);
+
+        Task RemoveCardFromBattleCardsSet(int cardId, string userId);
+
+
     }
 }

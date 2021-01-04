@@ -2,11 +2,14 @@
 {
     using System.Diagnostics;
     using System.Security.Claims;
+
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using TheDarkPortal.Services.Data.User;
     using TheDarkPortal.Web.ViewModels;
     using TheDarkPortal.Web.ViewModels.Home;
 
+    [Authorize]
     public class HomeController : BaseController
     {
         private readonly IUserService userService;

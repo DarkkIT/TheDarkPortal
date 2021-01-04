@@ -81,23 +81,45 @@
 
         public async Task Fuse(string userId)
         {
-            ////var fuseCards = this.userFuseCoupleRepository.All().Where(x => x.UserId == userId).ToList();
+            var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
 
-            ////var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
+            var fuseCards = this.userFuseCoupleRepository.All().Where(x => x.UserId == userId).ToList();
 
-            ////if (fuseCards.Count() == 2)
-            ////{
-            ////    foreach (var fuseCouple in fuseCards)
-            ////    {
-            ////        this.userFuseCoupleRepository.Delete(fuseCouple);
-            ////    }
 
-            ////    await this.userFuseCoupleRepository.SaveChangesAsync();
-            ////}
-            ////else
-            ////{
-            ////    return;
-            ////}
+            if (fuseCards.Count() == 2)
+            {
+                var firstId = fuseCards[0].CardId;
+                var secondId = fuseCards[1].CardId;
+
+                var firstCard = this.cardRepositiry.All().FirstOrDefault(x => x.Id == firstId);
+                var secondCard = this.cardRepositiry.All().FirstOrDefault(x => x.Id == secondId);
+
+                firstCard.Power += secondCard.Power;
+                firstCard.Defense += secondCard.Defense;
+                firstCard.Health += secondCard.Health;
+                firstCard.Level = 1;
+                firstCard.Tire += 1;
+
+                foreach (var fuseCard in fuseCards)
+                {
+                    this.userFuseCoupleRepository.Delete(fuseCard);
+                }
+
+                var userCard = this.userCardRepositiry.All().FirstOrDefault(x => x.UserId == userId && x.CardId == secondId);
+
+                this.userCardRepositiry.Delete(userCard);
+
+                await this.userCardRepositiry.SaveChangesAsync();
+
+                this.cardRepositiry.Delete(secondCard);
+
+                await this.userFuseCoupleRepository.SaveChangesAsync();
+                await this.userCardRepositiry.SaveChangesAsync();
+            }
+            else
+            {
+                return;
+            }
         }
 
         public IEnumerable<FuseCardViewModel> GetUserFuseCards<T>(string userId)

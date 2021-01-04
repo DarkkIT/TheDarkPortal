@@ -13,6 +13,8 @@
 
         public string Name { get; set; }
 
+        public double PowerN { get; set; }
+
         public int Tire { get; set; }
 
         public int Level { get; set; }
@@ -26,6 +28,8 @@
         public double Health { get; set; }
 
         public string Element { get; set; }
+
+        public bool IsBattleSetCard { get; set; }
 
         public string ImagePath => "/images/" + this.Name + "-" + this.Tire + ".jpg";
     }

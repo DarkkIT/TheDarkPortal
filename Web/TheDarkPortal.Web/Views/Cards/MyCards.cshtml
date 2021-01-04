@@ -12,97 +12,177 @@
     <link rel="stylesheet" href="~/css/mycards.css" asp-append-version="true" />
 </head>
 
+
 <div class="col-md-12 row justify-content-around">
     <div id="scrollable" class="col-md-7 border border-primary">
         <div class="row">
 
-            @foreach (var card in Model.Cards.Cards)
-            {
-                <div class="card m-4" style="width: 12rem;">
-                    <a class="text-dark" asp-controller="Cards" asp-action="CardDetails" asp-route-id="@card.Id">
-                        <div id="myCardModel">
-                            <img class="card-img-top" src="@card.ImagePath" alt="Card image cap">
-                        </div>
-                    </a>
-                    <div class="card-body">
-                        <h5 class="card-title">@card.Name</h5>
-                        <div class="">
-                            <div class="row justify-content-around">
-                                <p><i class="fas fa-angle-double-right"></i>@card.Power</p>
-                                <p><i class="fas fa-shield-alt"></i>@card.Defense</p>
-                                <p><i class="fas fa-heartbeat"></i>@card.Health</p>
-                            </div>
-                            <div class="row justify-content-around">
-                                <p>Tire @card.Tire</p>
-                                <p>Level @card.Level</p>
-                            </div>
-                        </div>
-                        <a class="btn btn-primary" asp-controller="Cards" asp-action="ToFuse" asp-route-id="@card.Id">To Fuse</a>
-                        <a class="btn btn-primary" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@card.Id">Delete</a>
-                    </div>
-                </div>
-            }
+<div>
 
-        </div>
+    <div class="col-md-12 row justify-content-around">
 
-    </div>
+        @*-------All User Cards-------*@
+
+        <div id="scrollable" class="col-md-7 border border-primary">
+            <div class="row">
 
 
-
-    <div class="col-md-4 justify-content-between">
-
-        <div class="border border-primary" style="height: 550px;">
-
-            <div class="row justify-content-around">
-
-                @foreach (var fuseCard in Model.FuseCards.Cards)
+                @foreach (var card in Model.Cards.Cards)
                 {
-                    <div class="card m-4" style="width: 12rem;">
-
-                        <div id="myCardModel">
-                            <img class="card-img-top" src="@fuseCard.ImagePath" alt="Card image cap">
-                        </div>
-
+                    <div class="card m-3" style="width: 11rem;">
+                        <a class="text-dark" asp-controller="Cards" asp-action="CardDetails" asp-route-id="@card.Id">
+                            <div id="myCardModel">
+                                <img class="card-img-top" src="@card.ImagePath" alt="Card image cap">
+                            </div>
+                        </a>
                         <div class="card-body">
-                            <h5 class="card-title">@fuseCard.Name</h5>
+                            <h5 class="card-title">@card.Name</h5>
                             <div class="">
                                 <div class="row justify-content-around">
-                                    <p><i class="fas fa-angle-double-right"></i>@fuseCard.Power</p>
-                                    <p><i class="fas fa-shield-alt"></i>@fuseCard.Defense</p>
-                                    <p><i class="fas fa-heartbeat"></i>@fuseCard.Health</p>
+                                    <p><i class="fas fa-angle-double-right"></i>@card.Power</p>
+                                    <p><i class="fas fa-shield-alt"></i>@card.Defense</p>
+                                    <p><i class="fas fa-heartbeat"></i>@card.Health</p>
                                 </div>
                                 <div class="row justify-content-around">
-                                    <p>Tire @fuseCard.Tire</p>
-                                    <p>Level @fuseCard.Level</p>
+                                    <p>Tire @card.Tire</p>
+                                    <p>Level @card.Level</p>
                                 </div>
                             </div>
+                            <a class="btn btn-primary btn-sm" asp-controller="Cards" asp-action="ToFuse" asp-route-id="@card.Id">To Fuse</a>
+                            <a class="btn btn-primary btn-sm" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@card.Id">Delete</a>
+                            @if (card.IsBattleSetCard)
+                            {
+                                <a class="btn btn-primary btn-sm disabled" asp-controller="Cards" asp-action="AddCardToBattleSet" asp-route-id="@card.Id">Add To Battle Set</a>
+                            }
+                            else
+                            {
+                                @if (Model.Cards.Cards.Where(x => x.IsBattleSetCard == true).Count() >= 4)
+                                {
+                                    <a class="btn btn-primary btn-sm disabled" asp-controller="Cards" asp-action="AddCardToBattleSet" asp-route-id="@card.Id">Add To Battle Set</a>
+                                }
+                                else
+                                {
+                                    <a class="btn btn-primary btn-sm" asp-controller="Cards" asp-action="AddCardToBattleSet" asp-route-id="@card.Id">Add To Battle Set</a>
 
-                            <a class="btn btn-primary" asp-controller="Cards" asp-action="RemoveFromFuse" asp-route-id="@fuseCard.Id">Remove</a>
+                                }
+                            }
                         </div>
-
                     </div>
-
                 }
 
             </div>
 
         </div>
 
-        <div class="row justify-content-around">
-            @if (Model.FuseCards.Cards.Count() == 2)
-            {
-                <a class="btn btn-danger" asp-controller="Cards" asp-action="Fuse">Fuse</a>
-            }
-            else
-            {
-                <a class="btn btn-danger disabled" asp-controller="Cards" asp-action="Fuse">Fuse</a>
-            }
 
-        </div>
+        @*-------Fuse Cards-------*@
 
-        <div class="border border-primary mt-3" style="height: 150px;">
-            <p class="" style="font-family: 'Goldman', cursive; font-size: 30px; text-align: center;">Only two cards of same types and same tires can be fused. Higher levels fused higher result.</p>
+        <div class="col-md-4 justify-content-between">
+
+            <div class="border border-primary" style="height: 510px;">
+
+                <div class="row justify-content-around">
+
+                    @foreach (var fuseCard in Model.FuseCards.Cards)
+                    {
+                        <div class="card m-4" style="width: 12rem;">
+
+                            <div id="myCardModel">
+                                <img class="card-img-top" src="@fuseCard.ImagePath" alt="Card image cap">
+                            </div>
+
+                            <div class="card-body">
+                                <h5 class="card-title">@fuseCard.Name</h5>
+                                <div class="">
+                                    <div class="row justify-content-around">
+                                        <p><i class="fas fa-angle-double-right"></i>@fuseCard.Power</p>
+                                        <p><i class="fas fa-shield-alt"></i>@fuseCard.Defense</p>
+                                        <p><i class="fas fa-heartbeat"></i>@fuseCard.Health</p>
+                                    </div>
+                                    <div class="row justify-content-around">
+                                        <p>Tire @fuseCard.Tire</p>
+                                        <p>Level @fuseCard.Level</p>
+                                    </div>
+                                </div>
+
+                                <a class="btn btn-primary" asp-controller="Cards" asp-action="RemoveFromFuse" asp-route-id="@fuseCard.Id">Remove</a>
+                            </div>
+
+                        </div>
+
+                    }
+
+                </div>
+
+            </div>
+
+            <div class="row justify-content-around mt-2">
+                @if (Model.FuseCards.Cards.Count() == 2)
+                {
+                    <a class="btn btn-danger" asp-controller="Cards" asp-action="Fuse">Fuse</a>
+                }
+                else
+                {
+                    <a class="btn btn-danger disabled" asp-controller="Cards" asp-action="Fuse">Fuse</a>
+                }
+
+            </div>
+
+            <div class="border border-primary mt-3" style="height: 150px;">
+                <p class="" style="font-family: 'Goldman', cursive; font-size: 30px; text-align: center;">Only two cards of same types and same tires can be fused. Higher levels fused higher result.</p>
+            </div>
         </div>
     </div>
+
+
+    <div class="row col-md-12 justify-content-around mt-5">
+
+        @*-------Battle Cards Set--------*@
+
+        <div class="row col-md-7 border border-primary">
+
+            <div class="row">
+                @foreach (var card in Model.Cards.Cards.Where(x => x.IsBattleSetCard == true))
+                {
+                    <div class="card m-2" style="width: 11rem;">
+                        <a class="text-dark" asp-controller="Cards" asp-action="CardDetails" asp-route-id="@card.Id">
+                            <div id="myCardModel">
+                                <img class="card-img-top" src="@card.ImagePath" alt="Card image cap">
+                            </div>
+                        </a>
+                        <div class="card-body">
+                            <h5 class="card-title">@card.Name</h5>
+                            <div class="">
+                                <div class="row justify-content-around">
+                                    <p><i class="fas fa-angle-double-right"></i>@card.Power</p>
+                                    <p><i class="fas fa-shield-alt"></i>@card.Defense</p>
+                                    <p><i class="fas fa-heartbeat"></i>@card.Health</p>
+                                </div>
+                                <div class="row justify-content-around">
+                                    <p>Tire @card.Tire</p>
+                                    <p>Level @card.Level</p>
+                                </div>
+                            </div>
+
+                            <a class="btn btn-primary btn-sm" asp-controller="Cards" asp-action="RemoveCardFromBattleSet" asp-route-id="@card.Id">Remove from Battle Set</a>
+
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4 border border-primary">
+            <p class="" style="font-family: 'Goldman', cursive; font-size: 30px; text-align: center;">Some Text here. Some Text here. Some Text here. Some Text here. Some Text here. Some Text here. Some Text here. Some Text here.</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
 </div>
 

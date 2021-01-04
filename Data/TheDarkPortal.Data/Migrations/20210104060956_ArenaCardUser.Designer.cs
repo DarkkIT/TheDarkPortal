@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheDarkPortal.Data;
 
 namespace TheDarkPortal.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210104060956_ArenaCardUser")]
+    partial class ArenaCardUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -269,11 +271,7 @@ namespace TheDarkPortal.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-
-            modelBuilder.Entity("TheDarkPortal.Data.Models.BattleCard", b =>
-
             modelBuilder.Entity("TheDarkPortal.Data.Models.ArenaCard", b =>
-
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -283,26 +281,8 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-
-                    b.Property<double>("CurrentDefense")
-                        .HasColumnType("float");
-
-                    b.Property<double>("CurrentHealth")
-                        .HasColumnType("float");
-
-                    b.Property<double>("CurrentPower")
-                        .HasColumnType("float");
-
                     b.Property<double>("Defense")
                         .HasColumnType("float");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-
-                    b.Property<double>("Defense")
-                        .HasColumnType("float");
-
 
                     b.Property<string>("Element")
                         .HasColumnType("nvarchar(max)");
@@ -310,24 +290,17 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<double>("Health")
                         .HasColumnType("float");
 
-
-                    b.Property<bool>("IsDeleted")
-
                     b.Property<bool>("IsAttacker")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsBattleSetCard")
-
                         .HasColumnType("bit");
 
                     b.Property<int>("Level")
                         .HasColumnType("int");
 
-
-
                     b.Property<double>("LevelPrice")
                         .HasColumnType("float");
-
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
@@ -338,70 +311,23 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<double>("Power")
                         .HasColumnType("float");
 
-
-
                     b.Property<int>("Price")
                         .HasColumnType("int");
-
 
                     b.Property<int>("Tire")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-
-                    b.HasIndex("IsDeleted");
-
-                    b.ToTable("BattleCards");
-                });
-
-            modelBuilder.Entity("TheDarkPortal.Data.Models.BattleRoom", b =>
-
                     b.ToTable("ArenaCards");
                 });
 
             modelBuilder.Entity("TheDarkPortal.Data.Models.ArenaCardUser", b =>
-
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .UseIdentityColumn();
-
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsFirstPlayerTurn")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PlayerOneId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("PlayerTwoId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<TimeSpan>("TimeLeftInTurn")
-                        .HasColumnType("time");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("PlayerOneId");
-
-                    b.HasIndex("PlayerTwoId");
-
-                    b.ToTable("BattleRooms");
 
                     b.Property<int>("ArenaCardId")
                         .HasColumnType("int");
@@ -422,7 +348,6 @@ namespace TheDarkPortal.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("ArenaCardUsers");
-
                 });
 
             modelBuilder.Entity("TheDarkPortal.Data.Models.Card", b =>
@@ -1057,42 +982,6 @@ namespace TheDarkPortal.Data.Migrations
                     b.ToTable("Settings");
                 });
 
-            modelBuilder.Entity("TheDarkPortal.Data.Models.UserBattleCard", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<int>("BattleCardId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("BattleCardId");
-
-                    b.HasIndex("IsDeleted");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("UserBattleCards");
-                });
-
             modelBuilder.Entity("TheDarkPortal.Data.Models.UserCard", b =>
                 {
                     b.Property<int>("Id")
@@ -1230,20 +1119,6 @@ namespace TheDarkPortal.Data.Migrations
                         .HasForeignKey("CurrencyId");
                 });
 
-            modelBuilder.Entity("TheDarkPortal.Data.Models.BattleRoom", b =>
-                {
-                    b.HasOne("TheDarkPortal.Data.Models.ApplicationUser", "PlayerOne")
-                        .WithMany()
-                        .HasForeignKey("PlayerOneId");
-
-                    b.HasOne("TheDarkPortal.Data.Models.ApplicationUser", "PlayerTwo")
-                        .WithMany()
-                        .HasForeignKey("PlayerTwoId");
-
-                    b.Navigation("PlayerOne");
-
-                    b.Navigation("PlayerTwo");
-
             modelBuilder.Entity("TheDarkPortal.Data.Models.ArenaCardUser", b =>
                 {
                     b.HasOne("TheDarkPortal.Data.Models.ArenaCard", "ArenaCard")
@@ -1259,7 +1134,6 @@ namespace TheDarkPortal.Data.Migrations
                     b.Navigation("ArenaCard");
 
                     b.Navigation("User");
-
                 });
 
             modelBuilder.Entity("TheDarkPortal.Data.Models.Cards.CardLevelOne", b =>
@@ -1267,23 +1141,6 @@ namespace TheDarkPortal.Data.Migrations
                     b.HasOne("TheDarkPortal.Data.Models.ApplicationUser", null)
                         .WithMany("Cards")
                         .HasForeignKey("ApplicationUserId");
-                });
-
-            modelBuilder.Entity("TheDarkPortal.Data.Models.UserBattleCard", b =>
-                {
-                    b.HasOne("TheDarkPortal.Data.Models.BattleCard", "BattleCard")
-                        .WithMany("UserBattleCards")
-                        .HasForeignKey("BattleCardId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("TheDarkPortal.Data.Models.ApplicationUser", "User")
-                        .WithMany("BattleCards")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("BattleCard");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("TheDarkPortal.Data.Models.UserCard", b =>
@@ -1326,11 +1183,7 @@ namespace TheDarkPortal.Data.Migrations
 
             modelBuilder.Entity("TheDarkPortal.Data.Models.ApplicationUser", b =>
                 {
-
-                    b.Navigation("BattleCards");
-
                     b.Navigation("ArenaCardUsers");
-
 
                     b.Navigation("Cards");
 
@@ -1343,15 +1196,9 @@ namespace TheDarkPortal.Data.Migrations
                     b.Navigation("UserFuseCouples");
                 });
 
-
-            modelBuilder.Entity("TheDarkPortal.Data.Models.BattleCard", b =>
-                {
-                    b.Navigation("UserBattleCards");
-
             modelBuilder.Entity("TheDarkPortal.Data.Models.ArenaCard", b =>
                 {
                     b.Navigation("ArenaCardUsers");
-
                 });
 
             modelBuilder.Entity("TheDarkPortal.Data.Models.Card", b =>

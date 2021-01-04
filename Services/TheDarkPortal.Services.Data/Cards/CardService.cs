@@ -115,8 +115,12 @@
                     Health = x.Card.Health,
                     Element = x.Card.Element,
                     Price = x.Card.Price,
+                    IsBattleSetCard = x.Card.IsBattleSetCard,
                 })
                 .To<CardViewModel>()
+                .OrderByDescending(x => x.Tire)
+                .ThenByDescending(x => x.Name)
+                .ThenByDescending(x => x.Level)
                 .ToList();
 
             return cards;
@@ -193,6 +197,67 @@
 
             await this.cardRepository.SaveChangesAsync();
             await this.userRepository.SaveChangesAsync();
+        }
+
+        public async Task AddCardToBattleCardsSet(int cardId, string userId)
+        {
+
+            var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
+
+            //TO DO: Verify this user is allowed to change the card status
+
+            var card = this.cardRepository.All().FirstOrDefault(x => x.Id == cardId);
+            var cardUser = this.userCardRepository.All().FirstOrDefault(x => x.UserId == userId && x.CardId == cardId);
+
+            if (cardUser == null)
+            {
+                return;
+            }
+
+            var battleSetCardsCount = this.userCardRepository
+                .All()
+                .Where(x => x.UserId == userId && x.Card.IsBattleSetCard == true)
+                .Count();
+
+            if (card.IsBattleSetCard == true)
+            {
+                throw new ArgumentException("That card is already part of your battle set!");
+            }
+
+            if (battleSetCardsCount >= 4)
+            {
+                throw new ArgumentException("You can't have more than 4 cards your battle set!");
+            }
+
+            card.IsBattleSetCard = true;
+
+            await this.cardRepository.SaveChangesAsync();
+        }
+
+        public async Task RemoveCardFromBattleCardsSet(int cardId, string userId)
+        {
+
+            var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
+
+            //TO DO: Verify this user is allowed to change the card status
+
+            var cardUser = this.userCardRepository.All().FirstOrDefault(x => x.UserId == userId && x.CardId == cardId);
+
+            if (cardUser == null)
+            {
+                return;
+            }
+
+            var card = this.cardRepository.All().FirstOrDefault(x => x.Id == cardId);
+
+            if (card.IsBattleSetCard == false)
+            {
+                throw new ArgumentException("That card is not part of your battle set!");
+            }
+
+            card.IsBattleSetCard = false;
+
+            await this.cardRepository.SaveChangesAsync();
         }
     }
 }

@@ -26,6 +26,12 @@ namespace TheDarkPortal.Data.Models
 
         public DateTime? ModifiedOn { get; set; }
 
+        public string NickName { get; set; }
+
+        public int ArenaPoints { get; set; }
+
+        public int EventPoints { get; set; }
+
         public int VipLevel { get; set; }
 
         public int Silver { get; set; }
