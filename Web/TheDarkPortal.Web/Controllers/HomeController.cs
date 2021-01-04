@@ -18,11 +18,18 @@
 
         public IActionResult Index()
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
             var model = new HomeLoggedStatsViewModel();
-            var currencies = this.userService.GetUserCurrencis(userId);
 
-            model.Currencies = currencies;
+            if (this.User.Identity.IsAuthenticated)
+            {
+                var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                var currencies = this.userService.GetUserCurrencis(userId);
+                model.Currencies = currencies;
+            }
+            else
+            {
+                model.Currencies = null;
+            }
 
             return this.View(model);
         }

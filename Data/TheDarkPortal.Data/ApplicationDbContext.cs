@@ -57,6 +57,12 @@
 
         public DbSet<Vip> Vips { get; set; }
 
+        public DbSet<BattleRoom> BattleRooms { get; set; }
+
+        public DbSet<BattleCard> BattleCards { get; set; }
+
+        public DbSet<UserBattleCard> UserBattleCards { get; set; }
+
         public DbSet<Setting> Settings { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);

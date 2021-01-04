@@ -19,6 +19,7 @@
     using TheDarkPortal.Services.Data;
     using TheDarkPortal.Services.Data.Cards;
     using TheDarkPortal.Services.Data.Fuse;
+    using TheDarkPortal.Services.Data.PvPBattleService;
     using TheDarkPortal.Services.Data.User;
     using TheDarkPortal.Services.Mapping;
     using TheDarkPortal.Services.Messaging;
@@ -76,6 +77,7 @@
             services.AddTransient<ICardService, CardService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IFuseService, FuseService>();
+            services.AddTransient<IPvPBattleService, PvPBattleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
