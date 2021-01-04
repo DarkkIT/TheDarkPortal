@@ -12,6 +12,11 @@
     <link rel="stylesheet" href="~/css/mycards.css" asp-append-version="true" />
 </head>
 
+
+<div class="col-md-12 row justify-content-around">
+    <div id="scrollable" class="col-md-7 border border-primary">
+        <div class="row">
+
 <div>
 
     <div class="col-md-12 row justify-content-around">
@@ -20,6 +25,7 @@
 
         <div id="scrollable" class="col-md-7 border border-primary">
             <div class="row">
+
 
                 @foreach (var card in Model.Cards.Cards)
                 {
@@ -175,3 +181,8 @@
     </div>
 
 </div>
+
+
+
+</div>
+

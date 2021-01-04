@@ -18,6 +18,7 @@ namespace TheDarkPortal.Data.Models
             this.Logins = new HashSet<IdentityUserLogin<string>>();
             this.Cards = new HashSet<CardLevelOne>();
             this.UserFuseCouples = new HashSet<UserFuseCouple>();
+            this.BattleCards = new HashSet<UserBattleCard>();
         }
 
         // Audit info
@@ -39,6 +40,10 @@ namespace TheDarkPortal.Data.Models
 
         public int Platinum { get; set; }
 
+        //public int BattleRoomId { get; set; }
+
+        //public BattleRoom BattleRoom { get; set; }
+
         // Deletable entity
         public bool IsDeleted { get; set; }
 
@@ -53,5 +58,7 @@ namespace TheDarkPortal.Data.Models
         public virtual ICollection<CardLevelOne> Cards { get; set; }
 
         public virtual ICollection<UserFuseCouple> UserFuseCouples { get; set; }
+
+        public virtual ICollection<UserBattleCard> BattleCards { get; set; }
     }
 }
