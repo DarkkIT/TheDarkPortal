@@ -5,10 +5,12 @@
     using System.Linq;
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using TheDarkPortal.Services.Data.Arena;
     using TheDarkPortal.Web.ViewModels.User;
 
+    [Authorize]
     public class ArenaController : Controller
     {
         private readonly IArenaService arenaService;

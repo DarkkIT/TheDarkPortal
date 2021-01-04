@@ -25,39 +25,39 @@
         {
         }
 
-        public DbSet<FuseCard> FuseCards { get; set; }
+        public virtual DbSet<FuseCard> FuseCards { get; set; }
 
-        public DbSet<UserFuseCouple> UserFuseCouples { get; set; }
+        public virtual DbSet<UserFuseCouple> UserFuseCouples { get; set; }
 
-        public DbSet<HelmetLevelOne> HelmetsLevelOne { get; set; }
+        public virtual DbSet<HelmetLevelOne> HelmetsLevelOne { get; set; }
 
-        public DbSet<ArmorLevelOne> ArmorsLevelOne { get; set; }
+        public virtual DbSet<ArmorLevelOne> ArmorsLevelOne { get; set; }
 
-        public DbSet<GlovesLevelOne> GlovesLevelOne { get; set; }
+        public virtual DbSet<GlovesLevelOne> GlovesLevelOne { get; set; }
 
-        public DbSet<PantsLevelOne> PantsLevelOne { get; set; }
+        public virtual DbSet<PantsLevelOne> PantsLevelOne { get; set; }
 
-        public DbSet<WeaponLevelOne> WeaponsLevelOne { get; set; }
+        public virtual DbSet<WeaponLevelOne> WeaponsLevelOne { get; set; }
 
-        public DbSet<Card> Cards { get; set; }
+        public virtual DbSet<Card> Cards { get; set; }
 
-        public DbSet<UserCard> UserCards { get; set; }
+        public virtual DbSet<UserCard> UserCards { get; set; }
 
-        public DbSet<CardLevelFive> CardLevelFives { get; set; }
+        public virtual DbSet<CardLevelFive> CardLevelFives { get; set; }
 
-        public DbSet<CardLevelFour> CardLevelFours { get; set; }
+        public virtual DbSet<CardLevelFour> CardLevelFours { get; set; }
 
-        public DbSet<CardLevelThree> CardLevelThrees { get; set; }
+        public virtual DbSet<CardLevelThree> CardLevelThrees { get; set; }
 
-        public DbSet<CardLevelTwo> CardLevelTwos { get; set; }
+        public virtual DbSet<CardLevelTwo> CardLevelTwos { get; set; }
 
-        public DbSet<Currency> Currencies { get; set; }
+        public virtual DbSet<Currency> Currencies { get; set; }
 
-        public DbSet<CardLevelOne> CardsLevelOne { get; set; }
+        public virtual DbSet<CardLevelOne> CardsLevelOne { get; set; }
 
-        public DbSet<Vip> Vips { get; set; }
+        public virtual DbSet<Vip> Vips { get; set; }
 
-        public DbSet<Setting> Settings { get; set; }
+        public virtual DbSet<Setting> Settings { get; set; }
 
         public override int SaveChanges() => this.SaveChanges(true);
 

@@ -36,6 +36,7 @@
                 var battleCards = new List<CardViewModel>();
 
                 var userId = arenaUser.Id;
+                var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
 
                 var cards = this.userCardsRepository.All().Where(x => x.UserId == userId);
 
