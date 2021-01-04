@@ -29,7 +29,7 @@
                         <td>@user.NickName</td>
                         <td>@user.ArenaPoints</td>
                         <td>
-                            @foreach (var battleCard in user.BattleCards)
+                            @foreach (var battleCard in user.UserBattleCards)
                             {
                                 <img src="@battleCard.ImagePath" alt="Alternate Text" style="max-width: 4rem;" />
                             }

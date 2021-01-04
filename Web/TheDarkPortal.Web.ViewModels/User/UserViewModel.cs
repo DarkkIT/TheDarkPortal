@@ -18,6 +18,6 @@
 
         public int ArenaPoints { get; set; }
 
-        public IEnumerable<CardViewModel> BattleCards { get; set; }
+        public IEnumerable<CardViewModel> UserBattleCards { get; set; }
     }
 }
