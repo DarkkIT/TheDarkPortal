@@ -7,6 +7,10 @@
     using System.Threading.Tasks;
     using TheDarkPortal.Data.Common.Repositories;
     using TheDarkPortal.Data.Models;
+    using TheDarkPortal.Data.Models.Cards;
+    using TheDarkPortal.Services.Mapping;
+    using TheDarkPortal.Web.ViewModels.Card;
+    using TheDarkPortal.Web.ViewModels.PvPBattle;
 
     public class PvPBattleService : IPvPBattleService
     {
@@ -33,6 +37,41 @@
             this.battleCardRepository = battleCardRepository;
         }
 
+        public BattleRoomDataViewModel GetBattleRoomData(int roomId)
+        {
+            return this.battleRoomRepository.All()
+                .Where(x => x.Id == roomId)
+                .Select(x => new BattleRoomDataViewModel()
+                {
+                    FirstUserId = x.PlayerOneId,
+                    SecondUserId = x.PlayerTwoId,
+                    RoomId = x.Id
+                }).FirstOrDefault();
+        }
+
+        public IEnumerable<CardViewModel> GetUserCardsCollection<T>(string userId)
+        {
+            //var user = this.userBattleCardRepository.All().FirstOrDefault(x => x.Id == userId);
+
+            var cards = this.userBattleCardRepository.All()
+                .Where(x => x.UserId == userId)
+                .Select(x => new CardLevelOne
+                {
+                    Id = x.BattleCard.Id,
+                    Name = x.BattleCard.Name,
+                    Tire = x.BattleCard.Tire,
+                    Level = x.BattleCard.Level,
+                    Power = x.BattleCard.Power,
+                    Defense = x.BattleCard.Defense,
+                    Health = x.BattleCard.Health,
+                    Element = x.BattleCard.Element,
+                })
+                .To<CardViewModel>()
+                .ToList();
+
+            return cards;
+        }
+
         public Task RemoveFinishedBattleTempData(int roomId)
         {
             throw new NotImplementedException();
@@ -54,12 +93,6 @@
               .ToList();
 
 
-            var secondUserBattleCards = this.userCardRepository
-              .All()
-              .Where(x => x.UserId == firstUserId && x.Card.IsBattleSetCard)
-              .Select(x => x.Card)
-              .ToList();
-
 
             foreach (var card in firstUserBattleCards)
             {
@@ -77,6 +110,12 @@
                 var userBattleCard = new UserBattleCard { User = firstUser, BattleCard = tempBattleCard };
                 await this.userBattleCardRepository.AddAsync(userBattleCard);
             }
+
+            var secondUserBattleCards = this.userCardRepository
+              .All()
+              .Where(x => x.UserId == secondUserId && x.Card.IsBattleSetCard)
+              .Select(x => x.Card)
+              .ToList();
 
             foreach (var card in secondUserBattleCards)
             {
