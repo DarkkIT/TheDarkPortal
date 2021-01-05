@@ -34,11 +34,12 @@
                                 <img src="@battleCard.ImagePath" alt="Alternate Text" style="max-width: 4rem;" />
                             }
                         </td>
-                        <td>
-                            <a class="btn btn-primary" asp-controller="Arena" asp-action="Battle" asp-route-id="@user.Id">Battle</a>
-                        </td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="PvPBattle" asp-action="SetUpNewBattle" asp-route-id="@user.Id">Battle</a>
+                    </td>
 
                     </tr>
+
                 }
 
             </tbody>

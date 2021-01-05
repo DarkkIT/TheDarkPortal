@@ -45,10 +45,12 @@
             return this.View(viewModel);
         }
 
-        public async Task<IActionResult> SetUpNewBattle(string userIdOne, string userIdTwo)
+        public async Task<IActionResult> SetUpNewBattle(string userTwoId)
         {
-           var roomId = await this.pvpBattleService.SetUpBattleRoom(userIdOne, userIdTwo);
-           return this.RedirectToAction("Room", new { id = roomId });
+            var userIdOne = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var roomId = await this.pvpBattleService.SetUpBattleRoom(userIdOne, userTwoId);
+
+            return this.RedirectToAction("Room", new { id = roomId });
         }
     }
 }
