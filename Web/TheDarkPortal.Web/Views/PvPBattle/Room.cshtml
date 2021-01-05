@@ -1,7 +1,7 @@
 ﻿@model TheDarkPortal.Web.ViewModels.PvPBattle.PvPBattleRoomViewModel
-
 @*----------------Second player Battle cards---------------*@
 
+<a class="btn btn-primary" asp-controller="PvPBattle" asp-action="EndOfBattle" asp-route-roomId="@Model.BattleRoom.RoomId">Leave Battle</a>
 <div class="row col-md-7 border border-primary">
 
     <div class="row">

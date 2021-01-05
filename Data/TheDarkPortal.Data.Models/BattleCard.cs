@@ -6,7 +6,7 @@
 
     using TheDarkPortal.Data.Common.Models;
 
-    public class BattleCard : BaseDeletableModel<int>
+    public class BattleCard : BaseModel<int>
     {
         public BattleCard()
         {

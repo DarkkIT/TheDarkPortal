@@ -13,6 +13,8 @@
 
          Task RemoveFinishedBattleTempData(int roomId);
 
+         bool IsInBattle(string userId);
+
          IEnumerable<CardViewModel> GetUserCardsCollection<T>(string userId);
 
          BattleRoomDataViewModel GetBattleRoomData(int roomId);
