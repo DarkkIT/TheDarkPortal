@@ -6,7 +6,6 @@
 
     public class BattleRoomDataViewModel
     {
-
         public int RoomId { get; set; }
 
         public string FirstUserId { get; set; }

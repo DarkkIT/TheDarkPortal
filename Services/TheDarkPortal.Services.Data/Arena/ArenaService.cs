@@ -58,7 +58,7 @@
                     }
                 }
 
-                arenaUser.BattleCards = battleCards;
+                arenaUser.UserBattleCards = battleCards;
             }
 
             return arenaUsers;

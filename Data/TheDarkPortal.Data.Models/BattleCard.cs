@@ -3,11 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
+
     using TheDarkPortal.Data.Common.Models;
 
     public class BattleCard : BaseDeletableModel<int>
     {
-
         public BattleCard()
         {
             this.UserBattleCards = new HashSet<UserBattleCard>();
