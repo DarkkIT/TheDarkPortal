@@ -24,21 +24,21 @@
 
                 @foreach (var user in Model.ArenaUsers)
                 {
-                    <tr>
-                        <td>@(1)</td>
-                        <td>@user.NickName</td>
-                        <td>@user.ArenaPoints</td>
-                        <td>
-                            @foreach (var battleCard in user.BattleCards)
-                            {
-                                <img src="@battleCard.ImagePath" alt="Alternate Text" style="max-width: 4rem;" />
-                            }
-                        </td>
-                        <td>
-                            <a class="btn btn-primary" asp-controller="Arena" asp-action="Battle" asp-route-id="@user.Id">Battle</a>
-                        </td>
+                <tr>
+                    <td>@(1)</td>
+                    <td>@user.NickName</td>
+                    <td>@user.ArenaPoints</td>
+                    <td>
+                        @foreach (var battleCard in user.BattleCards)
+                        {
+                            <img src="@battleCard.ImagePath" alt="Alternate Text" style="max-width: 4rem;" />
+                        }
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" asp-controller="PvPBattle" asp-action="SetUpNewBattle" asp-route-id="@user.Id">Battle</a>
+                    </td>
 
-                    </tr>
+                </tr>
                 }
 
             </tbody>
