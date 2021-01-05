@@ -1,4 +1,5 @@
 ﻿@model TheDarkPortal.Web.ViewModels.User.UserListViewModel;
+@using TheDarkPortal.Common
 @{
     this.ViewData["Title"] = "Arena";
 }
@@ -34,9 +35,12 @@
                                 <img src="@battleCard.ImagePath" alt="Alternate Text" style="max-width: 4rem;" />
                             }
                         </td>
-                    <td>
-                        <a class="btn btn-primary" asp-controller="PvPBattle" asp-action="SetUpNewBattle" asp-route-userTwoId="@user.Id">Battle</a>
-                    </td>
+                        <td>
+                            @if (User.Identity.Name.Substring(0, this.User.Identity.Name.IndexOf("@")) != user.NickName)
+                            {
+                            <a class="btn btn-primary" asp-controller="PvPBattle" asp-action="SetUpNewBattle" asp-route-userTwoId="@user.Id">Battle</a>
+                            }
+                        </td>
 
                     </tr>
 
