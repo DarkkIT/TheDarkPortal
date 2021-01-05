@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TheDarkPortal.Data.Migrations
 {
-    public partial class Test : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -45,6 +45,30 @@ namespace TheDarkPortal.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "BattleCards",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Tire = table.Column<int>(type: "int", nullable: false),
+                    Level = table.Column<int>(type: "int", nullable: false),
+                    Power = table.Column<double>(type: "float", nullable: false),
+                    CurrentPower = table.Column<double>(type: "float", nullable: false),
+                    Defense = table.Column<double>(type: "float", nullable: false),
+                    CurrentDefense = table.Column<double>(type: "float", nullable: false),
+                    Health = table.Column<double>(type: "float", nullable: false),
+                    CurrentHealth = table.Column<double>(type: "float", nullable: false),
+                    Element = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BattleCards", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -152,11 +176,13 @@ namespace TheDarkPortal.Data.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Tire = table.Column<int>(type: "int", nullable: false),
                     Level = table.Column<int>(type: "int", nullable: false),
+                    LevelPrice = table.Column<double>(type: "float", nullable: false),
                     Power = table.Column<double>(type: "float", nullable: false),
                     Defense = table.Column<double>(type: "float", nullable: false),
                     Health = table.Column<double>(type: "float", nullable: false),
                     Element = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false),
+                    IsBattleSetCard = table.Column<bool>(type: "bit", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -352,6 +378,9 @@ namespace TheDarkPortal.Data.Migrations
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    NickName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ArenaPoints = table.Column<int>(type: "int", nullable: false),
+                    EventPoints = table.Column<int>(type: "int", nullable: false),
                     VipLevel = table.Column<int>(type: "int", nullable: false),
                     Silver = table.Column<int>(type: "int", nullable: false),
                     Gold = table.Column<int>(type: "int", nullable: false),
@@ -471,6 +500,36 @@ namespace TheDarkPortal.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "BattleRooms",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    PlayerOneId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    PlayerTwoId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IsFirstPlayerTurn = table.Column<bool>(type: "bit", nullable: false),
+                    TimeLeftInTurn = table.Column<TimeSpan>(type: "time", nullable: false),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_BattleRooms", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_BattleRooms_AspNetUsers_PlayerOneId",
+                        column: x => x.PlayerOneId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_BattleRooms_AspNetUsers_PlayerTwoId",
+                        column: x => x.PlayerTwoId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CardsLevelOne",
                 columns: table => new
                 {
@@ -479,11 +538,13 @@ namespace TheDarkPortal.Data.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Tire = table.Column<int>(type: "int", nullable: false),
                     Level = table.Column<int>(type: "int", nullable: false),
+                    LevelPrice = table.Column<double>(type: "float", nullable: false),
                     Power = table.Column<double>(type: "float", nullable: false),
                     Defense = table.Column<double>(type: "float", nullable: false),
                     Health = table.Column<double>(type: "float", nullable: false),
                     Element = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Price = table.Column<int>(type: "int", nullable: false),
+                    IsBattleSetCard = table.Column<bool>(type: "bit", nullable: false),
                     ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true),
@@ -497,6 +558,34 @@ namespace TheDarkPortal.Data.Migrations
                         name: "FK_CardsLevelOne_AspNetUsers_ApplicationUserId",
                         column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserBattleCards",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    BattleCardId = table.Column<int>(type: "int", nullable: false),
+                    UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserBattleCards", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_UserBattleCards_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_UserBattleCards_BattleCards_BattleCardId",
+                        column: x => x.BattleCardId,
+                        principalTable: "BattleCards",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -535,9 +624,9 @@ namespace TheDarkPortal.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FuseCardId = table.Column<int>(type: "int", nullable: false),
+                    CardId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    CardId = table.Column<int>(type: "int", nullable: true),
+                    FuseCardId = table.Column<int>(type: "int", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -624,6 +713,16 @@ namespace TheDarkPortal.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_BattleRooms_PlayerOneId",
+                table: "BattleRooms",
+                column: "PlayerOneId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_BattleRooms_PlayerTwoId",
+                table: "BattleRooms",
+                column: "PlayerTwoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CardLevelFives_IsDeleted",
                 table: "CardLevelFives",
                 column: "IsDeleted");
@@ -679,6 +778,16 @@ namespace TheDarkPortal.Data.Migrations
                 column: "IsDeleted");
 
             migrationBuilder.CreateIndex(
+                name: "IX_UserBattleCards_BattleCardId",
+                table: "UserBattleCards",
+                column: "BattleCardId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserBattleCards_UserId",
+                table: "UserBattleCards",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserCards_CardId",
                 table: "UserCards",
                 column: "CardId");
@@ -730,6 +839,9 @@ namespace TheDarkPortal.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "BattleRooms");
+
+            migrationBuilder.DropTable(
                 name: "CardLevelFives");
 
             migrationBuilder.DropTable(
@@ -757,6 +869,9 @@ namespace TheDarkPortal.Data.Migrations
                 name: "Settings");
 
             migrationBuilder.DropTable(
+                name: "UserBattleCards");
+
+            migrationBuilder.DropTable(
                 name: "UserCards");
 
             migrationBuilder.DropTable(
@@ -770,6 +885,9 @@ namespace TheDarkPortal.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "BattleCards");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

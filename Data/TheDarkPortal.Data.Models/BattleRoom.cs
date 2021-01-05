@@ -6,13 +6,14 @@
     using System.Text;
     using TheDarkPortal.Data.Common.Models;
 
-    public class BattleRoom : BaseDeletableModel<int>
+    public class BattleRoom : BaseModel<int>
     {
-
+        [ForeignKey("PlayerOne")]
         public string PlayerOneId { get; set; }
 
         public ApplicationUser PlayerOne { get; set; }
 
+        [ForeignKey("PlayerTwo")]
         public string PlayerTwoId { get; set; }
 
         public ApplicationUser PlayerTwo { get; set; }

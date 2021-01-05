@@ -3,7 +3,7 @@ namespace TheDarkPortal.Data.Models
 {
     using System;
     using System.Collections.Generic;
-
+    using System.ComponentModel.DataAnnotations.Schema;
     using Microsoft.AspNetCore.Identity;
     using TheDarkPortal.Data.Common.Models;
     using TheDarkPortal.Data.Models.Cards;
@@ -40,6 +40,7 @@ namespace TheDarkPortal.Data.Models
 
         public int Platinum { get; set; }
 
+        //[ForeignKey("BattleRoom")]
         //public int BattleRoomId { get; set; }
 
         //public BattleRoom BattleRoom { get; set; }

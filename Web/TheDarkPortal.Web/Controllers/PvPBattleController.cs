@@ -52,5 +52,11 @@
 
             return this.RedirectToAction("Room", new { id = roomId });
         }
+
+        public async Task<IActionResult> EndOfBattle(int roomId)
+        {
+           await this.pvpBattleService.RemoveFinishedBattleTempData(roomId);
+           return this.RedirectToAction("Index", "Arena");
+        }
     }
 }
