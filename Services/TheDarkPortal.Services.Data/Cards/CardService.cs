@@ -50,7 +50,7 @@
                     Tire = cardLevelOne.Tire,
                     Level = cardLevelOne.Level,
                     LevelPrice = cardLevelOne.LevelPrice,
-                    Power = cardLevelOne.Power,
+                    Attack = cardLevelOne.Attack,
                     Defense = cardLevelOne.Defense,
                     Health = cardLevelOne.Health,
                     Element = cardLevelOne.Element,
@@ -110,7 +110,7 @@
                     Tire = x.Card.Tire,
                     Level = x.Card.Level,
                     LevelPrice = x.Card.LevelPrice,
-                    Power = x.Card.Power,
+                    Attack = x.Card.Attack,
                     Defense = x.Card.Defense,
                     Health = x.Card.Health,
                     Element = x.Card.Element,
@@ -159,7 +159,7 @@
                 Level = card.Level,
                 LevelPrice = card.LevelPrice,
                 Tire = card.Tire,
-                Power = card.Power,
+                Attack = card.Attack,
                 Defense = card.Defense,
                 Health = card.Health,
                 Element = card.Element,
@@ -181,7 +181,7 @@
                     user.Silver -= (int)Math.Floor(card.LevelPrice);
 
                     card.LevelPrice = (int)Math.Floor(card.LevelPrice * 1.08);
-                    card.Power = Math.Floor(card.Power * 1.02);
+                    card.Attack = Math.Floor(card.Attack * 1.02);
                     card.Defense = Math.Floor(card.Defense * 1.02);
                     card.Health = Math.Floor(card.Health * 1.02);
                 }

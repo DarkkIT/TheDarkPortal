@@ -44,7 +44,7 @@
                 m => m.LevelPrice,
                 opt => opt.MapFrom(x => x.Card.LevelPrice)).ForMember(
                 m => m.Power,
-                opt => opt.MapFrom(x => x.Card.Power)).ForMember(
+                opt => opt.MapFrom(x => x.Card.Attack)).ForMember(
                 m => m.Defense,
                 opt => opt.MapFrom(x => x.Card.Defense)).ForMember(
                 m => m.Health,

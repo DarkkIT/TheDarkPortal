@@ -94,7 +94,7 @@
                 var firstCard = this.cardRepositiry.All().FirstOrDefault(x => x.Id == firstId);
                 var secondCard = this.cardRepositiry.All().FirstOrDefault(x => x.Id == secondId);
 
-                firstCard.Power += secondCard.Power;
+                firstCard.Attack += secondCard.Attack;
                 firstCard.Defense += secondCard.Defense;
                 firstCard.Health += secondCard.Health;
                 firstCard.Level = 1;

@@ -21,7 +21,9 @@
 
         public double LevelPrice { get; set; }
 
-        public double Power { get; set; }
+        public double Power => Math.Floor((this.Attack + this.Defense + this.Health) / 3);
+
+        public double Attack { get; set; }
 
         public double Defense { get; set; }
 

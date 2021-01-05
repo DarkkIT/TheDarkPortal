@@ -61,7 +61,7 @@
                     Name = x.BattleCard.Name,
                     Tire = x.BattleCard.Tire,
                     Level = x.BattleCard.Level,
-                    Power = x.BattleCard.Power,
+                    Attack = x.BattleCard.Attack,
                     Defense = x.BattleCard.Defense,
                     Health = x.BattleCard.Health,
                     Element = x.BattleCard.Element,
@@ -161,7 +161,7 @@
                 {
                     Health = card.Health,
                     Defense = card.Defense,
-                    Power = card.Power,
+                    Attack = card.Attack,
                     Element = card.Element,
                     Level = card.Level,
                     Name = card.Name,
@@ -184,7 +184,7 @@
                 {
                     Health = card.Health,
                     Defense = card.Defense,
-                    Power = card.Power,
+                    Attack = card.Attack,
                     Element = card.Element,
                     Level = card.Level,
                     Name = card.Name,

@@ -34,12 +34,10 @@
                         </div>
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title">@card.Name</h5>
+                        <h5 class="card-title text-center">@card.Name</h5>
                         <div class="">
                             <div class="row justify-content-around">
-                                <p><i class="fas fa-angle-double-right"></i>@card.Power</p>
-                                <p><i class="fas fa-shield-alt"></i>@card.Defense</p>
-                                <p><i class="fas fa-heartbeat"></i>@card.Health</p>
+                                <p><i class="fas fa-angle-double-right"></i>Power @card.Power</p>                               
                             </div>
                             <div class="row justify-content-around">
                                 <p>Tire @card.Tire</p>
@@ -50,7 +48,7 @@
                         <a class="btn btn-primary btn-sm" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@card.Id">Delete</a>
                         @if (card.IsBattleSetCard)
                         {
-                            <a class="btn btn-primary btn-sm disabled" asp-controller="Cards" asp-action="AddCardToBattleSet" asp-route-id="@card.Id">Add To Battle Set</a>
+                            <a class="btn btn-primary btn-sm disabled" asp-controller="Cards" asp-action="AddCardToBattleSet" asp-route-id="@card.Id">Has been added</a>
                         }
                         else
                         {
@@ -90,12 +88,10 @@
                         </div>
 
                         <div class="card-body">
-                            <h5 class="card-title">@fuseCard.Name</h5>
+                            <h5 class="card-title text-center">@fuseCard.Name</h5>
                             <div class="">
                                 <div class="row justify-content-around">
-                                    <p><i class="fas fa-angle-double-right"></i>@fuseCard.Power</p>
-                                    <p><i class="fas fa-shield-alt"></i>@fuseCard.Defense</p>
-                                    <p><i class="fas fa-heartbeat"></i>@fuseCard.Health</p>
+                                    <p><i class="fas fa-angle-double-right"></i>Power @fuseCard.Power</p>
                                 </div>
                                 <div class="row justify-content-around">
                                     <p>Tire @fuseCard.Tire</p>
@@ -150,12 +146,10 @@
                         </div>
                     </a>
                     <div class="card-body">
-                        <h5 class="card-title">@card.Name</h5>
+                        <h5 class="card-title text-center">@card.Name</h5>
                         <div class="">
                             <div class="row justify-content-around">
-                                <p><i class="fas fa-angle-double-right"></i>@card.Power</p>
-                                <p><i class="fas fa-shield-alt"></i>@card.Defense</p>
-                                <p><i class="fas fa-heartbeat"></i>@card.Health</p>
+                                <p><i class="fas fa-angle-double-right"></i>Power @card.Power</p>
                             </div>
                             <div class="row justify-content-around">
                                 <p>Tire @card.Tire</p>

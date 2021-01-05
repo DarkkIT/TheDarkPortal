@@ -21,6 +21,8 @@
 
         public double Power { get; set; }
 
+        public double Attack { get; set; }
+
         public double CurrentPower { get; set; }
 
         public double Defense { get; set; }

@@ -10,7 +10,7 @@ using TheDarkPortal.Data;
 namespace TheDarkPortal.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210105174708_InitialCreate")]
+    [Migration("20210105212110_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -278,6 +278,9 @@ namespace TheDarkPortal.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<double>("Attack")
+                        .HasColumnType("float");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -360,6 +363,9 @@ namespace TheDarkPortal.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<double>("Attack")
+                        .HasColumnType("float");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -408,6 +414,9 @@ namespace TheDarkPortal.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<double>("Attack")
+                        .HasColumnType("float");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -434,9 +443,6 @@ namespace TheDarkPortal.Data.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Power")
-                        .HasColumnType("float");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
@@ -458,6 +464,9 @@ namespace TheDarkPortal.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<double>("Attack")
+                        .HasColumnType("float");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -484,9 +493,6 @@ namespace TheDarkPortal.Data.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Power")
-                        .HasColumnType("float");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
@@ -510,6 +516,9 @@ namespace TheDarkPortal.Data.Migrations
 
                     b.Property<string>("ApplicationUserId")
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<double>("Attack")
+                        .HasColumnType("float");
 
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
@@ -569,6 +578,9 @@ namespace TheDarkPortal.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<double>("Attack")
+                        .HasColumnType("float");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -595,9 +607,6 @@ namespace TheDarkPortal.Data.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Power")
-                        .HasColumnType("float");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
@@ -619,6 +628,9 @@ namespace TheDarkPortal.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
+                    b.Property<double>("Attack")
+                        .HasColumnType("float");
+
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -645,9 +657,6 @@ namespace TheDarkPortal.Data.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Power")
-                        .HasColumnType("float");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");

@@ -24,6 +24,8 @@
 
         public double Power { get; set; }
 
+        public double Attack { get; set; }
+
         public double Defense { get; set; }
 
         public double Health { get; set; }
