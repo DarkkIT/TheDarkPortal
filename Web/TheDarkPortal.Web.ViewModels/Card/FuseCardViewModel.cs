@@ -22,6 +22,8 @@
 
         public double Power { get; set; }
 
+        public double Attack { get; set; }
+
         public double Defense { get; set; }
 
         public double Health { get; set; }
@@ -50,7 +52,9 @@
                 m => m.Health,
                 opt => opt.MapFrom(x => x.Card.Health)).ForMember(
                 m => m.Element,
-                opt => opt.MapFrom(x => x.Card.Element));
+                opt => opt.MapFrom(x => x.Card.Element)).ForMember(
+                m => m.Attack,
+                opt => opt.MapFrom(x => x.Card.Attack));
         }
     }
 }

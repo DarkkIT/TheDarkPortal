@@ -101,7 +101,7 @@
 
     <div class="col-md-4 justify-content-between">
 
-        <div class="border border-dark" style="height: 510px;">
+        <div class="border border-dark" style="height: 370px;">
 
             <div class="row justify-content-around">
 
@@ -124,7 +124,7 @@
                                 <div class="card-stats-info">
                                     <div class="stats-info">
                                         <label>Attack</label>
-                                        @*<span>@fuseCard.Attack</span>*@
+                                        <span>@fuseCard.Attack</span>
                                     </div>
                                     <div class="stats-info">
                                         <label>Defence</label>
@@ -161,20 +161,20 @@
 
         </div>
 
-        <div class="border border-dark mt-3" style="height: 150px;">
+        <div class="border border-dark mt-3" style="height: 130px;">
             <p class="" style="font-family: 'Goldman', cursive; font-size: 30px; text-align: center;">Only two cards of same types and same tires can be fused. Higher levels fused higher result.</p>
         </div>
     </div>
 </div>
 
 
-<div class="row col-md-12 justify-content-around mt-5 mb-5">
+<div class="row col-md-12 justify-content-around mt-3 mb-1">
 
     @*-------Battle Cards Set--------*@
 
     <div class="row col-md-7 border border-dark">
 
-        <div class="row">
+        <div class="row justify-content-center">
 
             @foreach (var card in Model.Cards.Cards.Where(x => x.IsBattleSetCard == true))
             {

@@ -85,7 +85,6 @@
 
             var fuseCards = this.userFuseCoupleRepository.All().Where(x => x.UserId == userId).ToList();
 
-
             if (fuseCards.Count() == 2)
             {
                 var firstId = fuseCards[0].CardId;

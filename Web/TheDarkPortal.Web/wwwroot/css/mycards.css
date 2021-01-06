@@ -7,7 +7,7 @@
 }
 
 #scrollable {
-    height: 38rem;
+    height: 35rem;
     overflow-y: scroll;
 }
 #myCardModel :hover {
