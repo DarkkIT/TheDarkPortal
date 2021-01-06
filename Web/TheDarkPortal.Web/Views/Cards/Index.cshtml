@@ -7,6 +7,7 @@
 
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/test.css" asp-append-version="true" />
 </head>
 
 
@@ -14,7 +15,7 @@
     <form asp-action="Index" method="get">
         <div class="form-actions no-color col justify-content-center">
             <p class="col-md-6 offset-3 text-center">Find by name</p>
-            <p  class="col-md-6 offset-3">
+            <p class="col-md-6 offset-3">
                 <input class="col-md-12" type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
             </p>
             <p class="col-md-6 offset-3">
@@ -25,24 +26,41 @@
     </form>
 </div>
 
-<div class=" col-md-6 offset-3">
-    <div class="row">
+<div class=" col-md-6 offset-3 mb-5">
+    <div class="row justify-content-center">
 
         @foreach (var card in Model.Cards)
         {
-            <div class="card m-4" style="width: 12rem;">
-                <img class="card-img-top" src="@card.ImagePath" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title text-center">@card.Name</h5>
-                    <div>
-                        <div class="row justify-content-around">
-                            <p><i class="fas fa-bolt"></i>@card.Power</p>
+            <div>
+                <div class="card-view">
+                    <div class="card-img card-header cardModel">
+                        <img class="card-img" src="@card.ImagePath" alt="Image" />
+                    </div>
+
+                    <div class="card-stats-content">
+                        <div class="card-stats-content-head">
+                            <a href="">
+                                <h3 class="card-stats-title">@card.Name</h3>
+                            </a>
+                            <div class="ratings"><span>Power:</span>@card.Power</div>
                         </div>
-                        <div class="row justify-content-around">
-                            <p>Tire @card.Tire</p>
-                            <p>Level @card.Level</p>
+                        <div class="card-stats-info">
+                            <div class="stats-info">
+                                <label>Attack</label>
+                                <span>@card.Attack</span>
+                            </div>
+                            <div class="stats-info">
+                                <label>Defence</label>
+                                <span>@card.Defense</span>
+                            </div>
+                            <div class="stats-info">
+                                <label>Healt</label>
+                                <span>@card.Health</span>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div class="col-md-6 offset-3">
                     <a class="btn btn-primary" asp-controller="Cards" asp-action="AddCardToMyCards" asp-route-id="@card.Id">Buy</a>
                 </div>
             </div>
@@ -52,3 +70,4 @@
 </div>
 
 <partial name="_PagingPartial" model="@Model" />
+

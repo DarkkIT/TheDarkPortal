@@ -45,7 +45,7 @@
                 {
                     FirstUserId = x.PlayerOneId,
                     SecondUserId = x.PlayerTwoId,
-                    RoomId = x.Id
+                    RoomId = x.Id,
                 }).FirstOrDefault();
         }
 
@@ -103,7 +103,7 @@
                 .ToList();
 
             //// Get UserBattleCards Relation Entities ////
-            
+
             var playerOneUserBattleCards = this.userBattleCardRepository
                 .All().Where(x => x.UserId == playerOneId)
                 .ToList();
@@ -195,11 +195,9 @@
                 await this.userBattleCardRepository.AddAsync(userBattleCard);
             }
 
-
             await this.userBattleCardRepository.SaveChangesAsync();
             await this.battleRoomRepository.SaveChangesAsync();
             return battleRoom.Id;
         }
-
     }
 }
