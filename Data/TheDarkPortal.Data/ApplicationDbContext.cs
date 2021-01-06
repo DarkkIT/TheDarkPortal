@@ -25,6 +25,8 @@
         {
         }
 
+        public virtual DbSet<TempBattleCards> TempBattleCards { get; set; }
+
         public virtual DbSet<FuseCard> FuseCards { get; set; }
 
         public virtual DbSet<UserFuseCouple> UserFuseCouples { get; set; }

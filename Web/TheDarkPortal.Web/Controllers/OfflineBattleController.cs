@@ -6,10 +6,12 @@
     using System.Security.Claims;
     using System.Threading.Tasks;
 
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using TheDarkPortal.Services.Data.OfflineBattle;
     using TheDarkPortal.Web.ViewModels.OfflineBattle;
 
+    [Authorize]
     public class OfflineBattleController : Controller
     {
         private readonly IOfflineBattleService offlineBattleService;
@@ -19,14 +21,19 @@
             this.offlineBattleService = offlineBattleService;
         }
 
-        public IActionResult OfflineBattleRoom(string defenderId)
+        public async Task<IActionResult> OfflineBattleRoom(string defenderId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            var attakerCards = this.offlineBattleService.GetUserCards<BattleCardViewModel>(userId);
+            this.offlineBattleService.DeleteTempCards();
+
+            await this.offlineBattleService.SaveAttackerCards(userId);
+            await this.offlineBattleService.SaveDefenderCards(defenderId);
+
+            var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>();
             var attacerCardsList = new AttackerCardListViewModel { Cards = attakerCards };
 
-            var defenderCards = this.offlineBattleService.GetUserCards<BattleCardViewModel>(defenderId);
+            var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>();
             var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
 
             var viewModel = new CombinedOfflineBattleViewModel
@@ -36,6 +43,11 @@
             };
 
             return this.View(viewModel);
+        }
+
+        public void NextTurn(int id)
+        {
+
         }
     }
 }

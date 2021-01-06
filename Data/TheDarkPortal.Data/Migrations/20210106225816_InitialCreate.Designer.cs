@@ -10,8 +10,8 @@ using TheDarkPortal.Data;
 namespace TheDarkPortal.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210106112821_FuseCardAttack")]
-    partial class FuseCardAttack
+    [Migration("20210106225816_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -995,6 +995,54 @@ namespace TheDarkPortal.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Settings");
+                });
+
+            modelBuilder.Entity("TheDarkPortal.Data.Models.TempBattleCards", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .UseIdentityColumn();
+
+                    b.Property<double>("Attack")
+                        .HasColumnType("float");
+
+                    b.Property<int>("CardId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("Defense")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Element")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Health")
+                        .HasColumnType("float");
+
+                    b.Property<bool>("IsAttacker")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("Level")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ModifiedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Power")
+                        .HasColumnType("float");
+
+                    b.Property<int>("Tire")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TempBattleCards");
                 });
 
             modelBuilder.Entity("TheDarkPortal.Data.Models.UserBattleCard", b =>

@@ -7,7 +7,7 @@
     using TheDarkPortal.Data.Models;
     using TheDarkPortal.Services.Mapping;
 
-    public class BattleCardViewModel : IMapFrom<Card>
+    public class BattleCardViewModel : IMapFrom<TempBattleCards>
     {
         public int Id { get; set; }
 

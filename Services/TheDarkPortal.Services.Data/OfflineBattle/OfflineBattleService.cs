@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-
+    using System.Threading.Tasks;
     using TheDarkPortal.Data.Common.Repositories;
     using TheDarkPortal.Data.Models;
     using TheDarkPortal.Services.Mapping;
@@ -14,20 +14,45 @@
     {
         private readonly IRepository<Card> cardRepositiry;
         private readonly IRepository<UserCard> userCardRepositiry;
+        private readonly IRepository<TempBattleCards> tempBattleCardsRepository;
 
         public OfflineBattleService(
             IRepository<Card> cardRepositiry,
-            IRepository<UserCard> userCardRepositiry)
+            IRepository<UserCard> userCardRepositiry,
+            IRepository<TempBattleCards> tempBattleCardsRepository)
         {
             this.cardRepositiry = cardRepositiry;
             this.userCardRepositiry = userCardRepositiry;
+            this.tempBattleCardsRepository = tempBattleCardsRepository;
         }
 
-        public IEnumerable<BattleCardViewModel> GetUserCards<T>(string userId)
+        public void DeleteTempCards()
+        {
+            var cards = this.tempBattleCardsRepository.All();
+
+            foreach (var item in cards)
+            {
+                this.tempBattleCardsRepository.Delete(item);
+            }
+        }
+
+        public IEnumerable<BattleCardViewModel> GetAttackerCards<T>()
+        {
+            var attakerCards = this.tempBattleCardsRepository.All().Where(x => x.IsAttacker == true).To<BattleCardViewModel>().ToList();
+
+            return attakerCards;
+        }
+
+        public IEnumerable<BattleCardViewModel> GetDefenderCards<T>()
+        {
+            var defenderCards = this.tempBattleCardsRepository.All().Where(x => x.IsAttacker == false).To<BattleCardViewModel>().ToList();
+
+            return defenderCards;
+        }
+
+        public async Task SaveAttackerCards(string userId)
         {
             var userCards = this.userCardRepositiry.All().Where(x => x.UserId == userId).ToList();
-
-            var attackerBattleCards = new List<BattleCardViewModel>();
 
             foreach (var userCard in userCards)
             {
@@ -37,8 +62,9 @@
                 {
                     var card = this.cardRepositiry.All().FirstOrDefault(x => x.Id == cardId);
 
-                    var battleCard = new BattleCardViewModel
+                    var battleCard = new TempBattleCards
                     {
+                        CardId = card.Id,
                         Name = card.Name,
                         Attack = card.Attack,
                         Defense = card.Defense,
@@ -46,13 +72,44 @@
                         Tire = card.Tire,
                         Level = card.Level,
                         Element = card.Element,
+                        IsAttacker = true,
                     };
 
-                    attackerBattleCards.Add(battleCard);
+                    await this.tempBattleCardsRepository.AddAsync(battleCard);
+                    await this.tempBattleCardsRepository.SaveChangesAsync();
                 }
             }
+        }
 
-            return attackerBattleCards;
+        public async Task SaveDefenderCards(string userId)
+        {
+            var userCards = this.userCardRepositiry.All().Where(x => x.UserId == userId).ToList();
+
+            foreach (var userCard in userCards)
+            {
+                var cardId = userCard.Id;
+
+                if (this.cardRepositiry.All().FirstOrDefault(x => x.Id == cardId).IsBattleSetCard == true)
+                {
+                    var card = this.cardRepositiry.All().FirstOrDefault(x => x.Id == cardId);
+
+                    var battleCard = new TempBattleCards
+                    {
+                        CardId = card.Id,
+                        Name = card.Name,
+                        Attack = card.Attack,
+                        Defense = card.Defense,
+                        Health = card.Health,
+                        Tire = card.Tire,
+                        Level = card.Level,
+                        Element = card.Element,
+                        IsAttacker = false,
+                    };
+
+                    await this.tempBattleCardsRepository.AddAsync(battleCard);
+                    await this.tempBattleCardsRepository.SaveChangesAsync();
+                }
+            }
         }
     }
 }
