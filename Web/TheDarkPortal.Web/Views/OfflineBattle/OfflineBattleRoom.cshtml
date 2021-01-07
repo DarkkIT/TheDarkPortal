@@ -1,0 +1,94 @@
+﻿@model TheDarkPortal.Web.ViewModels.OfflineBattle.CombinedOfflineBattleViewModel;
+
+@{
+    this.ViewData["Title"] = "Offline Battle";
+}
+
+
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/offlinebattle.css" asp-append-version="true" />
+</head>
+
+<body>
+
+    <div class="row justify-content-around">
+
+        @*----------------Attacker---------------*@
+
+        <div class="col col-md-5 border border-dark m-1">
+
+            @foreach (var card in Model.AttackerCards.Cards)
+            {
+                <div class="row">
+
+                    <div class="cardStats">
+                        <p><span>@card.Name</span></p>
+                        <p>Tire  <span>@card.Tire</span></p>
+                        <p>Level <span>@card.Level</span></p>
+                        <p>Attack <br /> <span>@card.Attack</span></p>
+                        <p>Defense <br /> <span>@card.Defense</span></p>
+                        <p>Health <br /> <span>@card.Health</span></p>
+                    </div>
+
+                    @if (card.IsSelected)
+                    {
+                        <div id="selected" class="card-view">
+                            <div class="card-img card-header cardModel">
+                                <img class="card-img" src="@card.ImagePath" alt="Image" />
+                            </div>
+
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card-view">
+                            <div class="card-img card-header cardModel">
+                                <img class="card-img" src="@card.ImagePath" alt="Image" />
+                            </div>
+
+                        </div>
+                    }
+
+
+                    <div class="mt-5">
+                        <a class="btn btn-link btn-sm" asp-controller="OfflineBattle" asp-action="BattleStart" asp-route-id="@card.CardId"><i class="far fa-check-circle fa-3x"></i></a>
+                    </div>
+
+                </div>
+
+            }
+
+        </div>
+
+        @*----------------Defender---------------*@
+
+        <div class="col col-md-5 border border-dark m-1 d-flex align-items-end flex-column">
+            @foreach (var card in Model.DefenderCards.Cards)
+            {
+                <div class="row">
+
+                    <div class="card-view">
+                        <div class="card-img card-header cardModel">
+                            <img class="card-img" src="@card.ImagePath" alt="Image" />
+                        </div>
+
+                    </div>
+
+                    <div class="cardStats mr-3 text-right">
+                        <p><span>@card.Name</span></p>
+                        <p>Tire  <span>@card.Tire</span></p>
+                        <p>Level <span>@card.Level</span></p>
+                        <p>Attack <br /> <span>@card.Attack</span></p>
+                        <p>Defense <br /> <span>@card.Defense</span></p>
+                        <p>Health <br /> <span>@card.Health</span></p>
+                    </div>
+
+                </div>
+
+            }
+
+        </div>
+
+    </div>
+</body>

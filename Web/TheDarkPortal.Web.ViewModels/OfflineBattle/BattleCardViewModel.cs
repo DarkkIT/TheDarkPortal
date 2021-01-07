@@ -35,6 +35,7 @@
 
         public bool HaveTakenTurns { get; set; }
 
+
         public bool IsSelected { get; set; }
 
         public string ImagePath => "/images/" + this.Name + "-" + this.Tire + ".jpg";

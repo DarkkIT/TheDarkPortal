@@ -14,13 +14,13 @@
 <div class="col-md-6 offset-3">
     <form asp-action="Index" method="get">
         <div class="form-actions no-color col justify-content-center">
-            <p class="col-md-6 offset-3 text-center">Find by name</p>
+            <p class="text-center ">Find by name</p>
             <p class="col-md-6 offset-3">
                 <input class="col-md-12" type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
             </p>
-            <p class="col-md-6 offset-3">
-                <input type="submit" value="Search" class="btn btn-default" /> |
-                <a asp-action="Index">Back to Full List</a>
+            <p class=" row justify-content-center">
+                <input type="submit" value="Search" class="btn btn-default" />
+                <a asp-action="Index" style="margin-top: 9px;">Back to Full List</a>
             </p>
         </div>
     </form>
@@ -42,22 +42,9 @@
                             <a href="">
                                 <h3 class="card-stats-title">@card.Name</h3>
                             </a>
-                            <div class="ratings"><span>Power:</span>@card.Power</div>
+                            <div class="ratings"><span><i class="fas fa-bolt"></i></span>@card.Power</div>
                         </div>
-                        <div class="card-stats-info">
-                            <div class="stats-info">
-                                <label>Attack</label>
-                                <span>@card.Attack</span>
-                            </div>
-                            <div class="stats-info">
-                                <label>Defence</label>
-                                <span>@card.Defense</span>
-                            </div>
-                            <div class="stats-info">
-                                <label>Healt</label>
-                                <span>@card.Health</span>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-md-6 offset-3">
