@@ -84,7 +84,7 @@
                     </div>
 
                     @*To DO:: If( PlayerOne has selected a card )*@
-                    <a class="btn btn-primary btn-sm" asp-controller="PvPBattle" asp-action="Attack" asp-route-id="@card.Id" asp-route-attackingCardId = "@Model.SelectedCard" asp-route-model="@Model">Attack</a>
+                    <a class="btn btn-primary btn-sm" asp-controller="PvPBattle" asp-action="Attack" asp-route-attackingCardId = "@Model.SelectedCard" asp-route-defendingCardId="@card.Id" asp-route-roomId="@Model.BattleRoom.RoomId">Attack</a>
 
                 </div>
             </div>
