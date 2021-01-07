@@ -33,5 +33,7 @@
         public bool HaveTakenTurn { get; set; }
 
         public bool IsSelected { get; set; }
+
+        public string UniqueTag { get; set; }
     }
 }

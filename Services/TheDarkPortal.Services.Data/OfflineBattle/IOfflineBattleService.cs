@@ -9,16 +9,20 @@
 
     public interface IOfflineBattleService
     {
-        Task SaveAttackerCards(string userId);
+        Task SaveAttackerCards(string attackerId);
 
-        Task SaveDefenderCards(string userId);
+        Task SaveDefenderCards(string defenderId, string attackerId);
 
-        IEnumerable<BattleCardViewModel> GetAttackerCards<T>();
+        IEnumerable<BattleCardViewModel> GetAttackerCards<T>(string attackerId);
 
-        IEnumerable<BattleCardViewModel> GetDefenderCards<T>();
+        IEnumerable<BattleCardViewModel> GetDefenderCards<T>(string attackerId);
 
-        void DeleteTempCards();
+        void DeleteTempCards(string attackerId);
 
-        Task AttackerSelectCard(int id);
+        Task AttackerSelectCard(int id, string attackerId);
+
+        Task AttackDefenderCard(int id, string attackerId);
+
+        Task HaveAttackerTutns(string attackerId);
     }
 }

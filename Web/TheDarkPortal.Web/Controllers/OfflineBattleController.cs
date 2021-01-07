@@ -23,17 +23,17 @@
 
         public async Task<IActionResult> NewOfflineBattleRoom(string defenderId)
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var attackerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            this.offlineBattleService.DeleteTempCards();
+            this.offlineBattleService.DeleteTempCards(attackerId);
 
-            await this.offlineBattleService.SaveAttackerCards(userId);
-            await this.offlineBattleService.SaveDefenderCards(defenderId);
+            await this.offlineBattleService.SaveAttackerCards(attackerId);
+            await this.offlineBattleService.SaveDefenderCards(defenderId, attackerId);
 
-            var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>();
+            var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>(attackerId);
             var attacerCardsList = new AttackerCardListViewModel { Cards = attakerCards };
 
-            var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>();
+            var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
             var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
 
             var viewModel = new CombinedOfflineBattleViewModel
@@ -45,14 +45,16 @@
             return this.View(viewModel);
         }
 
-        public IActionResult OfflineBattleRoom(string defenderId)
+        public async Task<IActionResult> OfflineBattleRoom(string defenderId)
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var attackerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>();
+            await this.offlineBattleService.HaveAttackerTutns(attackerId);
+
+            var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>(attackerId);
             var attacerCardsList = new AttackerCardListViewModel { Cards = attakerCards };
 
-            var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>();
+            var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
             var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
 
             var viewModel = new CombinedOfflineBattleViewModel
@@ -64,11 +66,45 @@
             return this.View(viewModel);
         }
 
-        public async Task<IActionResult> BattleStart(int id)
+        public async Task<IActionResult> OfflineBattleRoomOut(string defenderId)
         {
-            await this.offlineBattleService.AttackerSelectCard(id);
+            var attackerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            await this.offlineBattleService.HaveAttackerTutns(attackerId);
+
+            ////Implement Defender attack to atacker
+
+            var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>(attackerId);
+            var attacerCardsList = new AttackerCardListViewModel { Cards = attakerCards };
+
+            var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
+            var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
+
+            var viewModel = new CombinedOfflineBattleViewModel
+            {
+                AttackerCards = attacerCardsList,
+                DefenderCards = defenderCardsList,
+            };
+
+            return this.View(viewModel);
+        }
+
+        public async Task<IActionResult> AttackerSelectCard(int id)
+        {
+            var attackerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            await this.offlineBattleService.AttackerSelectCard(id, attackerId);
 
             return this.RedirectToAction(nameof(this.OfflineBattleRoom));
+        }
+
+        public async Task<IActionResult> AttackDefenderCard(int id)
+        {
+            var attackerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            await this.offlineBattleService.AttackDefenderCard(id, attackerId);
+
+            return this.RedirectToAction(nameof(this.OfflineBattleRoomOut));
         }
     }
 }

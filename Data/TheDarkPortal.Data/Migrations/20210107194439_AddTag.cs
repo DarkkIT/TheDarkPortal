@@ -2,22 +2,22 @@
 
 namespace TheDarkPortal.Data.Migrations
 {
-    public partial class UpdateTempCardstre : Migration
+    public partial class AddTag : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "OnTurne",
+            migrationBuilder.AddColumn<string>(
+                name: "UniqueTag",
                 table: "TempBattleCards",
-                newName: "IsSelected");
+                type: "nvarchar(max)",
+                nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "IsSelected",
-                table: "TempBattleCards",
-                newName: "OnTurne");
+            migrationBuilder.DropColumn(
+                name: "UniqueTag",
+                table: "TempBattleCards");
         }
     }
 }

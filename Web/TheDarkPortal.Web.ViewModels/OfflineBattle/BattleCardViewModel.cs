@@ -33,8 +33,7 @@
 
         public bool IsDestroyed { get; set; }
 
-        public bool HaveTakenTurns { get; set; }
-
+        public bool HaveTakenTurn { get; set; }
 
         public bool IsSelected { get; set; }
 

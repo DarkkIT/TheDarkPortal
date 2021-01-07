@@ -5,6 +5,7 @@
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+
     using TheDarkPortal.Data.Common.Repositories;
     using TheDarkPortal.Data.Models;
     using TheDarkPortal.Services.Mapping;
@@ -26,33 +27,36 @@
             this.tempBattleCardsRepository = tempBattleCardsRepository;
         }
 
-        public void DeleteTempCards()
+        public void DeleteTempCards(string attackerId)
         {
             var cards = this.tempBattleCardsRepository.All();
 
             foreach (var item in cards)
             {
-                this.tempBattleCardsRepository.Delete(item);
+                if (item.UniqueTag == attackerId)
+                {
+                    this.tempBattleCardsRepository.Delete(item);
+                }
             }
         }
 
-        public IEnumerable<BattleCardViewModel> GetAttackerCards<T>()
+        public IEnumerable<BattleCardViewModel> GetAttackerCards<T>(string attackerId)
         {
-            var attakerCards = this.tempBattleCardsRepository.All().Where(x => x.IsAttacker == true).To<BattleCardViewModel>().ToList();
+            var attakerCards = this.tempBattleCardsRepository.All().Where(x => x.IsAttacker == true && x.UniqueTag == attackerId).To<BattleCardViewModel>().ToList();
 
             return attakerCards;
         }
 
-        public IEnumerable<BattleCardViewModel> GetDefenderCards<T>()
+        public IEnumerable<BattleCardViewModel> GetDefenderCards<T>(string attackerId)
         {
-            var defenderCards = this.tempBattleCardsRepository.All().Where(x => x.IsAttacker == false).To<BattleCardViewModel>().ToList();
+            var defenderCards = this.tempBattleCardsRepository.All().Where(x => x.IsAttacker == false && x.UniqueTag == attackerId).To<BattleCardViewModel>().ToList();
 
             return defenderCards;
         }
 
-        public async Task SaveAttackerCards(string userId)
+        public async Task SaveAttackerCards(string attackerId)
         {
-            var userCards = this.userCardRepositiry.All().Where(x => x.UserId == userId).ToList();
+            var userCards = this.userCardRepositiry.All().Where(x => x.UserId == attackerId).ToList();
 
             foreach (var userCard in userCards)
             {
@@ -74,8 +78,8 @@
                         Element = card.Element,
                         IsAttacker = true,
                         IsSelected = false,
-                        HaveTakenTurn = true,
-
+                        HaveTakenTurn = false,
+                        UniqueTag = attackerId,
                     };
 
                     await this.tempBattleCardsRepository.AddAsync(battleCard);
@@ -84,9 +88,9 @@
             }
         }
 
-        public async Task SaveDefenderCards(string userId)
+        public async Task SaveDefenderCards(string defenderId, string attackerId)
         {
-            var userCards = this.userCardRepositiry.All().Where(x => x.UserId == userId).ToList();
+            var userCards = this.userCardRepositiry.All().Where(x => x.UserId == defenderId).ToList();
 
             foreach (var userCard in userCards)
             {
@@ -108,8 +112,8 @@
                         Element = card.Element,
                         IsAttacker = false,
                         IsSelected = false,
-                        HaveTakenTurn = true,
-
+                        HaveTakenTurn = false,
+                        UniqueTag = attackerId,
                     };
 
                     await this.tempBattleCardsRepository.AddAsync(battleCard);
@@ -118,17 +122,49 @@
             }
         }
 
-        public async Task AttackerSelectCard(int id)
+        public async Task AttackerSelectCard(int id, string attackerId)
         {
-            foreach (var item in this.tempBattleCardsRepository.All().Where(x => x.IsAttacker))
+            foreach (var item in this.tempBattleCardsRepository.All().Where(x => x.IsAttacker && x.UniqueTag == attackerId))
             {
-                if (item.CardId == id)
+                if (item.CardId == id && item.HaveTakenTurn == false)
                 {
                     item.IsSelected = true;
                 }
                 else
                 {
                     item.IsSelected = false;
+                }
+            }
+
+            await this.tempBattleCardsRepository.SaveChangesAsync();
+        }
+
+        public async Task AttackDefenderCard(int id, string attackerId)
+        {
+            var attackerCard = this.tempBattleCardsRepository.All().FirstOrDefault(x => x.UniqueTag == attackerId && x.IsSelected == true);
+
+            var defenderCard = this.tempBattleCardsRepository.All().FirstOrDefault(x => x.UniqueTag == attackerId && x.CardId == id);
+
+            defenderCard.Health -= attackerCard.Attack;
+            attackerCard.HaveTakenTurn = true;
+            attackerCard.IsSelected = false;
+
+            if (defenderCard.Health <= 0)
+            {
+                defenderCard.Health = 0;
+                defenderCard.IsDestroyed = true;
+            }
+
+            await this.tempBattleCardsRepository.SaveChangesAsync();
+        }
+
+        public async Task HaveAttackerTutns(string attackerId)
+        {
+            if (!this.tempBattleCardsRepository.All().Any(x => x.UniqueTag == attackerId && x.IsAttacker && x.HaveTakenTurn == false))
+            {
+                foreach (var card in this.tempBattleCardsRepository.All().Where(x => x.UniqueTag == attackerId && x.IsAttacker))
+                {
+                    card.HaveTakenTurn = false;
                 }
             }
 

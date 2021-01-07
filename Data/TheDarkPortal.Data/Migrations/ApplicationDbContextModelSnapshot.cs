@@ -542,22 +542,13 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<string>("Element")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("HaveTakenTurn")
-                        .HasColumnType("bit");
-
                     b.Property<double>("Health")
                         .HasColumnType("float");
-
-                    b.Property<bool>("IsAttacker")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("IsBattleSetCard")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDestroyed")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsSelected")
@@ -1041,7 +1032,7 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<string>("Element")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("HaveTurne")
+                    b.Property<bool>("HaveTakenTurn")
                         .HasColumnType("bit");
 
                     b.Property<double>("Health")
@@ -1050,7 +1041,7 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<bool>("IsAttacker")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsDestroed")
+                    b.Property<bool>("IsDestroyed")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsSelected")
@@ -1070,6 +1061,9 @@ namespace TheDarkPortal.Data.Migrations
 
                     b.Property<int>("Tire")
                         .HasColumnType("int");
+
+                    b.Property<string>("UniqueTag")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

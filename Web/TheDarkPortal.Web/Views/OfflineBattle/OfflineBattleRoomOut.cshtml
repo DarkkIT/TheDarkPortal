@@ -37,6 +37,7 @@
                             <div class="card-img card-header cardModel">
                                 <img class="card-img" src="@card.ImagePath" alt="Image" />
                             </div>
+
                         </div>
                     }
                     else
@@ -45,13 +46,16 @@
                             <div class="card-img card-header cardModel">
                                 <img class="card-img" src="@card.ImagePath" alt="Image" />
                             </div>
+
                         </div>
                     }
 
-
-                    <div class="mt-5">
-                        <a class="btn btn-link btn-sm" asp-controller="OfflineBattle" asp-action="AttackerSelectCard" asp-route-id="@card.CardId"><i class="far fa-check-circle fa-3x"></i></a>
-                    </div>
+                    @if (!card.HaveTakenTurn)
+                    {
+                        <div class="mt-5">
+                            <a class="btn btn-link btn-sm" asp-controller="OfflineBattle" asp-action="AttackerSelectCard" asp-route-id="@card.CardId"><i class="far fa-check-circle fa-3x"></i></a>
+                        </div>
+                    }
 
                 </div>
 
@@ -66,12 +70,30 @@
             {
                 <div class="row">
 
-                    <div class="card-view">
-                        <div class="card-img card-header cardModel">
-                            <img class="card-img" src="@card.ImagePath" alt="Image" />
+                    @if (!card.IsDestroyed)
+                    {
+                        <div class="mt-5">
+                            <a class="btn btn-link btn-sm" asp-controller="OfflineBattle" asp-action="AttackDefenderCard" asp-route-id="@card.CardId"><i class="far fa-check-circle fa-3x"></i></a>
                         </div>
+                    }
 
-                    </div>
+
+                    @if (card.IsDestroyed)
+                    {
+                        <div id="destroyedCard" class="card-view">
+                            <div class="card-img card-header cardModel">
+                                <img class="card-img" src="@card.ImagePath" alt="Image" />
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card-view">
+                            <div class="card-img card-header cardModel">
+                                <img class="card-img" src="@card.ImagePath" alt="Image" />
+                            </div>
+                        </div>
+                    }
 
                     <div class="cardStats mr-3 text-right">
                         <p><span>@card.Name</span></p>
