@@ -1,5 +1,6 @@
 ﻿namespace TheDarkPortal.Web.ViewModels.Card
 {
+    using AutoMapper;
     using System;
     using System.Collections.Generic;
     using System.Text;
@@ -34,5 +35,8 @@
         public bool IsBattleSetCard { get; set; }
 
         public string ImagePath => "/images/" + this.Name + "-" + this.Tire + ".jpg";
+
+        public bool IsSelected { get; set; }
+
     }
 }

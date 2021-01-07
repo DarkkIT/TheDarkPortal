@@ -35,6 +35,8 @@
 
         public string Element { get; set; }
 
+        public bool IsSelected { get; set; }
+
         public virtual ICollection<UserBattleCard> UserBattleCards { get; set; }
     }
 }

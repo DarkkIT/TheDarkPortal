@@ -29,5 +29,7 @@
         public int Price { get; set; }
 
         public bool IsBattleSetCard { get; set; }
+
+        public bool IsSelected { get; set; }
     }
 }

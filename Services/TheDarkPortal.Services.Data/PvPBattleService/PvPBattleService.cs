@@ -12,6 +12,7 @@
     using TheDarkPortal.Web.ViewModels.Card;
     using TheDarkPortal.Web.ViewModels.PvPBattle;
 
+
     public class PvPBattleService : IPvPBattleService
     {
         private readonly IRepository<BattleRoom> battleRoomRepository;
@@ -37,6 +38,11 @@
             this.battleCardRepository = battleCardRepository;
         }
 
+        public Task Attack(int attackingCardId, int defendingCardId)
+        {
+            throw new NotImplementedException();
+        }
+
         public BattleRoomDataViewModel GetBattleRoomData(int roomId)
         {
             return this.battleRoomRepository.All()
@@ -46,15 +52,18 @@
                     FirstUserId = x.PlayerOneId,
                     SecondUserId = x.PlayerTwoId,
                     RoomId = x.Id,
+                    IsFirstPlayerTurn = true,
                 }).FirstOrDefault();
+        }
+
+        public Task<BattleCard> GetById()
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<CardViewModel> GetUserCardsCollection<T>(string userId)
         {
-            //var user = this.userBattleCardRepository.All().FirstOrDefault(x => x.Id == userId);
-
-            var cards = this.userBattleCardRepository.All()
-                .Where(x => x.UserId == userId)
+            var cards = this.userBattleCardRepository.All().Where(x => x.UserId == userId)
                 .Select(x => new CardLevelOne
                 {
                     Id = x.BattleCard.Id,
@@ -65,6 +74,7 @@
                     Defense = x.BattleCard.Defense,
                     Health = x.BattleCard.Health,
                     Element = x.BattleCard.Element,
+                    IsSelected = x.BattleCard.IsSelected,
                 })
                 .To<CardViewModel>()
                 .ToList();
@@ -138,6 +148,13 @@
             await this.battleRoomRepository.SaveChangesAsync();
             await this.userBattleCardRepository.SaveChangesAsync();
             await this.battleRoomRepository.SaveChangesAsync();
+        }
+
+        public async Task SelectCard(int cardId)
+        {
+            var battleCard = this.battleCardRepository.All().FirstOrDefault(x => x.Id == cardId);
+            battleCard.IsSelected = true;
+            await this.battleCardRepository.SaveChangesAsync();
         }
 
         public async Task<int> SetUpBattleRoom(string firstUserId, string secondUserId)

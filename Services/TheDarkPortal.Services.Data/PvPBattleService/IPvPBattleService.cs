@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Text;
     using System.Threading.Tasks;
+    using TheDarkPortal.Data.Models;
     using TheDarkPortal.Web.ViewModels.Card;
     using TheDarkPortal.Web.ViewModels.PvPBattle;
 
@@ -18,6 +19,12 @@
          IEnumerable<CardViewModel> GetUserCardsCollection<T>(string userId);
 
          BattleRoomDataViewModel GetBattleRoomData(int roomId);
+
+         Task Attack(int attackingCardId, int defendingCardId);
+
+         Task SelectCard(int cardId);
+
+         Task<BattleCard> GetById();
 
     }
 }
