@@ -31,13 +31,7 @@
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            var viewModel = new PvPBattleRoomViewModel();
-
-            viewModel.BattleRoom = this.pvpBattleService.GetBattleRoomData(id);
-
-            viewModel.FirstPlayerBattleCards = this.pvpBattleService.GetUserCardsCollection<CardViewModel>(viewModel.BattleRoom.FirstUserId);
-
-            viewModel.SecondPlayerBattleCards = this.pvpBattleService.GetUserCardsCollection<CardViewModel>(viewModel.BattleRoom.SecondUserId);
+            PvPBattleRoomViewModel viewModel = this.GetBattleRoomModelData(id);
 
             var currencies = this.userService.GetUserCurrencis(userId);
             viewModel.Currencies = currencies;
@@ -58,5 +52,34 @@
            await this.pvpBattleService.RemoveFinishedBattleTempData(roomId);
            return this.RedirectToAction("Index", "Arena");
         }
+
+
+        public async Task<IActionResult> SelectCard(int roomId, int cardId)
+        {
+
+            await this.pvpBattleService.SelectCard(cardId);
+            return this.RedirectToAction("Room", new { id = roomId });
+        }
+
+        public async Task<IActionResult> Attack(int roomId, int attackCardId, int defendingCardId)
+        {
+            return this.RedirectToAction("Room", new { id = roomId });
+        }
+
+
+        private PvPBattleRoomViewModel GetBattleRoomModelData(int id)
+        {
+            var viewModel = new PvPBattleRoomViewModel();
+
+            viewModel.BattleRoom = this.pvpBattleService.GetBattleRoomData(id);
+
+            viewModel.FirstPlayerBattleCards = this.pvpBattleService.GetUserCardsCollection<CardViewModel>(viewModel.BattleRoom.FirstUserId);
+
+            viewModel.SecondPlayerBattleCards = this.pvpBattleService.GetUserCardsCollection<CardViewModel>(viewModel.BattleRoom.SecondUserId);
+            return viewModel;
+        }
+
+
+
     }
 }

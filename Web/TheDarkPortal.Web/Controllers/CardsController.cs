@@ -33,7 +33,7 @@
 
             IEnumerable<CardViewModel> userCards = null;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!string.IsNullOrEmpty(searchString))
             {
                 userCards = this.cardService.GetAllSearchedCards<CardViewModel>(id, 3, searchString);
             }

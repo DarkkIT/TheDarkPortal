@@ -32,8 +32,21 @@
                             <p>Level @card.Level</p>
                         </div>
                     </div>
+                    @if (Model.SelectedCard == null)
+                    {
+                        <a class="btn btn-primary btn-sm" asp-controller="PvPBattle" asp-action="SelectCard" asp-route-cardId="@card.Id" asp-route-roomId="@Model.BattleRoom.RoomId">Select</a>
+                    }
+                    else
+                    {
+                        @if (card.IsSelected == true)
+                        {
+                            <a class="btn btn-primary btn-sm disabled">Selected</a>
+                        }
+                        else
+                        {
 
-                    <a class="btn btn-primary btn-sm" asp-controller="PvPBattle" asp-action="Select" asp-route-id="@card.Id">Select</a>
+                        }
+                    }
 
                 </div>
             </div>
@@ -71,7 +84,7 @@
                     </div>
 
                     @*To DO:: If( PlayerOne has selected a card )*@
-                    <a class="btn btn-primary btn-sm" asp-controller="PvPBattle" asp-action="Attack" asp-route-id="@card.Id">Attack</a>
+                    <a class="btn btn-primary btn-sm" asp-controller="PvPBattle" asp-action="Attack" asp-route-id="@card.Id" asp-route-attackingCardId = "@Model.SelectedCard" asp-route-model="@Model">Attack</a>
 
                 </div>
             </div>

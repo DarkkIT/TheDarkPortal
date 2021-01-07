@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using TheDarkPortal.Web.ViewModels.Card;
 
     public class BattleRoomDataViewModel
     {
@@ -13,5 +14,7 @@
         public string SecondUserId { get; set; }
 
         public bool IsFirstPlayerTurn { get; set; }
+
+
     }
 }

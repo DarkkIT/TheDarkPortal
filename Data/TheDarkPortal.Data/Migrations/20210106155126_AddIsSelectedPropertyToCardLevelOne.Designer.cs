@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheDarkPortal.Data;
 
 namespace TheDarkPortal.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210106155126_AddIsSelectedPropertyToCardLevelOne")]
+    partial class AddIsSelectedPropertyToCardLevelOne
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -937,9 +939,6 @@ namespace TheDarkPortal.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<double>("Attack")
-                        .HasColumnType("float");
-
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
@@ -999,63 +998,6 @@ namespace TheDarkPortal.Data.Migrations
                     b.HasIndex("IsDeleted");
 
                     b.ToTable("Settings");
-                });
-
-            modelBuilder.Entity("TheDarkPortal.Data.Models.TempBattleCards", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .UseIdentityColumn();
-
-                    b.Property<double>("Attack")
-                        .HasColumnType("float");
-
-                    b.Property<int>("CardId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CreatedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("Defense")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Element")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("HaveTurne")
-                        .HasColumnType("bit");
-
-                    b.Property<double>("Health")
-                        .HasColumnType("float");
-
-                    b.Property<bool>("IsAttacker")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDestroed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsSelected")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("Level")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime?>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Power")
-                        .HasColumnType("float");
-
-                    b.Property<int>("Tire")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TempBattleCards");
                 });
 
             modelBuilder.Entity("TheDarkPortal.Data.Models.UserBattleCard", b =>
