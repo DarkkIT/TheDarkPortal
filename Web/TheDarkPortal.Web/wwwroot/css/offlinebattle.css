@@ -61,7 +61,7 @@ a {
 }
 
 .card-img {
-    max-height: 200px;
+    max-height: 190px;
 }
 
 .card-header {
@@ -190,4 +190,10 @@ a {
         padding: 0;
         margin: 0;
     }
+}
+
+#selected {
+    border-style: solid;
+    border-width: 5px;
+    border-color: orangered;
 }

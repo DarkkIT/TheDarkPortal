@@ -18,5 +18,7 @@
         IEnumerable<BattleCardViewModel> GetDefenderCards<T>();
 
         void DeleteTempCards();
+
+        Task AttackerSelectCard(int id);
     }
 }

@@ -11,6 +11,8 @@
     {
         public int Id { get; set; }
 
+        public int CardId { get; set; }
+
         public string Name { get; set; }
 
         public int Tire { get; set; }
@@ -26,6 +28,14 @@
         public double Health { get; set; }
 
         public string Element { get; set; }
+
+        public bool IsAttacker { get; set; }
+
+        public bool IsDestroed { get; set; }
+
+        public bool HaveTurne { get; set; }
+
+        public bool IsSelected { get; set; }
 
         public string ImagePath => "/images/" + this.Name + "-" + this.Tire + ".jpg";
     }

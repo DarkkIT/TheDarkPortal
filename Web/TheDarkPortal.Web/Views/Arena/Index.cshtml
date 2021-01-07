@@ -39,7 +39,7 @@
                             @if (User.Identity.Name.Substring(0, this.User.Identity.Name.IndexOf("@")) != user.NickName)
                             {
                                 <a class="btn btn-primary" asp-controller="PvPBattle" asp-action="SetUpNewBattle" asp-route-userTwoId="@user.Id">PvP Battle</a>
-                                <a class="btn btn-primary" asp-controller="OfflineBattle" asp-action="OfflineBattleRoom" asp-route-defenderId="@user.Id">Offline Battle</a>
+                                <a class="btn btn-primary" asp-controller="OfflineBattle" asp-action="NewOfflineBattleRoom" asp-route-defenderId="@user.Id">Offline Battle</a>
                             }
                         </td>
 

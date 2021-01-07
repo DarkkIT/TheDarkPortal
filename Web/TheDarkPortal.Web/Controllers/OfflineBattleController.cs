@@ -21,7 +21,7 @@
             this.offlineBattleService = offlineBattleService;
         }
 
-        public async Task<IActionResult> OfflineBattleRoom(string defenderId)
+        public async Task<IActionResult> NewOfflineBattleRoom(string defenderId)
         {
             var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
@@ -45,9 +45,30 @@
             return this.View(viewModel);
         }
 
-        public void NextTurn(int id)
+        public IActionResult OfflineBattleRoom(string defenderId)
         {
+            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
+            var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>();
+            var attacerCardsList = new AttackerCardListViewModel { Cards = attakerCards };
+
+            var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>();
+            var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
+
+            var viewModel = new CombinedOfflineBattleViewModel
+            {
+                AttackerCards = attacerCardsList,
+                DefenderCards = defenderCardsList,
+            };
+
+            return this.View(viewModel);
+        }
+
+        public async Task<IActionResult> BattleStart(int id)
+        {
+            await this.offlineBattleService.AttackerSelectCard(id);
+
+            return this.RedirectToAction(nameof(this.OfflineBattleRoom));
         }
     }
 }

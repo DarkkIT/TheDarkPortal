@@ -73,6 +73,8 @@
                         Level = card.Level,
                         Element = card.Element,
                         IsAttacker = true,
+                        IsSelected = false,
+                        HaveTurne = true,
                     };
 
                     await this.tempBattleCardsRepository.AddAsync(battleCard);
@@ -104,12 +106,31 @@
                         Level = card.Level,
                         Element = card.Element,
                         IsAttacker = false,
+                        IsSelected = false,
+                        HaveTurne = true,
                     };
 
                     await this.tempBattleCardsRepository.AddAsync(battleCard);
                     await this.tempBattleCardsRepository.SaveChangesAsync();
                 }
             }
+        }
+
+        public async Task AttackerSelectCard(int id)
+        {
+            foreach (var item in this.tempBattleCardsRepository.All().Where(x => x.IsAttacker))
+            {
+                if (item.CardId == id)
+                {
+                    item.IsSelected = true;
+                }
+                else
+                {
+                    item.IsSelected = false;
+                }
+            }
+
+            await this.tempBattleCardsRepository.SaveChangesAsync();
         }
     }
 }
