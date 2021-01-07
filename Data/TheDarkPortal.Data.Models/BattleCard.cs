@@ -23,7 +23,7 @@
 
         public double Attack { get; set; }
 
-        public double CurrentPower { get; set; }
+        public double CurrentAttack { get; set; }
 
         public double Defense { get; set; }
 
@@ -36,6 +36,12 @@
         public string Element { get; set; }
 
         public bool IsSelected { get; set; }
+
+        public bool IsAttacker { get; set; }
+
+        public bool IsDestroyed { get; set; }
+
+        public bool HaveTakenTurn { get; set; }
 
         public virtual ICollection<UserBattleCard> UserBattleCards { get; set; }
     }

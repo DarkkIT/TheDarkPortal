@@ -38,9 +38,25 @@
             this.battleCardRepository = battleCardRepository;
         }
 
-        public Task Attack(int attackingCardId, int defendingCardId)
+        public bool AllCardsHaveTakenTurn()
         {
             throw new NotImplementedException();
+        }
+
+        public async Task Attack(int attackingCardId, int defendingCardId, string currentPlayerId, int battleRoomId)
+        {
+            var attackingCard = this.battleCardRepository.All().FirstOrDefault(x => x.Id == attackingCardId);
+            var defendingCard = this.battleCardRepository.All().FirstOrDefault(x => x.Id == defendingCardId);
+            var battleRoom = this.battleRoomRepository.All().Where(x => x.Id == battleRoomId).FirstOrDefault();
+            battleRoom.IsFirstPlayerTurn = !battleRoom.IsFirstPlayerTurn;
+
+            defendingCard.CurrentHealth = defendingCard.Health - attackingCard.Attack;
+            attackingCard.CurrentHealth = attackingCard.Health - defendingCard.Defense;
+            attackingCard.HaveTakenTurn = true;
+
+            //// Check If all cards have taken turn ////
+            var currentPlayerBattleCards = this.GetUserBattleCards<PvPBattleCardViewModel>(currentPlayerId);
+            await this.battleCardRepository.SaveChangesAsync();
         }
 
         public BattleRoomDataViewModel GetBattleRoomData(int roomId)
@@ -61,10 +77,10 @@
             throw new NotImplementedException();
         }
 
-        public IEnumerable<CardViewModel> GetUserCardsCollection<T>(string userId)
+        public IEnumerable<PvPBattleCardViewModel> GetUserBattleCards<T>(string userId)
         {
             var cards = this.userBattleCardRepository.All().Where(x => x.UserId == userId)
-                .Select(x => new CardLevelOne
+                .Select(x => new BattleCard
                 {
                     Id = x.BattleCard.Id,
                     Name = x.BattleCard.Name,
@@ -75,8 +91,10 @@
                     Health = x.BattleCard.Health,
                     Element = x.BattleCard.Element,
                     IsSelected = x.BattleCard.IsSelected,
+                    IsAttacker = x.BattleCard.IsAttacker,
+                    HaveTakenTurn = x.BattleCard.HaveTakenTurn,
                 })
-                .To<CardViewModel>()
+                .To<PvPBattleCardViewModel>()
                 .ToList();
 
             return cards;

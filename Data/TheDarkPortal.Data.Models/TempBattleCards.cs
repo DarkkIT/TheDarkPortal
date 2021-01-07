@@ -28,9 +28,9 @@
 
         public bool IsAttacker { get; set; }
 
-        public bool IsDestroed { get; set; }
+        public bool IsDestroyed { get; set; }
 
-        public bool HaveTurne { get; set; }
+        public bool HaveTakenTurn { get; set; }
 
         public bool IsSelected { get; set; }
     }

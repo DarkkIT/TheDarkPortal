@@ -74,7 +74,8 @@
                         Element = card.Element,
                         IsAttacker = true,
                         IsSelected = false,
-                        HaveTurne = true,
+                        HaveTakenTurn = true,
+
                     };
 
                     await this.tempBattleCardsRepository.AddAsync(battleCard);
@@ -107,7 +108,8 @@
                         Element = card.Element,
                         IsAttacker = false,
                         IsSelected = false,
-                        HaveTurne = true,
+                        HaveTakenTurn = true,
+
                     };
 
                     await this.tempBattleCardsRepository.AddAsync(battleCard);

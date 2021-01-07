@@ -29,20 +29,20 @@
         [Authorize]
         public IActionResult Room(int id)
         {
-            var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var attackerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             PvPBattleRoomViewModel viewModel = this.GetBattleRoomModelData(id);
 
-            var currencies = this.userService.GetUserCurrencis(userId);
+            var currencies = this.userService.GetUserCurrencis(attackerId);
             viewModel.Currencies = currencies;
 
             return this.View(viewModel);
         }
 
-        public async Task<IActionResult> SetUpNewBattle(string userTwoId)
+        public async Task<IActionResult> SetUpNewBattle(string defenderId)
         {
-            var userIdOne = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-            var roomId = await this.pvpBattleService.SetUpBattleRoom(userIdOne, userTwoId);
+            var attackerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var roomId = await this.pvpBattleService.SetUpBattleRoom(attackerId, defenderId);
 
             return this.RedirectToAction("Room", new { id = roomId });
         }
@@ -53,7 +53,6 @@
            return this.RedirectToAction("Index", "Arena");
         }
 
-
         public async Task<IActionResult> SelectCard(int roomId, int cardId)
         {
 
@@ -61,8 +60,11 @@
             return this.RedirectToAction("Room", new { id = roomId });
         }
 
-        public async Task<IActionResult> Attack(int roomId, int attackCardId, int defendingCardId)
+        public async Task<IActionResult> Attack(int roomId, int attackingCardId, int defendingCardId)
         {
+            var currentPlayerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            await this.pvpBattleService.Attack(attackingCardId, defendingCardId, currentPlayerId, roomId);
+
             return this.RedirectToAction("Room", new { id = roomId });
         }
 
@@ -73,13 +75,10 @@
 
             viewModel.BattleRoom = this.pvpBattleService.GetBattleRoomData(id);
 
-            viewModel.FirstPlayerBattleCards = this.pvpBattleService.GetUserCardsCollection<CardViewModel>(viewModel.BattleRoom.FirstUserId);
+            viewModel.FirstPlayerBattleCards = this.pvpBattleService.GetUserBattleCards<PvPBattleCardViewModel>(viewModel.BattleRoom.FirstUserId);
 
-            viewModel.SecondPlayerBattleCards = this.pvpBattleService.GetUserCardsCollection<CardViewModel>(viewModel.BattleRoom.SecondUserId);
+            viewModel.SecondPlayerBattleCards = this.pvpBattleService.GetUserBattleCards<PvPBattleCardViewModel>(viewModel.BattleRoom.SecondUserId);
             return viewModel;
         }
-
-
-
     }
 }

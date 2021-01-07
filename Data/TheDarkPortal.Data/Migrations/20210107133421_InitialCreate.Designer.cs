@@ -10,8 +10,8 @@ using TheDarkPortal.Data;
 namespace TheDarkPortal.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210106155126_AddIsSelectedPropertyToCardLevelOne")]
-    partial class AddIsSelectedPropertyToCardLevelOne
+    [Migration("20210107133421_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -284,13 +284,13 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
+                    b.Property<double>("CurrentAttack")
+                        .HasColumnType("float");
+
                     b.Property<double>("CurrentDefense")
                         .HasColumnType("float");
 
                     b.Property<double>("CurrentHealth")
-                        .HasColumnType("float");
-
-                    b.Property<double>("CurrentPower")
                         .HasColumnType("float");
 
                     b.Property<double>("Defense")
@@ -299,8 +299,17 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<string>("Element")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("HaveTakenTurn")
+                        .HasColumnType("bit");
+
                     b.Property<double>("Health")
                         .HasColumnType("float");
+
+                    b.Property<bool>("IsAttacker")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDestroyed")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsSelected")
                         .HasColumnType("bit");
@@ -535,13 +544,22 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<string>("Element")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("HaveTakenTurn")
+                        .HasColumnType("bit");
+
                     b.Property<double>("Health")
                         .HasColumnType("float");
+
+                    b.Property<bool>("IsAttacker")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsBattleSetCard")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDestroyed")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsSelected")

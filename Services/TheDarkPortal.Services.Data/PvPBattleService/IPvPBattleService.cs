@@ -16,15 +16,16 @@
 
          bool IsInBattle(string userId);
 
-         IEnumerable<CardViewModel> GetUserCardsCollection<T>(string userId);
+         IEnumerable<PvPBattleCardViewModel> GetUserBattleCards<T>(string userId);
 
          BattleRoomDataViewModel GetBattleRoomData(int roomId);
 
-         Task Attack(int attackingCardId, int defendingCardId);
+         Task Attack(int attackingCardId, int defendingCardId, string currentPlayerId, int battleRoomId);
 
          Task SelectCard(int cardId);
 
          Task<BattleCard> GetById();
 
+         bool AllCardsHaveTakenTurn();
     }
 }
