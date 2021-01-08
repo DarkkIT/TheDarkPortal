@@ -26,7 +26,7 @@
             if (this.User.Identity.IsAuthenticated)
             {
                 var userId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
-                var currencies = this.userService.GetUserCurrencis(userId);
+                var currencies = this.userService.GetUserCurrencies(userId);
                 model.Currencies = currencies;
             }
             else

@@ -18,7 +18,7 @@
             this.userRepository = userRepository;
         }
 
-        public UserCurrencyViewModel GetUserCurrencis(string userId)
+        public UserCurrencyViewModel GetUserCurrencies(string userId)
         {
             var user = this.userRepository.All().FirstOrDefault(x => x.Id == userId);
 

@@ -48,11 +48,18 @@
             var attackingCard = this.battleCardRepository.All().FirstOrDefault(x => x.Id == attackingCardId);
             var defendingCard = this.battleCardRepository.All().FirstOrDefault(x => x.Id == defendingCardId);
             var battleRoom = this.battleRoomRepository.All().Where(x => x.Id == battleRoomId).FirstOrDefault();
-            battleRoom.IsFirstPlayerTurn = !battleRoom.IsFirstPlayerTurn;
+            battleRoom.IsAttackerTurn = !battleRoom.IsAttackerTurn;
 
-            defendingCard.CurrentHealth = defendingCard.Health - attackingCard.Attack;
-            attackingCard.CurrentHealth = attackingCard.Health - defendingCard.Defense;
+            defendingCard.Health -= attackingCard.Attack;
+            attackingCard.Health -= defendingCard.Defense;
+
+            if (attackingCard.Health <= 0)
+            {
+                attackingCard.IsDestroyed = true;
+            }
+
             attackingCard.HaveTakenTurn = true;
+            attackingCard.IsSelected = false;
 
             //// Check If all cards have taken turn ////
             var currentPlayerBattleCards = this.GetUserBattleCards<PvPBattleCardViewModel>(currentPlayerId);
@@ -65,10 +72,10 @@
                 .Where(x => x.Id == roomId)
                 .Select(x => new BattleRoomDataViewModel()
                 {
-                    FirstUserId = x.PlayerOneId,
-                    SecondUserId = x.PlayerTwoId,
+                    AttackerId = x.AttackerId,
+                    DefenderId = x.DefenderId,
                     RoomId = x.Id,
-                    IsFirstPlayerTurn = true,
+                    isAttackerTurn = x.IsAttackerTurn,
                 }).FirstOrDefault();
         }
 
@@ -102,13 +109,13 @@
 
         public bool IsInBattle(string userId)
         {
-           return this.battleRoomRepository.All().Any(x => x.PlayerOneId == userId || x.PlayerTwoId == userId);
+           return this.battleRoomRepository.All().Any(x => x.AttackerId == userId || x.DefenderId == userId);
         }
 
         public async Task RemoveFinishedBattleTempData(int roomId)
         {
-            var playerOneId = this.battleRoomRepository.All().Where(x => x.Id == roomId).Select(x => x.PlayerOneId).FirstOrDefault();
-            var playerTwoId = this.battleRoomRepository.All().Where(x => x.Id == roomId).Select(x => x.PlayerTwoId).FirstOrDefault();
+            var playerOneId = this.battleRoomRepository.All().Where(x => x.Id == roomId).Select(x => x.AttackerId).FirstOrDefault();
+            var playerTwoId = this.battleRoomRepository.All().Where(x => x.Id == roomId).Select(x => x.DefenderId).FirstOrDefault();
 
             //// Remove Battle Room ////
 
@@ -177,10 +184,10 @@
 
         public async Task<int> SetUpBattleRoom(string firstUserId, string secondUserId)
         {
-            var firstUser = this.userRepository.All().FirstOrDefault(x => x.Id == firstUserId);
-            var secondUser = this.userRepository.All().FirstOrDefault(x => x.Id == secondUserId);
+            var attacker = this.userRepository.All().FirstOrDefault(x => x.Id == firstUserId);
+            var defender = this.userRepository.All().FirstOrDefault(x => x.Id == secondUserId);
 
-            var battleRoom = new BattleRoom() { PlayerOne = firstUser, PlayerTwo = secondUser };
+            var battleRoom = new BattleRoom() { Attacker = attacker, Defender = defender, IsAttackerTurn = true };
 
             await this.battleRoomRepository.AddAsync(battleRoom);
 
@@ -203,7 +210,7 @@
                     Tire = card.Tire,
                 };
 
-                var userBattleCard = new UserBattleCard { User = firstUser, BattleCard = tempBattleCard };
+                var userBattleCard = new UserBattleCard { User = attacker, BattleCard = tempBattleCard };
                 await this.userBattleCardRepository.AddAsync(userBattleCard);
             }
 
@@ -226,7 +233,7 @@
                     Tire = card.Tire,
                 };
 
-                var userBattleCard = new UserBattleCard { User = secondUser, BattleCard = tempBattleCard };
+                var userBattleCard = new UserBattleCard { User = defender, BattleCard = tempBattleCard };
                 await this.userBattleCardRepository.AddAsync(userBattleCard);
             }
 

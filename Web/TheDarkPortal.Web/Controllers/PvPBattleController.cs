@@ -29,12 +29,13 @@
         [Authorize]
         public IActionResult Room(int id)
         {
-            var attackerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+            var currentUserId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             PvPBattleRoomViewModel viewModel = this.GetBattleRoomModelData(id);
 
-            var currencies = this.userService.GetUserCurrencis(attackerId);
+            var currencies = this.userService.GetUserCurrencies(currentUserId);
             viewModel.Currencies = currencies;
+            viewModel.CurrentUserId = currentUserId;
 
             return this.View(viewModel);
         }
@@ -75,9 +76,9 @@
 
             viewModel.BattleRoom = this.pvpBattleService.GetBattleRoomData(id);
 
-            viewModel.FirstPlayerBattleCards = this.pvpBattleService.GetUserBattleCards<PvPBattleCardViewModel>(viewModel.BattleRoom.FirstUserId);
+            viewModel.FirstPlayerBattleCards = this.pvpBattleService.GetUserBattleCards<PvPBattleCardViewModel>(viewModel.BattleRoom.AttackerId);
 
-            viewModel.SecondPlayerBattleCards = this.pvpBattleService.GetUserBattleCards<PvPBattleCardViewModel>(viewModel.BattleRoom.SecondUserId);
+            viewModel.SecondPlayerBattleCards = this.pvpBattleService.GetUserBattleCards<PvPBattleCardViewModel>(viewModel.BattleRoom.DefenderId);
             return viewModel;
         }
     }
