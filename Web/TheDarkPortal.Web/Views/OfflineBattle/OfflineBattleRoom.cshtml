@@ -20,57 +20,57 @@
 
             @foreach (var card in Model.AttackerCards.Cards)
             {
-            <div class="row">
+                <div class="row">
 
-                <div class="cardStats">
-                    <p><span>@card.Name</span></p>
-                    <p>Tire  <span>@card.Tire</span></p>
-                    <p>Level <span>@card.Level</span></p>
-                    <p>Attack <br /> <span>@card.Attack</span></p>
-                    <p>Defense <br /> <span>@card.Defense</span></p>
-                    <p>Health <br /> <span>@card.Health</span></p>
-                </div>
+                    <div class="cardStats">
+                        <p><span>@card.Name</span></p>
+                        <p>Tire  <span>@card.Tire</span></p>
+                        <p>Level <span>@card.Level</span></p>
+                        <p>Attack <br /> <span>@card.Attack</span></p>
+                        <p>Defense <br /> <span>@card.Defense</span></p>
+                        <p>Health <br /> <span>@card.Health</span></p>
+                    </div>
 
-                @if (!card.IsDestroyed)
-                {
-                    @if (card.IsSelected)
+                    @if (!card.IsDestroyed)
                     {
-                        <div id="selected" class="card-view">
-                            <div class="card-img card-header cardModel">
-                                <img class="card-img" src="@card.ImagePath" alt="Image" />
-                            </div>
+                        @if (card.IsSelected)
+                        {
+                            <div id="selected" class="card-view">
+                                <div class="card-img card-header cardModel">
+                                    <img class="card-img" src="@card.ImagePath" alt="Image" />
+                                </div>
 
-                        </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="card-view">
+                                <div class="card-img card-header cardModel">
+                                    <img class="card-img" src="@card.ImagePath" alt="Image" />
+                                </div>
+
+                            </div>
+                        }
                     }
                     else
                     {
-                        <div class="card-view">
+                        <div id="destroyedCard" class="card-view">
                             <div class="card-img card-header cardModel">
                                 <img class="card-img" src="@card.ImagePath" alt="Image" />
                             </div>
 
                         </div>
                     }
-                }
-                else
-                {
-                    <div id="destroyedCard" class="card-view">
-                        <div class="card-img card-header cardModel">
-                            <img class="card-img" src="@card.ImagePath" alt="Image" />
+
+
+                    @if (!card.HaveTakenTurn && !card.IsDestroyed)
+                    {
+                        <div class="mt-5">
+                            <a class="btn btn-link btn-sm" asp-controller="OfflineBattle" asp-action="AttackerSelectCard" asp-route-id="@card.CardId"><i class="far fa-check-circle fa-3x"></i></a>
                         </div>
+                    }
 
-                    </div>
-                }
-
-
-                @if (!card.HaveTakenTurn && !card.IsDestroyed)
-                {
-                    <div class="mt-5">
-                        <a class="btn btn-link btn-sm" asp-controller="OfflineBattle" asp-action="AttackerSelectCard" asp-route-id="@card.CardId"><i class="far fa-check-circle fa-3x"></i></a>
-                    </div>
-                }
-
-            </div>
+                </div>
 
             }
 

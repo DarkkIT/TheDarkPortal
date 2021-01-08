@@ -73,6 +73,7 @@
             await this.offlineBattleService.HaveAttackerTutns(attackerId);
 
             ////Implement Defender attack to atacker
+            ////Need to check fo IsDestroed Cards of Attacker
 
             var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>(attackerId);
             var attacerCardsList = new AttackerCardListViewModel { Cards = attakerCards };

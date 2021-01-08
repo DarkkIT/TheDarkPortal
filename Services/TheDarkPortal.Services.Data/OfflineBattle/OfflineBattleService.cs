@@ -153,6 +153,7 @@
             {
                 defenderCard.Health = 0;
                 defenderCard.IsDestroyed = true;
+                defenderCard.HaveTakenTurn = true;
             }
 
             await this.tempBattleCardsRepository.SaveChangesAsync();
@@ -165,6 +166,10 @@
                 foreach (var card in this.tempBattleCardsRepository.All().Where(x => x.UniqueTag == attackerId && x.IsAttacker))
                 {
                     card.HaveTakenTurn = false;
+                    if (card.IsDestroyed)
+                    {
+                        card.HaveTakenTurn = true;
+                    }
                 }
             }
 
