@@ -20,6 +20,7 @@
     using TheDarkPortal.Services.Data.Arena;
     using TheDarkPortal.Services.Data.Cards;
     using TheDarkPortal.Services.Data.Fuse;
+    using TheDarkPortal.Services.Data.OfflineBattle;
     using TheDarkPortal.Services.Data.PvPBattleService;
     using TheDarkPortal.Services.Data.User;
     using TheDarkPortal.Services.Mapping;
@@ -78,6 +79,7 @@
             services.AddTransient<ICardService, CardService>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IFuseService, FuseService>();
+            services.AddTransient<IOfflineBattleService, OfflineBattleService>();
 
             services.AddTransient<IPvPBattleService, PvPBattleService>();
 

@@ -75,6 +75,7 @@
                         IsAttacker = true,
                         IsSelected = false,
                         HaveTakenTurn = true,
+
                     };
 
                     await this.tempBattleCardsRepository.AddAsync(battleCard);
@@ -108,6 +109,7 @@
                         IsAttacker = false,
                         IsSelected = false,
                         HaveTakenTurn = true,
+
                     };
 
                     await this.tempBattleCardsRepository.AddAsync(battleCard);

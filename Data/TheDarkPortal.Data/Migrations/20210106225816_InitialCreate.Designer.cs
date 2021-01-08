@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheDarkPortal.Data;
 
 namespace TheDarkPortal.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210106225816_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -282,13 +284,13 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("CurrentAttack")
-                        .HasColumnType("float");
-
                     b.Property<double>("CurrentDefense")
                         .HasColumnType("float");
 
                     b.Property<double>("CurrentHealth")
+                        .HasColumnType("float");
+
+                    b.Property<double>("CurrentPower")
                         .HasColumnType("float");
 
                     b.Property<double>("Defense")
@@ -297,20 +299,8 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<string>("Element")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("HaveTakenTurn")
-                        .HasColumnType("bit");
-
                     b.Property<double>("Health")
                         .HasColumnType("float");
-
-                    b.Property<bool>("IsAttacker")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDestroyed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsSelected")
-                        .HasColumnType("bit");
 
                     b.Property<int>("Level")
                         .HasColumnType("int");
@@ -339,29 +329,29 @@ namespace TheDarkPortal.Data.Migrations
                         .HasColumnType("int")
                         .UseIdentityColumn();
 
-                    b.Property<string>("AttackerId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<DateTime>("CreatedOn")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DefenderId")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<bool>("IsAttackerTurn")
+                    b.Property<bool>("IsFirstPlayerTurn")
                         .HasColumnType("bit");
 
                     b.Property<DateTime?>("ModifiedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("PlayerOneId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("PlayerTwoId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<TimeSpan>("TimeLeftInTurn")
                         .HasColumnType("time");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AttackerId");
+                    b.HasIndex("PlayerOneId");
 
-                    b.HasIndex("DefenderId");
+                    b.HasIndex("PlayerTwoId");
 
                     b.ToTable("BattleRooms");
                 });
@@ -549,9 +539,6 @@ namespace TheDarkPortal.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsSelected")
                         .HasColumnType("bit");
 
                     b.Property<int>("Level")
@@ -1032,19 +1019,10 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<string>("Element")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("HaveTurne")
-                        .HasColumnType("bit");
-
                     b.Property<double>("Health")
                         .HasColumnType("float");
 
                     b.Property<bool>("IsAttacker")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDestroed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsSelected")
                         .HasColumnType("bit");
 
                     b.Property<int>("Level")
@@ -1234,17 +1212,17 @@ namespace TheDarkPortal.Data.Migrations
 
             modelBuilder.Entity("TheDarkPortal.Data.Models.BattleRoom", b =>
                 {
-                    b.HasOne("TheDarkPortal.Data.Models.ApplicationUser", "Attacker")
+                    b.HasOne("TheDarkPortal.Data.Models.ApplicationUser", "PlayerOne")
                         .WithMany()
-                        .HasForeignKey("AttackerId");
+                        .HasForeignKey("PlayerOneId");
 
-                    b.HasOne("TheDarkPortal.Data.Models.ApplicationUser", "Defender")
+                    b.HasOne("TheDarkPortal.Data.Models.ApplicationUser", "PlayerTwo")
                         .WithMany()
-                        .HasForeignKey("DefenderId");
+                        .HasForeignKey("PlayerTwoId");
 
-                    b.Navigation("Attacker");
+                    b.Navigation("PlayerOne");
 
-                    b.Navigation("Defender");
+                    b.Navigation("PlayerTwo");
                 });
 
             modelBuilder.Entity("TheDarkPortal.Data.Models.Cards.CardLevelOne", b =>
