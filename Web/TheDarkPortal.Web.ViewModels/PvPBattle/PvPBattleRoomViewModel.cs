@@ -11,12 +11,14 @@
     {
         public BattleRoomDataViewModel BattleRoom { get; set; }
 
+        public string CurrentUserId { get; set; }
+
         public IEnumerable<PvPBattleCardViewModel> FirstPlayerBattleCards { get; set; }
 
         public IEnumerable<PvPBattleCardViewModel> SecondPlayerBattleCards { get; set; }
 
         public PvPBattleCardViewModel SelectedCard =>
-            this.BattleRoom.IsFirstPlayerTurn == true ?
+            this.BattleRoom.isAttackerTurn == true ?
             this.FirstPlayerBattleCards.FirstOrDefault(x => x.IsSelected == true) :
             this.SecondPlayerBattleCards.FirstOrDefault(x => x.IsSelected == true);
 

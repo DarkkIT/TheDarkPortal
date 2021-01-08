@@ -8,17 +8,17 @@
 
     public class BattleRoom : BaseModel<int>
     {
-        [ForeignKey("PlayerOne")]
-        public string PlayerOneId { get; set; }
+        [ForeignKey("Attacker")]
+        public string AttackerId { get; set; }
 
-        public ApplicationUser PlayerOne { get; set; }
+        public ApplicationUser Attacker { get; set; }
 
-        [ForeignKey("PlayerTwo")]
-        public string PlayerTwoId { get; set; }
+        [ForeignKey("Defender")]
+        public string DefenderId { get; set; }
 
-        public ApplicationUser PlayerTwo { get; set; }
+        public ApplicationUser Defender { get; set; }
 
-        public bool IsFirstPlayerTurn { get; set; }
+        public bool IsAttackerTurn { get; set; }
 
         public TimeSpan TimeLeftInTurn { get; set; }
 

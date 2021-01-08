@@ -8,6 +8,6 @@
 
     public interface IUserService
     {
-        UserCurrencyViewModel GetUserCurrencis(string userId);
+        UserCurrencyViewModel GetUserCurrencies(string userId);
     }
 }

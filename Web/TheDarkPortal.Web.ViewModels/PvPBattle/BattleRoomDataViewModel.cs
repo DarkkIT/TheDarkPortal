@@ -9,12 +9,11 @@
     {
         public int RoomId { get; set; }
 
-        public string FirstUserId { get; set; }
+        public string AttackerId { get; set; }
 
-        public string SecondUserId { get; set; }
+        public string DefenderId { get; set; }
 
-        public bool IsFirstPlayerTurn { get; set; }
-
+        public bool isAttackerTurn { get; set; }
 
     }
 }
