@@ -29,6 +29,8 @@
 
         public double Health { get; set; }
 
+        public double CurrentHealth { get; set; }
+
         public string Element { get; set; }
 
         public bool IsAttacker { get; set; }
