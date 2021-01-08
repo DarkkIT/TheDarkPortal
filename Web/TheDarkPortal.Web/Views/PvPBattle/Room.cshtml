@@ -25,21 +25,19 @@
                         <div class="row justify-content-around">
                             <p><i class="fas fa-angle-double-right"></i>@card.Attack</p>
                             <p><i class="fas fa-shield-alt"></i>@card.Defense</p>
-                            <p><i class="fas fa-heartbeat"></i>@card.Health</p>
+                            <p><i class="fas fa-heartbeat"></i>@card.CurrentHealth</p>
                         </div>
                         <div class="row justify-content-around">
                             <p>Tire @card.Tire</p>
                             <p>Level @card.Level</p>
                         </div>
                     </div>
+
                     @*-------------- Battle Logic --------------*@
+
                     @if (Model.BattleRoom.isAttackerTurn)
                     {
-                        @if (Model.SelectedCard == null && this.Model.BattleRoom.isAttackerTurn == true && Model.BattleRoom.AttackerId == Model.CurrentUserId && card.Health > 0)
-                        {
-                            <a class="btn btn-primary btn-sm" asp-controller="PvPBattle" asp-action="SelectCard" asp-route-cardId="@card.Id" asp-route-roomId="@Model.BattleRoom.RoomId">Select</a>
-                        }
-                        else
+                        @if (this.Model.BattleRoom.isAttackerTurn == true && Model.BattleRoom.AttackerId == Model.CurrentUserId && card.CurrentHealth > 0)
                         {
                             @if (card.IsSelected == true)
                             {
@@ -47,13 +45,13 @@
                             }
                             else
                             {
-
+                                <a class="btn btn-primary btn-sm" asp-controller="PvPBattle" asp-action="SelectCard" asp-route-cardId="@card.Id" asp-route-roomId="@Model.BattleRoom.RoomId">Select</a>
                             }
                         }
                     }
                     else
                     {
-                        @if (Model.SelectedCard != null && Model.BattleRoom.isAttackerTurn == false && card.Health > 0)
+                        @if (Model.SelectedCard != null && Model.BattleRoom.isAttackerTurn == false && card.CurrentHealth > 0)
                         {
                             <a class="btn btn-primary btn-sm" asp-controller="PvPBattle" asp-action="Attack" asp-route-attackingCardId="@Model.SelectedCard.Id" asp-route-defendingCardId="@card.Id" asp-route-roomId="@Model.BattleRoom.RoomId">Attack</a>
                         }
@@ -86,7 +84,7 @@
                         <div class="row justify-content-around">
                             <p><i class="fas fa-angle-double-right"></i>@card.Attack</p>
                             <p><i class="fas fa-shield-alt"></i>@card.Defense</p>
-                            <p><i class="fas fa-heartbeat"></i>@card.Health</p>
+                            <p><i class="fas fa-heartbeat"></i>@card.CurrentHealth</p>
                         </div>
                         <div class="row justify-content-around">
                             <p>Tire @card.Tire</p>
@@ -95,18 +93,14 @@
                     </div>
 
                     @*--------------- Battle Logic ---------------*@
-                    @if (Model.SelectedCard != null && Model.BattleRoom.isAttackerTurn && card.Health > 0)
+                    @if (Model.SelectedCard != null && Model.BattleRoom.isAttackerTurn && card.CurrentHealth > 0)
                     {
                         <a class="btn btn-primary btn-sm" asp-controller="PvPBattle" asp-action="Attack" asp-route-attackingCardId="@Model.SelectedCard.Id" asp-route-defendingCardId="@card.Id" asp-route-roomId="@Model.BattleRoom.RoomId">Attack</a>
 
                     }
                     else
                     {
-                        @if (Model.SelectedCard == null && this.Model.BattleRoom.isAttackerTurn == false && Model.BattleRoom.DefenderId == Model.CurrentUserId && card.Health > 0)
-                        {
-                            <a class="btn btn-primary btn-sm" asp-controller="PvPBattle" asp-action="SelectCard" asp-route-cardId="@card.Id" asp-route-roomId="@Model.BattleRoom.RoomId">Select</a>
-                        }
-                        else
+                        @if ( this.Model.BattleRoom.isAttackerTurn == false && Model.BattleRoom.DefenderId == Model.CurrentUserId && card.CurrentHealth > 0)
                         {
                             @if (card.IsSelected == true)
                             {
@@ -114,10 +108,13 @@
                             }
                             else
                             {
-
+                                <a class="btn btn-primary btn-sm" asp-controller="PvPBattle" asp-action="SelectCard" asp-route-cardId="@card.Id" asp-route-roomId="@Model.BattleRoom.RoomId">Select</a>
                             }
                         }
+
+
                     }
+                    
 
                 </div>
             </div>

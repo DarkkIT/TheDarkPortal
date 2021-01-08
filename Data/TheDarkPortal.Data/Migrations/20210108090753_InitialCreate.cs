@@ -340,6 +340,7 @@ namespace TheDarkPortal.Data.Migrations
                     IsDestroyed = table.Column<bool>(type: "bit", nullable: false),
                     HaveTakenTurn = table.Column<bool>(type: "bit", nullable: false),
                     IsSelected = table.Column<bool>(type: "bit", nullable: false),
+                    UniqueTag = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
@@ -539,9 +540,9 @@ namespace TheDarkPortal.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    PlayerOneId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    PlayerTwoId = table.Column<string>(type: "nvarchar(450)", nullable: true),
-                    IsFirstPlayerTurn = table.Column<bool>(type: "bit", nullable: false),
+                    AttackerId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    DefenderId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    IsAttackerTurn = table.Column<bool>(type: "bit", nullable: false),
                     TimeLeftInTurn = table.Column<TimeSpan>(type: "time", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: true)
@@ -550,14 +551,14 @@ namespace TheDarkPortal.Data.Migrations
                 {
                     table.PrimaryKey("PK_BattleRooms", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_BattleRooms_AspNetUsers_PlayerOneId",
-                        column: x => x.PlayerOneId,
+                        name: "FK_BattleRooms_AspNetUsers_AttackerId",
+                        column: x => x.AttackerId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_BattleRooms_AspNetUsers_PlayerTwoId",
-                        column: x => x.PlayerTwoId,
+                        name: "FK_BattleRooms_AspNetUsers_DefenderId",
+                        column: x => x.DefenderId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
@@ -749,14 +750,14 @@ namespace TheDarkPortal.Data.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BattleRooms_PlayerOneId",
+                name: "IX_BattleRooms_AttackerId",
                 table: "BattleRooms",
-                column: "PlayerOneId");
+                column: "AttackerId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_BattleRooms_PlayerTwoId",
+                name: "IX_BattleRooms_DefenderId",
                 table: "BattleRooms",
-                column: "PlayerTwoId");
+                column: "DefenderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CardLevelFives_IsDeleted",
