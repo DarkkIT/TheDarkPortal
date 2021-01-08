@@ -1032,7 +1032,7 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<string>("Element")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("HaveTurne")
+                    b.Property<bool>("HaveTakenTurn")
                         .HasColumnType("bit");
 
                     b.Property<double>("Health")
@@ -1041,7 +1041,7 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<bool>("IsAttacker")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsDestroed")
+                    b.Property<bool>("IsDestroyed")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsSelected")
