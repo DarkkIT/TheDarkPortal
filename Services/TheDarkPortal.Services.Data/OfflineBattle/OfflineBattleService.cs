@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
-
+    using TheDarkPortal.Common;
     using TheDarkPortal.Data.Common.Repositories;
     using TheDarkPortal.Data.Models;
     using TheDarkPortal.Services.Mapping;
@@ -285,7 +285,7 @@
         {
             var user = this.userRepository.All().FirstOrDefault(x => x.Id == attackerId);
 
-            int points = 9;
+            int points = GlobalConstants.OfflineArenaPointReward;
 
             user.ArenaPoints += points;
             user.Gold += points * 100;
@@ -296,7 +296,8 @@
         public async Task DecreaseArenaPoints(string attackerId)
         {
             var user = this.userRepository.All().FirstOrDefault(x => x.Id == attackerId);
-            user.ArenaPoints -= 15;
+
+            user.ArenaPoints -= GlobalConstants.OfflineArenaPointDecrease;
 
             await this.userRepository.SaveChangesAsync();
         }
