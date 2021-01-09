@@ -50,7 +50,7 @@
             var battleRoom = this.battleRoomRepository.All().Where(x => x.Id == battleRoomId).FirstOrDefault();
             battleRoom.IsAttackerTurn = !battleRoom.IsAttackerTurn;
 
-            defendingCard.CurrentHealth -= attackingCard.Attack;
+            defendingCard.CurrentHealth -= attackingCard.Attack - defendingCard.Defense;
 
             if (defendingCard.CurrentHealth <= 0)
             {
