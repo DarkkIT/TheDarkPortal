@@ -40,11 +40,6 @@ namespace TheDarkPortal.Data.Models
 
         public int Platinum { get; set; }
 
-        //[ForeignKey("BattleRoom")]
-        //public int BattleRoomId { get; set; }
-
-        //public BattleRoom BattleRoom { get; set; }
-
         // Deletable entity
         public bool IsDeleted { get; set; }
 
