@@ -7,7 +7,6 @@
 
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/offlinebattle.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/attackerwin.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/offlinebattlecards.css" asp-append-version="true" />
 </head>
@@ -26,7 +25,6 @@
 
                     <div class="cardStats">
                         <p>Tire  <span>@card.Tire</span></p>
-                        <p>Level <span>@card.Level</span></p>
                         <p>Attack <br /> <span>@card.Attack</span></p>
                         <p>Defense <br /> <span>@card.Defense</span></p>
                         <p>Health <br /> <span>@card.Health</span></p>
@@ -155,9 +153,11 @@
 
         </div>
 
-        <div class="col-md-5 border border-dark text-center row justify-content-center">
+        @*Middle conteiner*@
 
-            <div class="card mt-2 mb-2">
+        <div class="col-md-3 border border-dark text-center row justify-content-center">
+
+            <div class="cardWinner mt-2 mb-2">
                 <div class="banner">
                     <svg viewBox="0 0 100 100">
                         <path d="m38.977 59.074c0 2.75-4.125 2.75-4.125 0s4.125-2.75 4.125 0"></path>
@@ -268,7 +268,6 @@
 
                     <div class="cardStats mr-3 text-right">
                         <p>Tire  <span>@card.Tire</span></p>
-                        <p>Level <span>@card.Level</span></p>
                         <p>Attack <br /> <span>@card.Attack</span></p>
                         <p>Defense <br /> <span>@card.Defense</span></p>
                         <p>Health <br /> <span>@card.Health</span></p>

@@ -2,7 +2,7 @@
 
 
 
-.cardWinner {
+.cardLoser {
     background-color: #fff;
     max-width: 560px;
     display: flex;
@@ -12,7 +12,7 @@
     box-shadow: 0px 1rem 1.5rem rgba(0,0,0,0.5);
 }
 
-    .cardWinner .banner {
+    .cardLoser .banner {
         background-image: url("/images/Winner.jpg");
         background-position: center;
         background-repeat: no-repeat;
@@ -24,7 +24,19 @@
         box-sizing: border-box;
     }
 
-        .cardWinner .banner svg {
+    .cardLoser .banner {
+        background-image: url("/images/LostBatle.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 11rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+        .cardLoser .banner svg {
             background-color: #fff;
             width: 8rem;
             height: 8rem;
@@ -34,11 +46,11 @@
             transition: transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
         }
 
-            .cardWinner .banner svg:hover {
+            .cardLoser .banner svg:hover {
                 transform: translateY(50%) scale(1.3);
             }
 
-    .cardWinner .menu {
+    .cardLoser .menu {
         width: 100%;
         height: 5.5rem;
         padding: 1rem;
@@ -49,7 +61,7 @@
         box-sizing: border-box;
     }
 
-        .cardWinner .menu .opener {
+        .cardLoser .menu .opener {
             width: 2.5rem;
             height: 2.5rem;
             position: relative;
@@ -57,11 +69,11 @@
             transition: background-color 100ms ease-in-out;
         }
 
-            .cardWinner .menu .opener:hover {
+            .cardLoser .menu .opener:hover {
                 background-color: #f2f2f2;
             }
 
-            .cardWinner .menu .opener span {
+            .cardLoser .menu .opener span {
                 background-color: #404040;
                 width: 0.4rem;
                 height: 0.4rem;
@@ -71,51 +83,51 @@
                 border-radius: 50%;
             }
 
-                .cardWinner .menu .opener span:nth-child(1) {
+                .cardLoser .menu .opener span:nth-child(1) {
                     top: 0.45rem;
                 }
 
-                .cardWinner .menu .opener span:nth-child(2) {
+                .cardLoser .menu .opener span:nth-child(2) {
                     top: 1.05rem;
                 }
 
-                .cardWinner .menu .opener span:nth-child(3) {
+                .cardLoser .menu .opener span:nth-child(3) {
                     top: 1.65rem;
                 }
 
-    .cardWinner h2.name {
+    .cardLoser h2.name {
         text-align: center;
         padding: 0 2rem 0.5rem;
         margin: 0;
     }
 
-    .cardWinner .title {
+    .cardLoser .title {
         color: #a0a0a0;
         font-size: 0.85rem;
         text-align: center;
         padding: 0 2rem 1.2rem;
     }
 
-    .cardWinner .actions {
+    .cardLoser .actions {
         padding: 0 2rem 1.2rem;
         display: flex;
         flex-direction: column;
         order: 99;
     }
 
-        .cardWinner .actions .follow-info {
+        .cardLoser .actions .follow-info {
             padding: 0 0 1rem;
             display: flex;
         }
 
-            .cardWinner .actions .follow-info h2 {
+            .cardLoser .actions .follow-info h2 {
                 text-align: center;
                 width: 50%;
                 margin: 0;
                 box-sizing: border-box;
             }
 
-                .cardWinner .actions .follow-info h2 a {
+                .cardLoser .actions .follow-info h2 a {
                     text-decoration: none;
                     padding: 0.8rem;
                     display: flex;
@@ -124,7 +136,7 @@
                     transition: background-color 100ms ease-in-out;
                 }
 
-                    .cardWinner .actions .follow-info h2 a span {
+                    .cardLoser .actions .follow-info h2 a span {
                         color: #1c9eff;
                         font-weight: bold;
                         transform-origin: bottom;
@@ -132,21 +144,21 @@
                         transition: color 100ms ease-in-out;
                     }
 
-                    .cardWinner .actions .follow-info h2 a small {
+                    .cardLoser .actions .follow-info h2 a small {
                         color: #afafaf;
                         font-size: 0.85rem;
                         font-weight: normal;
                     }
 
-                    .cardWinner .actions .follow-info h2 a:hover {
+                    .cardLoser .actions .follow-info h2 a:hover {
                         background-color: #f2f2f2;
                     }
 
-                        .cardWinner .actions .follow-info h2 a:hover span {
+                        .cardLoser .actions .follow-info h2 a:hover span {
                             color: #007ad6;
                         }
 
-        .cardWinner .actions .follow-btn button {
+        .cardLoser .actions .follow-btn button {
             color: inherit;
             font: inherit;
             font-weight: bold;
@@ -160,17 +172,17 @@
             transition: background-color 100ms ease-in-out, transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
         }
 
-            .cardWinner .actions .follow-btn button:hover {
+            .cardLoser .actions .follow-btn button:hover {
                 background-color: #efb10a;
                 transform: scale(1.1);
             }
 
-            .cardWinner .actions .follow-btn button:active {
+            .cardLoser .actions .follow-btn button:active {
                 background-color: #e8a200;
                 transform: scale(1);
             }
 
-    .cardWinner .desc {
+    .cardLoser .desc {
         text-align: justify;
         padding: 0 2rem 2.5rem;
         order: 100;
