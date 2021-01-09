@@ -17,15 +17,18 @@
         private readonly IRepository<Card> cardRepositiry;
         private readonly IRepository<UserCard> userCardRepositiry;
         private readonly IRepository<TempBattleCards> tempBattleCardsRepository;
+        private readonly IDeletableEntityRepository<ApplicationUser> userRepository;
 
         public OfflineBattleService(
             IRepository<Card> cardRepositiry,
             IRepository<UserCard> userCardRepositiry,
-            IRepository<TempBattleCards> tempBattleCardsRepository)
+            IRepository<TempBattleCards> tempBattleCardsRepository,
+            IDeletableEntityRepository<ApplicationUser> userRepository)
         {
             this.cardRepositiry = cardRepositiry;
             this.userCardRepositiry = userCardRepositiry;
             this.tempBattleCardsRepository = tempBattleCardsRepository;
+            this.userRepository = userRepository;
         }
 
         public void DeleteTempCards(string attackerId)
@@ -166,10 +169,13 @@
             {
                 foreach (var card in this.tempBattleCardsRepository.All().Where(x => x.UniqueTag == attackerId && x.IsAttacker))
                 {
-                    card.HaveTakenTurn = false;
                     if (card.IsDestroyed)
                     {
                         card.HaveTakenTurn = true;
+                    }
+                    else
+                    {
+                        card.HaveTakenTurn = false;
                     }
                 }
             }
@@ -253,6 +259,8 @@
 
             if (defenderHealth <= 0)
             {
+                this.IncreaseArenaPoints(attackerId);
+
                 int milliseconds = 500;
                 Thread.Sleep(milliseconds);
 
@@ -260,6 +268,8 @@
             }
             else if (attackerHealth <= 0)
             {
+                this.DecreaseArenaPoints(attackerId);
+
                 int milliseconds = 500;
                 Thread.Sleep(milliseconds);
 
@@ -269,6 +279,26 @@
             {
                 return "noOneWin";
             }
+        }
+
+        public async Task IncreaseArenaPoints(string attackerId)
+        {
+            var user = this.userRepository.All().FirstOrDefault(x => x.Id == attackerId);
+
+            int points = 9;
+
+            user.ArenaPoints += points;
+            user.Gold += points * 100;
+
+            await this.userRepository.SaveChangesAsync();
+        }
+
+        public async Task DecreaseArenaPoints(string attackerId)
+        {
+            var user = this.userRepository.All().FirstOrDefault(x => x.Id == attackerId);
+            user.ArenaPoints -= 15;
+
+            await this.userRepository.SaveChangesAsync();
         }
     }
 }

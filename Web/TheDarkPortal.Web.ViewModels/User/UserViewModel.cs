@@ -14,6 +14,8 @@
 
         public string Email { get; set; }
 
+        public int Gold { get; set; }
+
         public string NickName => this.Email.Substring(0, this.Email.IndexOf("@"));
 
         public int ArenaPoints { get; set; }

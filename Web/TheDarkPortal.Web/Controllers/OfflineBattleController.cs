@@ -151,6 +151,8 @@
             var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
             var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
 
+            ////await this.offlineBattleService.IncreaseArenaPoints(attackerId);
+
             var user = this.userService.GetUserInfo(attackerId);
 
             var viewModel = new CombinedOfflineBattleViewModel
@@ -172,6 +174,8 @@
 
             var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
             var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
+
+            ////await this.offlineBattleService.DecreaseArenaPoints(attackerId);
 
             var user = this.userService.GetUserInfo(attackerId);
 

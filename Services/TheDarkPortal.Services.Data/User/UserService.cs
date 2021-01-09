@@ -40,6 +40,7 @@
             {
                 Email = user.Email,
                 ArenaPoints = user.ArenaPoints,
+                Gold = user.Gold,
             };
 
             return userViewModel;

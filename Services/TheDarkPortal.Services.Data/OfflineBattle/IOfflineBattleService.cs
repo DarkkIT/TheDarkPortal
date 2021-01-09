@@ -30,5 +30,9 @@
         Task DefenderAttack(string attackerId);
 
         string IsBattleEnd(string attackerId);
+
+        Task IncreaseArenaPoints(string attackerId);
+
+        Task DecreaseArenaPoints(string attackerId);
     }
 }
