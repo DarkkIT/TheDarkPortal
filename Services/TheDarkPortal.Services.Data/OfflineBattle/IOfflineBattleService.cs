@@ -21,8 +21,14 @@
 
         Task AttackerSelectCard(int id, string attackerId);
 
+        Task DefenderSelectCard(string attackerId);
+
         Task AttackDefenderCard(int id, string attackerId);
 
-        Task HaveAttackerTutns(string attackerId);
+        Task HaveAttackerTurns(string attackerId);
+
+        Task DefenderAttack(string attackerId);
+
+        string IsBattleEnd(string attackerId);
     }
 }

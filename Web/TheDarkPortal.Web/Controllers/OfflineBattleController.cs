@@ -49,45 +49,73 @@
         {
             var attackerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            await this.offlineBattleService.HaveAttackerTutns(attackerId);
+            await this.offlineBattleService.HaveAttackerTurns(attackerId);
 
-            var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>(attackerId);
-            var attacerCardsList = new AttackerCardListViewModel { Cards = attakerCards };
-
-            var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
-            var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
-
-            var viewModel = new CombinedOfflineBattleViewModel
+            if (this.offlineBattleService.IsBattleEnd(attackerId) == "noOneWin")
             {
-                AttackerCards = attacerCardsList,
-                DefenderCards = defenderCardsList,
-            };
+                var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>(attackerId);
+                var attacerCardsList = new AttackerCardListViewModel { Cards = attakerCards };
 
-            return this.View(viewModel);
+                var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
+                var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
+
+                var viewModel = new CombinedOfflineBattleViewModel
+                {
+                    AttackerCards = attacerCardsList,
+                    DefenderCards = defenderCardsList,
+                };
+
+                return this.View(viewModel);
+            }
+            else if (this.offlineBattleService.IsBattleEnd(attackerId) == "attackerWin")
+            {
+                return this.RedirectToAction(nameof(this.AttackerWin));
+            }
+            else
+            {
+                return this.RedirectToAction(nameof(this.DefenderWin));
+            }
         }
 
         public async Task<IActionResult> OfflineBattleRoomOut(string defenderId)
         {
             var attackerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
 
-            await this.offlineBattleService.HaveAttackerTutns(attackerId);
+            await this.offlineBattleService.HaveAttackerTurns(attackerId);
 
-            ////Implement Defender attack to atacker
-            ////Need to check fo IsDestroed Cards of Attacker
-
-            var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>(attackerId);
-            var attacerCardsList = new AttackerCardListViewModel { Cards = attakerCards };
-
-            var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
-            var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
-
-            var viewModel = new CombinedOfflineBattleViewModel
+            if (this.offlineBattleService.IsBattleEnd(attackerId) == "noOneWin")
             {
-                AttackerCards = attacerCardsList,
-                DefenderCards = defenderCardsList,
-            };
+                await this.offlineBattleService.DefenderAttack(attackerId);
 
-            return this.View(viewModel);
+                var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>(attackerId);
+                var attacerCardsList = new AttackerCardListViewModel { Cards = attakerCards };
+
+                var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
+                var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
+
+                var viewModel = new CombinedOfflineBattleViewModel
+                {
+                    AttackerCards = attacerCardsList,
+                    DefenderCards = defenderCardsList,
+                };
+
+                if (this.offlineBattleService.IsBattleEnd(attackerId) == "noOneWin")
+                {
+                    return this.View(viewModel);
+                }
+                else
+                {
+                    return this.RedirectToAction(nameof(this.DefenderWin));
+                }
+            }
+            else if (this.offlineBattleService.IsBattleEnd(attackerId) == "attackerWin")
+            {
+                return this.RedirectToAction(nameof(this.AttackerWin));
+            }
+            else
+            {
+                return this.RedirectToAction(nameof(this.DefenderWin));
+            }
         }
 
         public async Task<IActionResult> AttackerSelectCard(int id)
@@ -106,6 +134,44 @@
             await this.offlineBattleService.AttackDefenderCard(id, attackerId);
 
             return this.RedirectToAction(nameof(this.OfflineBattleRoomOut));
+        }
+
+        public IActionResult AttackerWin()
+        {
+            var attackerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>(attackerId);
+            var attacerCardsList = new AttackerCardListViewModel { Cards = attakerCards };
+
+            var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
+            var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
+
+            var viewModel = new CombinedOfflineBattleViewModel
+            {
+                AttackerCards = attacerCardsList,
+                DefenderCards = defenderCardsList,
+            };
+
+            return this.View(viewModel);
+        }
+
+        public IActionResult DefenderWin()
+        {
+            var attackerId = this.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+
+            var attakerCards = this.offlineBattleService.GetAttackerCards<BattleCardViewModel>(attackerId);
+            var attacerCardsList = new AttackerCardListViewModel { Cards = attakerCards };
+
+            var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
+            var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
+
+            var viewModel = new CombinedOfflineBattleViewModel
+            {
+                AttackerCards = attacerCardsList,
+                DefenderCards = defenderCardsList,
+            };
+
+            return this.View(viewModel);
         }
     }
 }

@@ -10,7 +10,7 @@ using TheDarkPortal.Data;
 namespace TheDarkPortal.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210108082717_InitialCreate")]
+    [Migration("20210108190117_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1063,6 +1063,9 @@ namespace TheDarkPortal.Data.Migrations
 
                     b.Property<int>("Tire")
                         .HasColumnType("int");
+
+                    b.Property<string>("UniqueTag")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
