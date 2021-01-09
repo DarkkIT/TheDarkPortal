@@ -9,16 +9,21 @@
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using TheDarkPortal.Services.Data.OfflineBattle;
+    using TheDarkPortal.Services.Data.User;
     using TheDarkPortal.Web.ViewModels.OfflineBattle;
 
     [Authorize]
     public class OfflineBattleController : Controller
     {
         private readonly IOfflineBattleService offlineBattleService;
+        private readonly IUserService userService;
 
-        public OfflineBattleController(IOfflineBattleService offlineBattleService)
+        public OfflineBattleController(
+            IOfflineBattleService offlineBattleService,
+            IUserService userService)
         {
             this.offlineBattleService = offlineBattleService;
+            this.userService = userService;
         }
 
         public async Task<IActionResult> NewOfflineBattleRoom(string defenderId)
@@ -146,10 +151,13 @@
             var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
             var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
 
+            var user = this.userService.GetUserInfo(attackerId);
+
             var viewModel = new CombinedOfflineBattleViewModel
             {
                 AttackerCards = attacerCardsList,
                 DefenderCards = defenderCardsList,
+                UserInfo = user,
             };
 
             return this.View(viewModel);
@@ -165,10 +173,13 @@
             var defenderCards = this.offlineBattleService.GetDefenderCards<BattleCardViewModel>(attackerId);
             var defenderCardsList = new DefenderCardListViewModel { Cards = defenderCards };
 
+            var user = this.userService.GetUserInfo(attackerId);
+
             var viewModel = new CombinedOfflineBattleViewModel
             {
                 AttackerCards = attacerCardsList,
                 DefenderCards = defenderCardsList,
+                UserInfo = user,
             };
 
             return this.View(viewModel);

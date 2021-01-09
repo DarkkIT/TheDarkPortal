@@ -1,35 +1,8 @@
-﻿body {
-    height: 100%;
-    width: 100%;
-    background: #e9e9e9;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: #010b26;
-}
-
-
+﻿
 .intro {
     text-align: center;
 }
 
-ul {
-    list-style-type: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-p {
-    font-weight: 400;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
 
     a:hover {
         color: #6ABCEA;
@@ -62,16 +35,15 @@ a {
 
 .card-img {
     max-height: 190px;
+    border-radius: 2rem;
+    background: #ffffff;
+    box-shadow: 3px 16px 18px rgba(0, 0, 0, 0.4);
+    width: 80%;
+    max-width: 170px;
+    margin: 0.8em;
+    border-radius: 10px;
 }
 
-.card-header {
-    padding: 0;
-    margin: 0;
-    height: 100px;
-    width: 100%;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
 
 .cardModel {
     background-size: cover;
@@ -192,9 +164,9 @@ a {
     }
 }
 
-#selected {
+/*#selected {
     border-style: solid;
     border-width: 5px;
     border-color: orangered;
-}
+}*/
 

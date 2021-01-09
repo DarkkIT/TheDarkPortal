@@ -9,5 +9,7 @@
     public interface IUserService
     {
         UserCurrencyViewModel GetUserCurrencies(string userId);
+
+        UserViewModel GetUserInfo(string attackerId);
     }
 }

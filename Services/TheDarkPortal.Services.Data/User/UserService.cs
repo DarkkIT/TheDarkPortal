@@ -31,5 +31,18 @@
 
             return model;
         }
+
+        public UserViewModel GetUserInfo(string attackerId)
+        {
+            var user = this.userRepository.All().FirstOrDefault(x => x.Id == attackerId);
+
+            var userViewModel = new UserViewModel
+            {
+                Email = user.Email,
+                ArenaPoints = user.ArenaPoints,
+            };
+
+            return userViewModel;
+        }
     }
 }

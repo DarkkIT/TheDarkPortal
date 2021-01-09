@@ -220,7 +220,7 @@
 
         public async Task DefenderAttack(string attackerId)
         {
-            int milliseconds = 1000;
+            int milliseconds = 500;
             Thread.Sleep(milliseconds);
 
             await this.DefenderSelectCard(attackerId);
@@ -253,10 +253,16 @@
 
             if (defenderHealth <= 0)
             {
+                int milliseconds = 500;
+                Thread.Sleep(milliseconds);
+
                 return "attackerWin";
             }
             else if (attackerHealth <= 0)
             {
+                int milliseconds = 500;
+                Thread.Sleep(milliseconds);
+
                 return "defenderWin";
             }
             else

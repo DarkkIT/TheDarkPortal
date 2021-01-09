@@ -7,7 +7,7 @@
 
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/offlinebattle.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/offlinebattlecards.css" asp-append-version="true" />
 </head>
 
 <body>
@@ -23,9 +23,7 @@
                 <div class="row">
 
                     <div class="cardStats">
-                        <p><span>@card.Name</span></p>
                         <p>Tire  <span>@card.Tire</span></p>
-                        <p>Level <span>@card.Level</span></p>
                         <p>Attack <br /> <span>@card.Attack</span></p>
                         <p>Defense <br /> <span>@card.Defense</span></p>
                         <p>Health <br /> <span>@card.Health</span></p>
@@ -35,38 +33,117 @@
                     {
                         @if (card.IsSelected)
                         {
-                            <div id="selected" class="card-view">
-                                <div class="card-img card-header cardModel">
-                                    <img class="card-img" src="@card.ImagePath" alt="Image" />
-                                </div>
+                            <div class="flip-card-container" style="--hue: 220">
+                                <div class="flip-card">
 
+                                    <div id="selected" class="card-front">
+                                        <figure>
+                                            <div class="img-bg"></div>
+                                            <img src="@card.ImagePath" alt="Brohm Lake">
+                                        </figure>
+                                    </div>
+
+                                    <div id="selected" class="card-back">
+                                        <figure>
+                                            <div class="img-bg"></div>
+                                            <img src="@card.ImagePath" alt="Brohm Lake">
+                                        </figure>
+
+
+                                        <div class="design-container">
+                                            <span class="design design--1"></span>
+                                            <span class="design design--2"></span>
+                                            <span class="design design--3"></span>
+                                            <span class="design design--4"></span>
+                                            <span class="design design--5"></span>
+                                            <span class="design design--6"></span>
+                                            <span class="design design--7"></span>
+                                            <span class="design design--8"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         }
                         else
                         {
-                            <div class="card-view">
-                                <div class="card-img card-header cardModel">
-                                    <img class="card-img" src="@card.ImagePath" alt="Image" />
-                                </div>
+                            <div class="flip-card-container" style="--hue: 220">
+                                <div class="flip-card">
 
+                                    <div id="notSelected" class="card-front">
+                                        <figure>
+                                            <div class="img-bg"></div>
+                                            <img src="@card.ImagePath" alt="Brohm Lake">
+                                        </figure>
+                                    </div>
+
+                                    <div id="notSelected" class="card-back">
+                                        <figure>
+                                            <div class="img-bg"></div>
+                                            <img src="@card.ImagePath" alt="Brohm Lake">
+                                        </figure>
+
+                                        @if (!card.HaveTakenTurn && !card.IsDestroyed)
+                                        {
+                                            <a class="btn btn-link btn-sm" asp-controller="OfflineBattle" asp-action="AttackerSelectCard" asp-route-id="@card.CardId">Select</a>
+
+                                        }
+
+                                        <div class="design-container">
+                                            <span class="design design--1"></span>
+                                            <span class="design design--2"></span>
+                                            <span class="design design--3"></span>
+                                            <span class="design design--4"></span>
+                                            <span class="design design--5"></span>
+                                            <span class="design design--6"></span>
+                                            <span class="design design--7"></span>
+                                            <span class="design design--8"></span>
+                                        </div>
+                                    </div>
+
+                                </div>
                             </div>
                         }
                     }
                     else
                     {
-                        <div id="destroyedCard" class="card-view">
-                            <div class="card-img card-header cardModel">
-                                <img class="card-img" src="/images/DeadCard.jpg" alt="Image" />
-                            </div>
+                        <div class="flip-card-container" style="--hue: 220">
+                            <div class="flip-card">
 
+                                <div class="card-front">
+                                    <figure>
+                                        <div class="img-bg"></div>
+                                        <img src="/images//DeadCard.jpg" alt="Brohm Lake">
+                                    </figure>
+                                </div>
+
+                                <div class="card-back">
+                                    <figure>
+                                        <div class="img-bg"></div>
+                                        <img src="/images/DeadCard.jpg" alt="Brohm Lake">
+                                    </figure>
+
+
+                                    <div class="design-container">
+                                        <span class="design design--1"></span>
+                                        <span class="design design--2"></span>
+                                        <span class="design design--3"></span>
+                                        <span class="design design--4"></span>
+                                        <span class="design design--5"></span>
+                                        <span class="design design--6"></span>
+                                        <span class="design design--7"></span>
+                                        <span class="design design--8"></span>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
                     }
 
                     @if (!card.HaveTakenTurn && !card.IsDestroyed)
                     {
-                        <div class="mt-5">
-                            <a class="btn btn-link btn-sm" asp-controller="OfflineBattle" asp-action="AttackerSelectCard" asp-route-id="@card.CardId"><i class="far fa-check-circle fa-3x"></i></a>
-                        </div>
+                        <p class="mt-2" style="color: orangered;"><i class="fas fa-angle-double-right fa-2x"></i></p>
+
                     }
 
                 </div>
@@ -86,35 +163,84 @@
             {
                 <div class="row">
 
-                    @if (!card.IsDestroyed)
-                    {
-                        <div class="mt-5">
-                            <a class="btn btn-link btn-sm" asp-controller="OfflineBattle" asp-action="AttackDefenderCard" asp-route-id="@card.CardId"><i class="far fa-check-circle fa-3x"></i></a>
-                        </div>
-                    }
-
-
                     @if (card.IsDestroyed)
                     {
-                        <div id="destroyedCard" class="card-view">
-                            <div class="card-img card-header cardModel">
-                                <img class="card-img" src="/images/DeadCard.jpg" alt="Image" />
+
+                        <div class="flip-card-container" style="--hue: 220">
+                            <div class="flip-card">
+
+                                <div class="card-front">
+                                    <figure>
+                                        <div class="img-bg"></div>
+                                        <img src="/images/DeadCard.jpg" alt="Brohm Lake">
+                                    </figure>
+                                </div>
+
+                                <div class="card-back">
+                                    <figure>
+                                        <div class="img-bg"></div>
+                                        <img src="/images/DeadCard.jpg" alt="Brohm Lake">
+                                    </figure>
+
+
+                                    <div class="design-container">
+                                        <span class="design design--1"></span>
+                                        <span class="design design--2"></span>
+                                        <span class="design design--3"></span>
+                                        <span class="design design--4"></span>
+                                        <span class="design design--5"></span>
+                                        <span class="design design--6"></span>
+                                        <span class="design design--7"></span>
+                                        <span class="design design--8"></span>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
+
                     }
                     else
                     {
-                        <div class="card-view">
-                            <div class="card-img card-header cardModel">
-                                <img class="card-img" src="@card.ImagePath" alt="Image" />
+                        <div class="flip-card-container" style="--hue: 220">
+                            <div class="flip-card">
+
+                                <div class="card-front">
+                                    <figure>
+                                        <div class="img-bg"></div>
+                                        <img src="@card.ImagePath" alt="Brohm Lake">
+                                    </figure>
+                                </div>
+
+                                <div class="card-back">
+                                    <figure>
+                                        <div class="img-bg"></div>
+                                        <img src="@card.ImagePath" alt="Image">
+                                    </figure>
+
+                                    @if (!card.IsDestroyed && Model.AttackerCards.Cards.Any(x => x.IsSelected))
+                                    {
+                                        <a class="btn btn-link btn-sm" asp-controller="OfflineBattle" asp-action="AttackDefenderCard" asp-route-id="@card.CardId">Attack</a>
+
+                                    }
+
+                                    <div class="design-container">
+                                        <span class="design design--1"></span>
+                                        <span class="design design--2"></span>
+                                        <span class="design design--3"></span>
+                                        <span class="design design--4"></span>
+                                        <span class="design design--5"></span>
+                                        <span class="design design--6"></span>
+                                        <span class="design design--7"></span>
+                                        <span class="design design--8"></span>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     }
 
                     <div class="cardStats mr-3 text-right">
-                        <p><span>@card.Name</span></p>
                         <p>Tire  <span>@card.Tire</span></p>
-                        <p>Level <span>@card.Level</span></p>
                         <p>Attack <br /> <span>@card.Attack</span></p>
                         <p>Defense <br /> <span>@card.Defense</span></p>
                         <p>Health <br /> <span>@card.Health</span></p>

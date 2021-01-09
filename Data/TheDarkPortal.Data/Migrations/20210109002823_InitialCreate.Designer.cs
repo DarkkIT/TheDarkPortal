@@ -10,11 +10,7 @@ using TheDarkPortal.Data;
 namespace TheDarkPortal.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-<<<<<<< HEAD:Data/TheDarkPortal.Data/Migrations/20210108190117_InitialCreate.Designer.cs
-    [Migration("20210108190117_InitialCreate")]
-=======
-    [Migration("20210108090753_InitialCreate")]
->>>>>>> 46087538247b84d840280aa4eae51ad337e14b22:Data/TheDarkPortal.Data/Migrations/20210108090753_InitialCreate.Designer.cs
+    [Migration("20210109002823_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
