@@ -1,15 +1,189 @@
-﻿.scrolling-wrapper {
+﻿body {
+    height: 100%;
+    width: 100%;
+    background: hsl(220, 10%, 12%);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #010b26;
+}
+
+.scrolling-wrapper {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
-
-
 }
 
 #scrollable {
     height: 35rem;
     overflow-y: scroll;
 }
+
 #myCardModel :hover {
     transform: scale(1.02);
+}
+
+
+.intro {
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+    a:hover {
+        color: #6ABCEA;
+    }
+
+.container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    max-width: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.card-view {
+    background: #ffffff;
+    box-shadow: 3px 16px 18px rgba(0, 0, 0, 0.4);
+    width: 80%;
+    max-width: 215px;
+    margin: 0.8em;
+    border-radius: 10px;
+    /*display: inline-block;*/
+    /*transform: scale(0.7); */
+}
+
+.card-img {
+    max-height: 230px;
+}
+
+.card-header {
+    padding: 0;
+    margin: 0;
+    height: 230px;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cardModel {
+    background-size: cover;
+}
+
+.card-header-icon {
+    position: relative;
+}
+
+
+    .header-icon:hover {
+        background: rgba(0, 0, 0, 0.15);
+        font-size: 74px;
+        text-shadow: 0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        opacity: 1;
+    }
+
+.card-view:hover {
+    -webkit-transform: scale(1.03);
+    transform: scale(1.03);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card-stats-content {
+    padding: 5px 10px 8px 10px;
+    margin: 0;
+}
+
+.card-stats-content-head,
+.card-stats-info {
+    display: table;
+    width: 100%;
+}
+
+.card-stats-title {
+    font-size: 22px;
+    margin: 0;
+    display: table-cell;
+}
+
+.ratings {
+    width: 50px;
+    height: 10px;
+    background-size: contain;
+    display: table-cell;
+    text-align: right;
+    position: relative;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+    .ratings span {
+        color: #2196F3;
+    }
+
+.card-stats-info {
+    margin-top: 5px;
+}
+
+.stats-info {
+    display: table-cell;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.stats-info:first-of-type {
+    text-align: left;
+}
+
+.stats-info:last-of-type {
+    text-align: right;
+}
+
+.stats-info label {
+    display: block;
+    color: rgba(0, 0, 0, 0.5);
+    margin-bottom: .5em;
+    font-size: 9px;
+}
+
+.stats-info span {
+    font-weight: 700;
+    font-size: 11px;
+}
+
+@media Running time and (max-width: 500px) {
+    .card-view {
+        width: 95%;
+        max-width: 95%;
+        margin: 1em;
+        display: block;
+    }
+
+    .container {
+        padding: 0;
+        margin: 0;
+    }
 }
