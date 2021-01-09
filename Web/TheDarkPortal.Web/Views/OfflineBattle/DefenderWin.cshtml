@@ -25,7 +25,6 @@
 
                     <div class="cardStats">
                         <p>Tire  <span>@card.Tire</span></p>
-                        <p>Level <span>@card.Level</span></p>
                         <p>Attack <br /> <span>@card.Attack</span></p>
                         <p>Defense <br /> <span>@card.Defense</span></p>
                         <p>Health <br /> <span>@card.Health</span></p>
@@ -33,80 +32,40 @@
 
                     @if (!card.IsDestroyed)
                     {
-                        @if (card.IsSelected)
-                        {
 
-                            <div class="flip-card-container" style="--hue: 220">
-                                <div class="flip-card">
+                        <div class="flip-card-container" style="--hue: 220">
+                            <div class="flip-card">
 
-                                    <div class="card-front">
-                                        <figure>
-                                            <div class="img-bg"></div>
-                                            <img src="@card.ImagePath" alt="Brohm Lake">
-                                        </figure>
-                                    </div>
-
-                                    <div class="card-back">
-                                        <figure>
-                                            <div class="img-bg"></div>
-                                            <img src="@card.ImagePath" alt="Brohm Lake">
-                                        </figure>
-
-                                        @*<button>Attack</button>*@
-
-                                        <div class="design-container">
-                                            <span class="design design--1"></span>
-                                            <span class="design design--2"></span>
-                                            <span class="design design--3"></span>
-                                            <span class="design design--4"></span>
-                                            <span class="design design--5"></span>
-                                            <span class="design design--6"></span>
-                                            <span class="design design--7"></span>
-                                            <span class="design design--8"></span>
-                                        </div>
-                                    </div>
-
+                                <div class="card-front">
+                                    <figure>
+                                        <div class="img-bg"></div>
+                                        <img src="@card.ImagePath" alt="Brohm Lake">
+                                    </figure>
                                 </div>
-                            </div>
 
-                        }
-                        else
-                        {
+                                <div class="card-back">
+                                    <figure>
+                                        <div class="img-bg"></div>
+                                        <img src="@card.ImagePath" alt="Brohm Lake">
+                                    </figure>
 
-                            <div class="flip-card-container" style="--hue: 220">
-                                <div class="flip-card">
+                                    @*<button>Attack</button>*@
 
-                                    <div class="card-front">
-                                        <figure>
-                                            <div class="img-bg"></div>
-                                            <img src="@card.ImagePath" alt="Brohm Lake">
-                                        </figure>
+                                    <div class="design-container">
+                                        <span class="design design--1"></span>
+                                        <span class="design design--2"></span>
+                                        <span class="design design--3"></span>
+                                        <span class="design design--4"></span>
+                                        <span class="design design--5"></span>
+                                        <span class="design design--6"></span>
+                                        <span class="design design--7"></span>
+                                        <span class="design design--8"></span>
                                     </div>
-
-                                    <div class="card-back">
-                                        <figure>
-                                            <div class="img-bg"></div>
-                                            <img src="@card.ImagePath" alt="Brohm Lake">
-                                        </figure>
-
-                                        @*<button>Attack</button>*@
-
-                                        <div class="design-container">
-                                            <span class="design design--1"></span>
-                                            <span class="design design--2"></span>
-                                            <span class="design design--3"></span>
-                                            <span class="design design--4"></span>
-                                            <span class="design design--5"></span>
-                                            <span class="design design--6"></span>
-                                            <span class="design design--7"></span>
-                                            <span class="design design--8"></span>
-                                        </div>
-                                    </div>
-
                                 </div>
-                            </div>
 
-                        }
+                            </div>
+                        </div>
+
                     }
                     else
                     {
@@ -117,7 +76,7 @@
                                 <div class="card-front">
                                     <figure>
                                         <div class="img-bg"></div>
-                                        <img src="@card.ImagePath" alt="Brohm Lake">
+                                        <img src="~/images/DeadCard.jpg" alt="Brohm Lake">
 
                                     </figure>
                                 </div>
@@ -125,7 +84,7 @@
                                 <div class="card-back">
                                     <figure>
                                         <div class="img-bg"></div>
-                                        <img src="@card.ImagePath" alt="Brohm Lake">
+                                        <img src="~/images/DeadCard.jpg" alt="Brohm Lake">
                                     </figure>
 
                                     @*<button>Attack</button>*@
@@ -186,99 +145,98 @@
 
         @*----------------Defender---------------*@
 
-    <div class="col col-md-3 border border-dark m-1 d-flex align-items-end flex-column">
-        @foreach (var card in Model.DefenderCards.Cards)
-        {
+        <div class="col col-md-3 border border-dark m-1 d-flex align-items-end flex-column">
+            @foreach (var card in Model.DefenderCards.Cards)
+            {
 
-            <div class="row">
+                <div class="row">
 
 
-                @if (card.IsDestroyed)
-                {
-                    <div class="flip-card-container" style="--hue: 220">
-                        <div class="flip-card">
+                    @if (card.IsDestroyed)
+                    {
+                        <div class="flip-card-container" style="--hue: 220">
+                            <div class="flip-card">
 
-                            <div class="card-front">
-                                <figure>
-                                    <div class="img-bg"></div>
-                                    <img src="~/images/DeadCard.jpg" alt="Brohm Lake">
+                                <div class="card-front">
+                                    <figure>
+                                        <div class="img-bg"></div>
+                                        <img src="~/images/DeadCard.jpg" alt="Brohm Lake">
 
-                                </figure>
-                            </div>
-
-                            <div class="card-back">
-                                <figure>
-                                    <div class="img-bg"></div>
-                                    <img src="~/images/DeadCard.jpg" alt="Brohm Lake">
-                                </figure>
-
-                                @*<button>Attack</button>*@
-
-                                <div class="design-container">
-                                    <span class="design design--1"></span>
-                                    <span class="design design--2"></span>
-                                    <span class="design design--3"></span>
-                                    <span class="design design--4"></span>
-                                    <span class="design design--5"></span>
-                                    <span class="design design--6"></span>
-                                    <span class="design design--7"></span>
-                                    <span class="design design--8"></span>
+                                    </figure>
                                 </div>
-                            </div>
 
-                        </div>
-                    </div>
-                }
-                else
-                {
-                    <div class="flip-card-container" style="--hue: 220">
-                        <div class="flip-card">
+                                <div class="card-back">
+                                    <figure>
+                                        <div class="img-bg"></div>
+                                        <img src="~/images/DeadCard.jpg" alt="Brohm Lake">
+                                    </figure>
 
-                            <div class="card-front">
-                                <figure>
-                                    <div class="img-bg"></div>
-                                    <img src="@card.ImagePath" alt="Brohm Lake">
+                                    @*<button>Attack</button>*@
 
-                                </figure>
-                            </div>
-
-                            <div class="card-back">
-                                <figure>
-                                    <div class="img-bg"></div>
-                                    <img src="@card.ImagePath" alt="Brohm Lake">
-                                </figure>
-
-                                @*<button>Attack</button>*@
-
-                                <div class="design-container">
-                                    <span class="design design--1"></span>
-                                    <span class="design design--2"></span>
-                                    <span class="design design--3"></span>
-                                    <span class="design design--4"></span>
-                                    <span class="design design--5"></span>
-                                    <span class="design design--6"></span>
-                                    <span class="design design--7"></span>
-                                    <span class="design design--8"></span>
+                                    <div class="design-container">
+                                        <span class="design design--1"></span>
+                                        <span class="design design--2"></span>
+                                        <span class="design design--3"></span>
+                                        <span class="design design--4"></span>
+                                        <span class="design design--5"></span>
+                                        <span class="design design--6"></span>
+                                        <span class="design design--7"></span>
+                                        <span class="design design--8"></span>
+                                    </div>
                                 </div>
+
                             </div>
-
                         </div>
-                    </div>
-                }
+                    }
+                    else
+                    {
+                        <div class="flip-card-container" style="--hue: 220">
+                            <div class="flip-card">
 
-                <div class="cardStats mr-3 text-right">
-                    <p>Tire  <span>@card.Tire</span></p>
-                    <p>Level <span>@card.Level</span></p>
-                    <p>Attack <br /> <span>@card.Attack</span></p>
-                    <p>Defense <br /> <span>@card.Defense</span></p>
-                    <p>Health <br /> <span>@card.Health</span></p>
+                                <div class="card-front">
+                                    <figure>
+                                        <div class="img-bg"></div>
+                                        <img src="@card.ImagePath" alt="Brohm Lake">
+
+                                    </figure>
+                                </div>
+
+                                <div class="card-back">
+                                    <figure>
+                                        <div class="img-bg"></div>
+                                        <img src="@card.ImagePath" alt="Brohm Lake">
+                                    </figure>
+
+                                    @*<button>Attack</button>*@
+
+                                    <div class="design-container">
+                                        <span class="design design--1"></span>
+                                        <span class="design design--2"></span>
+                                        <span class="design design--3"></span>
+                                        <span class="design design--4"></span>
+                                        <span class="design design--5"></span>
+                                        <span class="design design--6"></span>
+                                        <span class="design design--7"></span>
+                                        <span class="design design--8"></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    }
+
+                    <div class="cardStats mr-3 text-right">
+                        <p>Tire  <span>@card.Tire</span></p>
+                        <p>Attack <br /> <span>@card.Attack</span></p>
+                        <p>Defense <br /> <span>@card.Defense</span></p>
+                        <p>Health <br /> <span>@card.Health</span></p>
+                    </div>
+
                 </div>
 
-            </div>
+            }
 
-        }
-
-    </div>
+        </div>
 
     </div>
 </body>
