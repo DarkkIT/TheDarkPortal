@@ -50,12 +50,13 @@
             var battleRoom = this.battleRoomRepository.All().Where(x => x.Id == battleRoomId).FirstOrDefault();
             battleRoom.IsAttackerTurn = !battleRoom.IsAttackerTurn;
 
-            defendingCard.Health -= attackingCard.Attack;
-            attackingCard.Health -= defendingCard.Defense;
+            defendingCard.CurrentHealth -= attackingCard.Attack;
 
-            if (attackingCard.Health <= 0)
+            if (defendingCard.CurrentHealth <= 0)
             {
-                attackingCard.IsDestroyed = true;
+
+                defendingCard.IsDestroyed = true;
+                defendingCard.CurrentHealth = 0;
             }
 
             attackingCard.HaveTakenTurn = true;
@@ -97,6 +98,7 @@
                     Defense = x.BattleCard.Defense,
                     Health = x.BattleCard.Health,
                     Element = x.BattleCard.Element,
+                    CurrentHealth = x.BattleCard.CurrentHealth,
                     IsSelected = x.BattleCard.IsSelected,
                     IsAttacker = x.BattleCard.IsAttacker,
                     HaveTakenTurn = x.BattleCard.HaveTakenTurn,
@@ -177,6 +179,11 @@
 
         public async Task SelectCard(int cardId)
         {
+            var selectedCard = this.battleCardRepository.All().FirstOrDefault(x => x.IsSelected);
+            if (selectedCard != null)
+            {
+                selectedCard.IsSelected = false;
+            }
             var battleCard = this.battleCardRepository.All().FirstOrDefault(x => x.Id == cardId);
             battleCard.IsSelected = true;
             await this.battleCardRepository.SaveChangesAsync();
@@ -202,12 +209,16 @@
                 var tempBattleCard = new BattleCard
                 {
                     Health = card.Health,
+                    CurrentHealth = card.Health,
                     Defense = card.Defense,
+                    CurrentDefense = card.Defense,
                     Attack = card.Attack,
+                    CurrentAttack = card.Attack,
                     Element = card.Element,
                     Level = card.Level,
                     Name = card.Name,
                     Tire = card.Tire,
+                    Power = card.Power,
                 };
 
                 var userBattleCard = new UserBattleCard { User = attacker, BattleCard = tempBattleCard };
@@ -225,12 +236,16 @@
                 var tempBattleCard = new BattleCard
                 {
                     Health = card.Health,
+                    CurrentHealth = card.Health,
                     Defense = card.Defense,
+                    CurrentDefense = card.Defense,
                     Attack = card.Attack,
+                    CurrentAttack = card.Attack,
                     Element = card.Element,
                     Level = card.Level,
                     Name = card.Name,
                     Tire = card.Tire,
+                    Power = card.Power,
                 };
 
                 var userBattleCard = new UserBattleCard { User = defender, BattleCard = tempBattleCard };
