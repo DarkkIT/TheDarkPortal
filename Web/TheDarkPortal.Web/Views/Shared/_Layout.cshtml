@@ -7,6 +7,9 @@
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <header>
@@ -44,14 +47,14 @@
         </nav>
     </header>
 
-    <div class="m-1">
+    <div class="">
         <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-1 mt-1">
+        <main role="main" class="pb-1">
             @this.RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" style="height: 60px;">
 
         <div class="row justify-content-around">
             <div>
