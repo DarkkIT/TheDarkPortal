@@ -7,34 +7,36 @@
 
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/carddetails.css" asp-append-version="true" />
 </head>
 
 
-<div class="row col-md-6 offset-3">
-    <div class="card col-md-6 offset-3" style="width: 18rem;">
+<div id="main" class="row col-md-6 offset-3 mt-5">
 
-        <img class="card-img-top" src="@Model.ImagePath" alt="Card image cap">
-
-        <div class="card-body">
-            <h3 class="card-title">@Model.Name</h3>
-            <div class="row justify-content-around mb-3" style="font-size: 20px;">
-                <p><i class="fas fa-angle-double-right"></i>@Model.Attack</p>
-                <p><i class="fas fa-shield-alt"></i>@Model.Defense</p>
-                <p><i class="fas fa-heartbeat"></i>@Model.Health</p>
-            </div>
-            <div class="row justify-content-around" style="font-size: 20px; font-weight: bold;">
-                <p>Tire @Model.Tire</p>
-                <p>Level @Model.Level</p>
-            </div>
-            <hr />
-            <div class="row justify-content-around">
-                <p>Tire @Model.Tire</p>
-                <p>Level Price @Model.LevelPrice</p>
-            </div>
-            <div class=" row justify-content-around">
-                <a class="btn btn-primary" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@Model.Id">Delete</a>
-                <a class="btn btn-primary" asp-controller="Cards" asp-action="LevelUp" asp-route-id="@Model.Id">Level Up</a>
-            </div>
+    <div class="statistics col col-md-3">
+        <div class="stats">
+            <p class="row justify-content-between">Name <span>@Model.Name</span></p>
+            <p class="row justify-content-between">Element <span>@Model.Element</span></p>
+            <p class="row justify-content-between">Tire <span>@Model.Tire</span></p>
+            <p class="row justify-content-between">Level <span>@Model.Level</span></p>
+            <p class="row justify-content-between">Attack <span>@Model.Attack</span></p>
+            <p class="row justify-content-between">Defense <span>@Model.Defense</span></p>
+            <p class="row justify-content-between">Health <span>@Model.Health</span></p>
+            <p class="row justify-content-between">Level Price <span>@Model.LevelPrice</span></p>
         </div>
     </div>
+
+    <div class="img col-md-6" style="width: 18rem;">
+
+        <img class="card-img" src="@Model.ImagePath" alt="Card image cap">
+
+    </div>
+
+    <div class="buttons col col-md-3">
+
+        <a class="myButton" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@Model.Id">Delete</a>
+        <a class="myButton" asp-controller="Cards" asp-action="LevelUp" asp-route-id="@Model.Id">Level Up</a>
+
+    </div>
+
 </div>

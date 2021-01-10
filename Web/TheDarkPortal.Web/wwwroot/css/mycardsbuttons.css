@@ -1,0 +1,93 @@
+﻿
+
+.newButton {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: #171515;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #666;
+    transition: .5s;
+    top: -40px;
+    left: 130px;
+}
+
+    .newButtonAll:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: #d35400;
+        transition: .5s;
+        transform: scale(.9);
+        z-index: -1;
+    }
+
+.newButtonAll:hover:before {
+    transform: scale(1.2);
+    box-shadow: 0 0 15px #d35400;
+    filter: blur(3px);
+}
+
+.newButtonAll:hover {
+    color: #ffa502;
+    box-shadow: 0 0 15px #d35400;
+    text-shadow: 0 0 15px #d35400;
+}
+
+
+.newButtonTwo {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: #171515;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #666;
+    transition: .5s;
+    top: -80px;
+    left: 0px;
+}
+
+ 
+.newButtonFuse {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: #171515;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #666;
+    transition: .5s;
+    top: -40px;
+    left: 0px;
+}
+
+.newButtonBattleSet {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background: #171515;
+    border-radius: 50%;
+    font-size: 30px;
+    color: #666;
+    transition: .5s;
+    top: -40px;
+    left: 0px;
+}

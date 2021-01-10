@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/mycards.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/mycardsbuttons.css" asp-append-version="true" />
 </head>
 
 
@@ -27,19 +28,46 @@
 
             @foreach (var card in Model.Cards.Cards)
             {
-                <div class="mt-3">
+                <div class="mt-0">
+
                     <a class="text-dark" asp-controller="Cards" asp-action="CardDetails" asp-route-id="@card.Id">
+
                         <div class="card-view_mycards">
+
                             <div class="card-img card-header cardModel">
+
                                 <img class="card-img" src="@card.ImagePath" alt="Image" />
+
+                                <div class="">
+                                    <a class="newButton newButtonAll" asp-controller="Cards" asp-action="ToFuse" asp-route-id="@card.Id"><i class="fas fa-angle-double-right"></i></a>
+                                </div>
+
+                                @if (card.IsBattleSetCard)
+                                {
+                                    <a class="newButtonTwo newButtonAll"><i class="fas fa-shield-alt"></i></a>
+                                }
+                                else
+                                {
+                                    @if (Model.Cards.Cards.Where(x => x.IsBattleSetCard == true).Count() >= 4)
+                                    {
+                                        <a class="newButtonTwo newButtonAll"><i class="fas fa-minus"></i></a>
+                                    }
+                                    else
+                                    {
+                                        <a class="newButtonTwo newButtonAll" asp-controller="Cards" asp-action="AddCardToBattleSet" asp-route-id="@card.Id"><i class="fas fa-angle-double-down"></i></a>
+
+                                    }
+                                }
+
                             </div>
 
                             <div class="card-stats-content">
+
                                 <div class="card-stats-content-head">
-                                    <a href="">
-                                        <h3 class="card-stats-title">@card.Name</h3>
-                                    </a>
+
+                                    <h3 class="card-stats-title">@card.Name</h3>
                                     <div class="ratings"><span><i class="fas fa-bolt"></i></span>@card.Power</div>
+
                                 </div>
                                 <div class="card-stats-info">
                                     <div class="stats-info">
@@ -58,35 +86,7 @@
                             </div>
                         </div>
                     </a>
-                    <div>
-                        <div class="row justify-content-between ml-4 mr-5">
 
-                            <a class="btn btn-primary btn-sm" asp-controller="Cards" asp-action="ToFuse" asp-route-id="@card.Id">To Fuse</a>
-
-                            <a class="btn btn-primary btn-sm" asp-controller="Cards" asp-action="DeleteCard" asp-route-id="@card.Id">Delete</a>
-
-                        </div>
-                        <div class="ml-5">
-                            @if (card.IsBattleSetCard)
-                            {
-                                <a class="btn btn-primary btn-sm disabled" asp-controller="Cards" asp-action="AddCardToBattleSet" asp-route-id="@card.Id">Has been added</a>
-                            }
-                            else
-                            {
-                                @if (Model.Cards.Cards.Where(x => x.IsBattleSetCard == true).Count() >= 4)
-                                {
-                                    <a class="btn btn-primary btn-sm disabled" asp-controller="Cards" asp-action="AddCardToBattleSet" asp-route-id="@card.Id">Add To Battle Set</a>
-                                }
-                                else
-                                {
-                                    <a class="btn btn-primary btn-sm" asp-controller="Cards" asp-action="AddCardToBattleSet" asp-route-id="@card.Id">Add To Battle Set</a>
-
-                                }
-                            }
-
-                        </div>
-
-                    </div>
 
                 </div>
             }
@@ -111,6 +111,9 @@
                         <div class="card-view_mycards">
                             <div class="card-img card-header cardModel">
                                 <img class="card-img" src="@fuseCard.ImagePath" alt="Image" />
+
+                                <a class="newButtonFuse newButtonAll" asp-controller="Cards" asp-action="RemoveFromFuse" asp-route-id="@fuseCard.Id"><i class="fas fa-angle-double-left"></i></a>
+
                             </div>
 
                             <div class="card-stats-content">
@@ -137,7 +140,7 @@
                             </div>
                         </div>
 
-                        <a class="btn btn-primary ml-5" asp-controller="Cards" asp-action="RemoveFromFuse" asp-route-id="@fuseCard.Id">Remove</a>
+                        
 
 
                     </div>
@@ -182,6 +185,9 @@
                     <div class="card-view_mycards">
                         <div class="card-img card-header cardModel">
                             <img class="card-img" src="@card.ImagePath" alt="Image" />
+
+                            <a class="newButtonBattleSet newButtonAll" asp-controller="Cards" asp-action="RemoveCardFromBattleSet" asp-route-id="@card.Id"><i class="fas fa-angle-double-up"></i></a>
+
                         </div>
 
                         <div class="card-stats-content">
@@ -208,7 +214,7 @@
                         </div>
                     </div>
 
-                    <a class="btn btn-primary btn-sm ml-3" asp-controller="Cards" asp-action="RemoveCardFromBattleSet" asp-route-id="@card.Id">Remove from Battle Set</a>
+                    
 
                 </div>
             }
