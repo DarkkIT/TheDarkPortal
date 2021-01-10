@@ -4,6 +4,7 @@ namespace TheDarkPortal.Data.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
+
     using Microsoft.AspNetCore.Identity;
     using TheDarkPortal.Data.Common.Models;
     using TheDarkPortal.Data.Models.Cards;
@@ -39,6 +40,8 @@ namespace TheDarkPortal.Data.Models
         public int Gold { get; set; }
 
         public int Platinum { get; set; }
+
+        public bool IsMobe { get; set; }
 
         // Deletable entity
         public bool IsDeleted { get; set; }
