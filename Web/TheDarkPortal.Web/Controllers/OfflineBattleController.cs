@@ -184,5 +184,12 @@
 
             return this.View(viewModel);
         }
+
+        public IActionResult StoryBattle(string enemyName)
+        {
+            var defenderId = this.offlineBattleService.GetEnemyId(enemyName);
+
+            return this.RedirectToAction(nameof(this.NewOfflineBattleRoom), new { defenderId });
+        }
     }
 }

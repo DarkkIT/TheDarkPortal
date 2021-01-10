@@ -34,5 +34,7 @@
         Task IncreaseArenaPoints(string attackerId);
 
         Task DecreaseArenaPoints(string attackerId);
+
+        string GetEnemyId(string enemyName);
     }
 }

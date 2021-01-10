@@ -29,7 +29,7 @@
 
         public IEnumerable<UserViewModel> GetAllArenaUsers<T>()
         {
-            var arenaUsers = this.userRepository.All().Where(x => x.ArenaPoints >= 0).To<UserViewModel>().OrderByDescending(x => x.ArenaPoints).ToList();
+            var arenaUsers = this.userRepository.All().Where(x => x.ArenaPoints >= 0 && x.IsMobe == false).To<UserViewModel>().OrderByDescending(x => x.ArenaPoints).ToList();
 
             foreach (var arenaUser in arenaUsers)
             {

@@ -75,6 +75,17 @@ a {
     /*transform: scale(0.7); */
 }
 
+.card-view_mycards {
+    background: #ffffff;
+    box-shadow: 3px 16px 18px rgba(0, 0, 0, 0.4);
+    width: 80%;
+    max-width: 190px;
+    margin: 0.8em;
+    border-radius: 10px;
+    /*display: inline-block;*/
+    /*transform: scale(0.7); */
+}
+
 .card-img {
     max-height: 230px;
 }

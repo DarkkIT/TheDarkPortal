@@ -1,0 +1,190 @@
+﻿body {
+    max-height: 1080px;
+}
+
+#main {
+    max-height: 1080px;
+    width: 1920px;
+    height: 1080px;
+    /*border: 2px solid black;*/
+    background: url(/images/Home/MapBattleMarkers.jpg);
+    background-repeat: no-repeat;
+    background-size: contain, cover;
+    position: relative;
+}
+
+#level1 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 1675px;
+    top: 700px;
+    height: 80px;
+    width: 80px;
+}
+
+#level2 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 1505px;
+    top: 530px;
+    height: 80px;
+    width: 80px;
+}
+
+#level3 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 1405px;
+    top: 480px;
+    height: 80px;
+    width: 80px;
+}
+
+#level4 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 1360px;
+    top: 645px;
+    height: 80px;
+    width: 80px;
+}
+
+#level5 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 1260px;
+    top: 790px;
+    height: 80px;
+    width: 80px;
+}
+
+#level6 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 1020px;
+    top: 540px;
+    height: 120px;
+    width: 120px;
+}
+
+#level7 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 1175px;
+    top: 400px;
+    height: 80px;
+    width: 80px;
+}
+
+#level8 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 645px;
+    top: 365px;
+    height: 80px;
+    width: 80px;
+}
+
+#level9 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 790px;
+    top: 475px;
+    height: 80px;
+    width: 80px;
+}
+
+#level10 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 820px;
+    top: 645px;
+    height: 80px;
+    width: 80px;
+}
+
+#level11 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 515px;
+    top: 635px;
+    height: 120px;
+    width: 120px;
+}
+
+#level12 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 315px;
+    top: 670px;
+    height: 80px;
+    width: 80px;
+}
+
+#level13 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 360px;
+    top: 385px;
+    height: 80px;
+    width: 80px;
+}
+
+#level14 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 135px;
+    top: 150px;
+    height: 180px;
+    width: 250px;
+}
+
+#level15 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 1515px;
+    top: 315px;
+    height: 80px;
+    width: 80px;
+}
+
+#level16 {
+    z-index: 2;
+    /*background: url(/images/Home/ArenaButton.jpg);*/
+    border: 2px solid red;
+    position: absolute;
+    right: 1465px;
+    top: 175px;
+    height: 80px;
+    width: 80px;
+}

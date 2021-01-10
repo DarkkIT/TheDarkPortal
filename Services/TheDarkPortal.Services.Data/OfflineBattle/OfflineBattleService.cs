@@ -301,5 +301,14 @@
 
             await this.userRepository.SaveChangesAsync();
         }
+
+        public string GetEnemyId(string enemyName)
+        {
+            var enemy = this.userRepository.All().FirstOrDefault(x => x.Email == enemyName);
+
+            var enemyId = enemy.Id;
+
+            return enemyId;
+        }
     }
 }
