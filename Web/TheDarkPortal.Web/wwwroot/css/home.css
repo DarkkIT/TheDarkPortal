@@ -2,6 +2,10 @@
     max-height: 1080px;
 }
 
+.level :hover{
+    transform: scale(1.08);
+}
+
 #main {
     max-height: 1080px;
     width: 1920px;

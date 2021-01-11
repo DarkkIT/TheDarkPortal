@@ -75,6 +75,10 @@ a {
     /*transform: scale(0.7); */
 }
 
+.mainCard {
+    width: 190px;
+}
+
 .card-view_mycards {
     background: #ffffff;
     box-shadow: 3px 16px 18px rgba(0, 0, 0, 0.4);
@@ -198,3 +202,4 @@ a {
         margin: 0;
     }
 }
+

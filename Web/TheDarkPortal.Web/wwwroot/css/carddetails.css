@@ -1,1 +1,63 @@
 ﻿
+body {
+    height: 100%;
+    width: 100%;
+    background: hsl(220, 10%, 12%);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #010b26;
+    margin-top: 100px;
+}
+
+.statistics {
+    border: 5px inset orange;
+}
+
+    .statistics p {
+        color: orangered;
+        font-size: 20px;
+    }
+
+.stats {
+    margin-top: 75px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.buttons {
+    border: 5px outset orange;
+}
+
+    .buttons a {
+        margin-top: 75px;
+        margin-left: 0px;
+        padding: 14px 50px;
+        width: 190px;
+    }
+
+.myButton {
+    box-shadow: 0px 10px 14px -7px #276873;
+    background: linear-gradient(to bottom, #222729 5%, #e8442e 100%);
+    background-color: #222729;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 13px 32px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #3d768a;
+}
+
+    .myButton:hover {
+        background: linear-gradient(to bottom, #e8442e 5%, #222729 100%);
+        background-color: #e8442e;
+    }
+
+    .myButton:active {
+        position: relative;
+        top: 1px;
+    }
