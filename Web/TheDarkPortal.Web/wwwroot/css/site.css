@@ -88,3 +88,10 @@ body {
 .navbar.navbar-inverse .navbar-header {
     float: none;
 }
+
+li a{
+    margin: 5px;
+}
+li btn-group {
+    margin:5px;
+}
