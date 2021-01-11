@@ -41,7 +41,11 @@ namespace TheDarkPortal.Data.Models
 
         public int Platinum { get; set; }
 
-        public bool IsMobe { get; set; }
+        public int ArenaWins { get; set; }
+
+        public int ArenaLosses { get; set; }
+
+        public bool IsMob { get; set; }
 
         // Deletable entity
         public bool IsDeleted { get; set; }

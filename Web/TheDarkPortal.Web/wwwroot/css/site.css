@@ -95,3 +95,8 @@ li a{
 li btn-group {
     margin:5px;
 }
+
+nav #mainNav{
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
