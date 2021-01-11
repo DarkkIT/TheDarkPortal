@@ -46,49 +46,49 @@
                 {
                     result = userManager.CreateAsync(appUser, "darkk334582").Result;
                     appUser.PhoneNumber = "0888654321";
-                    appUser.IsMobe = false;
+                    appUser.IsMob = false;
                 }
                 else if (username == "darkk33@yahoo.com")
                 {
                     result = userManager.CreateAsync(appUser, "darkk33").Result;
                     appUser.PhoneNumber = "0888123456";
-                    appUser.IsMobe = false;
+                    appUser.IsMob = false;
                 }
                 else if (username == "darkk44@yahoo.com")
                 {
                     result = userManager.CreateAsync(appUser, "darkk44").Result;
                     appUser.PhoneNumber = "0888123456";
-                    appUser.IsMobe = false;
+                    appUser.IsMob = false;
                 }
                 else if (username == "enemy001@thedarkportal.com")
                 {
                     result = userManager.CreateAsync(appUser, "enemy001").Result;
                     appUser.PhoneNumber = "0888123456";
-                    appUser.IsMobe = true;
+                    appUser.IsMob = true;
                 }
                 else if (username == "enemy002@thedarkportal.com")
                 {
                     result = userManager.CreateAsync(appUser, "enemy002").Result;
                     appUser.PhoneNumber = "0888123456";
-                    appUser.IsMobe = true;
+                    appUser.IsMob = true;
                 }
                 else if (username == "enemy003@thedarkportal.com")
                 {
                     result = userManager.CreateAsync(appUser, "enemy003").Result;
                     appUser.PhoneNumber = "0888123456";
-                    appUser.IsMobe = true;
+                    appUser.IsMob = true;
                 }
                 else if (username == "enemy004@thedarkportal.com")
                 {
                     result = userManager.CreateAsync(appUser, "enemy004").Result;
                     appUser.PhoneNumber = "0888123456";
-                    appUser.IsMobe = true;
+                    appUser.IsMob = true;
                 }
                 else if (username == "enemy005@thedarkportal.com")
                 {
                     result = userManager.CreateAsync(appUser, "enemy005").Result;
                     appUser.PhoneNumber = "0888123456";
-                    appUser.IsMobe = true;
+                    appUser.IsMob = true;
                 }
 
                 if (result.Succeeded)
