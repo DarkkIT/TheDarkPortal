@@ -46,4 +46,8 @@
     <ProjectReference Include="..\TheDarkPortal.Web.Infrastructure\TheDarkPortal.Web.Infrastructure.csproj" />
     <ProjectReference Include="..\TheDarkPortal.Web.ViewModels\TheDarkPortal.Web.ViewModels.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\" />
+  </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@ using TheDarkPortal.Data;
 namespace TheDarkPortal.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210110191259_InitialCreate")]
+    [Migration("20210111193443_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -174,7 +174,13 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<int>("ArenaLosses")
+                        .HasColumnType("int");
+
                     b.Property<int>("ArenaPoints")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ArenaWins")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -206,7 +212,7 @@ namespace TheDarkPortal.Data.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("IsMobe")
+                    b.Property<bool>("IsMob")
                         .HasColumnType("bit");
 
                     b.Property<bool>("LockoutEnabled")
