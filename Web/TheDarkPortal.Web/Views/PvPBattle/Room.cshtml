@@ -4,6 +4,16 @@
     this.ViewData["Title"] = "Home";
 }
 
+@if (User.Identity.IsAuthenticated)
+{
+
+    @if (Model.Currencies != null)
+    {
+        <div>
+            <partial name="_UserCurrencyPartial" model="@Model.Currencies" />
+        </div>
+    }
+}
 
 <div class="row justify-content-around">
 
@@ -100,7 +110,7 @@
                     }
                     else
                     {
-                        @if ( this.Model.BattleRoom.isAttackerTurn == false && Model.BattleRoom.DefenderId == Model.CurrentUserId && card.CurrentHealth > 0)
+                        @if (this.Model.BattleRoom.isAttackerTurn == false && Model.BattleRoom.DefenderId == Model.CurrentUserId && card.CurrentHealth > 0)
                         {
                             @if (card.IsSelected == true)
                             {
@@ -114,7 +124,7 @@
 
 
                     }
-                    
+
 
                 </div>
             </div>
