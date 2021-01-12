@@ -9,13 +9,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@this.ViewData["Title"] - @GlobalConstants.SystemName</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    <link href="~/css/lazy.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/headerbuttons.css" asp-append-version="true" />
     <link href="~/css/home.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <nav id="mainNav" class="navbar navbar-inverse navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3 fixed-top" style=" margin-bottom: 0px; padding-bottom:0px">
+    <header id="header">
+        <nav class="navbar navbar-inverse navbar-expand-sm mb-3 fixed-top" style=" margin-bottom: 0px; padding-bottom:0px">
             <div class="container-fluid center">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -23,41 +25,32 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
 
-                    <ul class="navbar-nav flex-grow-1 justify-content-center">
-                        <li class="nav-item">
-                            <a class="btn btn-primary" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <ul class="navbar-nav flex-grow-1 row justify-content-center">
 
-                            @*<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>*@
+                        <li class="nav-item">
+                            <a class="btn btn-secondary" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="btn btn-primary" asp-area="" asp-controller="Cards" asp-action="Index">Store</a>
-
-                            @*<a class="nav-link text-dark" asp-area="" asp-controller="Cards" asp-action="Index">Store</a>*@
+                            <a class="btn btn-secondary" asp-area="" asp-controller="Cards" asp-action="Index">Store</a>
                         </li>
+
                         <li class="nav-item">
-
-                            <a class="btn btn-primary" asp-area="" asp-controller="Cards" asp-action="MyCards">My Cards</a>
-
-                            @*<a class="nav-link text-dark" asp-area="" asp-controller="Cards" asp-action="MyCards">My Cards</a>*@
-
+                            <a class="btn btn-secondary" asp-area="" asp-controller="Cards" asp-action="MyCards">My Cards</a>
                         </li>
+
                         @*----------Site Logo----------*@
-                        <div class="navbar-header">
 
-                        </div>
-                        <a class="navbar-brand m: 5px" asp-area="" asp-controller="Home" asp-action="Index">@*@GlobalConstants.SystemName*@
-                                <img style="height: 60px" src="~/images/ef4434ba-d738-4d07-8179-cb9f65281dfb_200x200.png" />
-                             </a>
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                            <h1 class="brand">@GlobalConstants.SystemName</h1>
+                        </a>
+
                         <li class="nav-item">
-                            <a class="btn btn-primary"asp-area="" asp-controller="Arena" asp-action="Index">Arena</a>
-
-                            @*<a class="nav-link text-dark" asp-area="" asp-controller="Arena" asp-action="Index">Arena</a>*@
+                            <a class="btn btn-secondary" asp-area="" asp-controller="Arena" asp-action="Index">Arena</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="btn btn-primary" asp-area="" asp-controller="PvPBattle" asp-action="Room" asp-route-Id="8">PvP Battle</a>
 
-                            @*<a class="nav-link text-dark" asp-area="" asp-controller="PvPBattle" asp-action="Room" asp-route-Id="8">PvP Battle</a>*@
+                        <li class="nav-item">
+                            <a class="btn btn-secondary" asp-area="" asp-controller="PvPBattle" asp-action="Room" asp-route-Id="8">PvP Battle</a>
                         </li>
 
                         @*<li class="nav-item">
@@ -100,7 +93,7 @@
 
     <div class="">
         <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-1">
+        <main role="main" class="pb-1 pt-4">
             @this.RenderBody()
         </main>
     </div>

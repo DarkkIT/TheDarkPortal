@@ -1,0 +1,24 @@
+﻿
+.brand {
+    font-family: 'Alfa Slab One', cursive;
+    font-weight: 400;
+    color: black;
+}
+
+.nav-item a {
+    margin-top: 0px;
+    margin-left: 10px;
+    width: 65px;
+    height: 65px;
+}
+
+.navbar-brand {
+    margin: 0px;
+}
+
+#header {
+    background: none;
+    box-shadow: none;
+    border-bottom: none;
+    background-color: transparent;
+}

@@ -30,7 +30,7 @@
             {
                 <div class="mt-0">
 
-                    <a class="text-dark" asp-controller="Cards" asp-action="CardDetails" asp-route-id="@card.Id">
+                    <a id="myCardModel" class="text-dark" asp-controller="Cards" asp-action="CardDetails" asp-route-id="@card.Id">
 
                         <div class="card-view_mycards">
 
@@ -100,9 +100,9 @@
 
     <div class="col-md-4 justify-content-between">
 
-        <div class="border border-dark" style="height: 370px;">
+        <div class="border border-dark" style="height: 340px;">
 
-            <div class="row justify-content-around">
+            <div class="row col-md-12 justify-content-around">
 
                 @foreach (var fuseCard in Model.FuseCards.Cards)
                 {
@@ -118,9 +118,9 @@
 
                             <div class="card-stats-content">
                                 <div class="card-stats-content-head">
-                                    <a href="">
-                                        <h3 class="card-stats-title">@fuseCard.Name</h3>
-                                    </a>
+
+                                    <h3 class="card-stats-title">@fuseCard.Name</h3>
+
                                     <div class="ratings"><span><i class="fas fa-bolt"></i></span>@fuseCard.Power</div>
                                 </div>
                                 <div class="card-stats-info">
@@ -140,7 +140,7 @@
                             </div>
                         </div>
 
-                        
+
 
 
                     </div>
@@ -163,20 +163,20 @@
 
         </div>
 
-        <div class="border border-dark mt-3" style="height: 130px;">
+        <div class="col-md-12 border border-dark mt-3" style="height: 130px; width: ">
             <p class="" style="font-family: 'Goldman', cursive; font-size: 30px; text-align: center;">Only two cards of same types and same tires can be fused. Higher levels fused higher result.</p>
         </div>
     </div>
 </div>
 
 
-<div class="row col-md-12 justify-content-around mt-3 mb-1">
+<div class="bottom row col-md-12 justify-content-around mt-3 mb-1">
 
     @*-------Battle Cards Set--------*@
 
     <div class="row col-md-7 border border-dark">
 
-        <div class="row justify-content-center">
+        <div class="row col-md-12 justify-content-center">
 
             @foreach (var card in Model.Cards.Cards.Where(x => x.IsBattleSetCard == true))
             {
@@ -192,9 +192,9 @@
 
                         <div class="card-stats-content">
                             <div class="card-stats-content-head">
-                                <a href="">
-                                    <h3 class="card-stats-title">@card.Name</h3>
-                                </a>
+
+                                <h3 class="card-stats-title">@card.Name</h3>
+
                                 <div class="ratings"><span><i class="fas fa-bolt"></i></span>@card.Power</div>
                             </div>
                             <div class="card-stats-info">
@@ -214,7 +214,7 @@
                         </div>
                     </div>
 
-                    
+
 
                 </div>
             }
@@ -223,8 +223,9 @@
 
     </div>
 
-    <div class="col-md-4 border border-dark">
-        <p class="" style="font-family: 'Goldman', cursive; font-size: 30px; text-align: center;">Some Text here. Some Text here. Some Text here. Some Text here. Some Text here. Some Text here. Some Text here. Some Text here.</p>
+    <div class="col-md-4">
+        <div class="col-md-12 border border-dark">
+            <p class="" style="font-family: 'Goldman', cursive; font-size: 30px; text-align: center;">Some Text here. Some Text here. Some Text here. Some Text here. Some Text here. Some Text here. Some Text here. Some Text here.</p>
+        </div>
     </div>
-
 </div>

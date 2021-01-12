@@ -6,7 +6,7 @@
 
     using TheDarkPortal.Web.ViewModels.User;
 
-   public class HomeLoggedStatsViewModel : BaseUserStatsViewModel
+    public class HomeLoggedStatsViewModel : BaseUserStatsViewModel
     {
         public int CountTotalUsers { get; set; }
 
