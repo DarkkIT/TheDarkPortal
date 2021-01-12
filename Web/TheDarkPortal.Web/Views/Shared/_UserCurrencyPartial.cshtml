@@ -1,15 +1,27 @@
 ﻿@model TheDarkPortal.Web.ViewModels.User.UserCurrencyViewModel;
+<head>
+    <link href="~/css/resources-bar.css" rel="stylesheet" />
+</head>
 
-<div class="row text-center">
+<div id="resource-bar" class="col-md-12">
+    <div class="row justify-content-lg-end">
+        <div id="rectangle" class="row">
 
-    <div class="col-md-12" style="z-index: 1;">
-        <div class="row justify-content-center">
-            <div class="row">
-                <p style="color: orangered;">--- Silver: @Model.Silver --- </p>
-                <p style="color: orangered">Gold: @Model.Gold --- </p>
-                <p style="color: orangered;">Platinum: @Model.Platinum ---</p>
-            </div>
+            <span >
+                <span id="currency-image-container">  <img src="~/images/Home/silver.png" /></span>
+                <span id="resource"> @Model.Platinum </span>
+            </span>
+
+            <span >
+                <span id="currency-image-container"> <img src="~/images/Home/CurrencyGold_icon.png" /></span>
+                <span id="resource"> @Model.Gold </span>
+            </span>
+
+            <span c>
+                <span id="currency-image-container"><img src="~/images/Home/CurrencyCrystal_icon.png" /></span>
+                <span id="resource"> @Model.Platinum </span>
+            </span>
         </div>
     </div>
-
 </div>
+

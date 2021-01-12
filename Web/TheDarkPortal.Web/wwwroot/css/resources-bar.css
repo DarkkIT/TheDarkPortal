@@ -1,0 +1,42 @@
+﻿
+div #rectangle {
+    width: 400px;
+    height: 50px;
+    background: none ;
+    margin: 5px;
+    padding: 5px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+div span {
+    margin-bottom: 0px;
+    min-width: 130px;
+    max-width: 130px;
+    position:relative;
+}
+
+#resource {
+    padding: 5px;
+    min-width: 50px;
+    max-width: 50px;
+    color:red;
+}
+
+currency-image{
+    margin: 5px;
+}
+
+img {
+    border-radius: 8px;
+    position: relative;
+}
+
+#resource-bar {
+    float: right ;
+    position: fixed;
+    z-index: 99999999;
+}
