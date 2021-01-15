@@ -25,7 +25,7 @@
 
     @*----------------Attacker---------------*@
 
-    <div class="col col-md-2 border border-dark m-1">
+    <div class="col col-md-2 m-1">
 
         @foreach (var card in Model.AttackerCards.Cards)
         {
@@ -165,7 +165,7 @@
 
     @*Middle conteiner*@
 
-    <div class="col-md-3 m-1 border border-dark">
+    <div class="col-md-3 m-1 ">
         @foreach (var card in Model.AttackerCards.Cards)
         {
             if (card.IsSelected)
@@ -177,13 +177,13 @@
         }
     </div>
 
-    <div class="col-md-3 m-1 border border-dark">
+    <div class="col-md-3 m-1 ">
 
     </div>
 
     @*----------------Defender---------------*@
 
-    <div class="col col-md-2 border border-dark m-1 d-flex align-items-end flex-column">
+    <div class="col col-md-2 m-1 d-flex align-items-end flex-column">
         @foreach (var card in Model.DefenderCards.Cards)
         {
             <div class="row">
