@@ -8,6 +8,14 @@
     color: #010b26;
 }
 
+#mycardsbody {
+    margin-top: 5rem;
+}
+
+#storebody {
+    margin-top: 5rem;
+}
+
 .scrolling-wrapper {
     overflow-x: scroll;
     overflow-y: hidden;
@@ -19,9 +27,7 @@
     overflow-y: scroll;
 }
 
-.bottom {
 
-}
 
 #myCardModel :hover {
     transform: scale(1.02);

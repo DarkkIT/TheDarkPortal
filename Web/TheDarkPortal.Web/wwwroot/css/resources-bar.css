@@ -38,5 +38,5 @@ img {
 #resource-bar {
     float: right ;
     position: fixed;
-    z-index: 99999999;
+    z-index: 99;
 }

@@ -17,11 +17,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/headerbuttons.css" asp-append-version="true" />
-    <link href="~/css/home.css" rel="stylesheet" />
 </head>
+
+
 <body>
     <header id="header">
-        <nav class="navbar navbar-inverse navbar-expand-sm mb-3 fixed-top" style=" margin-bottom: 0px; padding-bottom:0px">
+        <nav class="navbar navbar-inverse navbar-expand-sm mb-3 fixed-top"
             <div class="container-fluid center">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -45,9 +46,13 @@
 
                         @*----------Site Logo----------*@
 
-                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                            <h1 class="brand">@GlobalConstants.SystemName</h1>
-                        </a>
+                        <div>
+
+                            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                                <h1 class="brand">@GlobalConstants.SystemName</h1>
+                            </a>
+
+                        </div>
 
                         <li class="nav-item">
                             <a class="btn btn-secondary" asp-area="" asp-controller="Arena" asp-action="Index">Arena</a>
@@ -70,9 +75,9 @@
 
                                     @if (User.Identity.IsAuthenticated)
                                     {
-                                        <p  class="text-center" >Hello</p>
+                                        <p class="text-center">Hello</p>
 
-                                        <a id="userLink" class="nav-link text-dark border badge-danger col-md-12"  asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@((this.User.Identity.Name).Substring(0, (this.User.Identity.Name).IndexOf("@")))</a>
+                                        <a id="userLink" class="nav-link text-dark border badge-danger col-md-12" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@((this.User.Identity.Name).Substring(0, (this.User.Identity.Name).IndexOf("@")))</a>
                                         <hr />
                                         <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">
                                             <button type="submit" class="nav-link btn btn-link text-dark col-md-6 offset-3">Logout</button>
@@ -123,9 +128,9 @@
         </nav>
     </header>
 
-    <div class="">
+    <div class="" style="max-width: 1920px;">
         <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-1 pt-4">
+        <main role="main" class="">
             @this.RenderBody()
         </main>
     </div>
