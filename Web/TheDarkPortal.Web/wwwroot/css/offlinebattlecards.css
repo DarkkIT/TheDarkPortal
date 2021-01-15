@@ -20,9 +20,12 @@
 /* body */
 
 #battlebody {
-    margin-top: 5rem;
+    margin-top: 0rem;
 }
 
+header {
+    display: none;
+}
 
 body {
     min-height: 100vh;
