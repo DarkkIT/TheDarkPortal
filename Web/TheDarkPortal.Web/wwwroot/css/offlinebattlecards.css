@@ -18,6 +18,12 @@
 }
 
 /* body */
+
+#battlebody {
+    margin-top: 5rem;
+}
+
+
 body {
     min-height: 100vh;
     padding: 5px;
