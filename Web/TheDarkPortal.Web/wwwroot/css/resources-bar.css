@@ -19,7 +19,7 @@ div span {
     position:relative;
 }
 
-#resource {
+.resource {
     padding: 5px;
     min-width: 50px;
     max-width: 50px;
@@ -35,8 +35,9 @@ img {
     position: relative;
 }
 
-#resource-bar {
+/*#resource-bar {
     float: right ;
     position: fixed;
     z-index: 99;
 }
+*/

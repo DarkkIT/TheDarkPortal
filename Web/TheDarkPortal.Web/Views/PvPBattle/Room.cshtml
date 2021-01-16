@@ -4,16 +4,7 @@
     this.ViewData["Title"] = "Home";
 }
 
-@if (User.Identity.IsAuthenticated)
-{
 
-    @if (Model.Currencies != null)
-    {
-        <div>
-            <partial name="_UserCurrencyPartial" model="@Model.Currencies" />
-        </div>
-    }
-}
 
 <div class="row justify-content-around">
 
