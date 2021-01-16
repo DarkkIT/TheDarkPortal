@@ -1,6 +1,10 @@
 ﻿@using TheDarkPortal.Common
+@using TheDarkPortal.Data.Models
+@using Microsoft.AspNetCore.Identity
 @inject Microsoft.AspNetCore.Identity.SignInManager<TheDarkPortal.Data.Models.ApplicationUser> SignInManager
 @inject Microsoft.AspNetCore.Identity.UserManager<TheDarkPortal.Data.Models.ApplicationUser> UserManager
+@*@inject SignInManager<ApplicationUser> SignInManager
+    @inject UserManager<ApplicationUser> UserManager*@
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,11 +17,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/headerbuttons.css" asp-append-version="true" />
-    <link href="~/css/home.css" rel="stylesheet" />
 </head>
+
+
 <body>
     <header id="header">
-        <nav class="navbar navbar-inverse navbar-expand-sm mb-3 fixed-top" style=" margin-bottom: 0px; padding-bottom:0px">
+        <nav class="navbar navbar-inverse navbar-expand-sm mb-3 fixed-top"
             <div class="container-fluid center">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -41,9 +46,13 @@
 
                         @*----------Site Logo----------*@
 
-                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                            <h1 class="brand">@GlobalConstants.SystemName</h1>
-                        </a>
+                        <div>
+
+                            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                                <h1 class="brand">@GlobalConstants.SystemName</h1>
+                            </a>
+
+                        </div>
 
                         <li class="nav-item">
                             <a class="btn btn-secondary" asp-area="" asp-controller="Arena" asp-action="Index">Arena</a>
@@ -53,35 +62,63 @@
                             <a class="btn btn-secondary" asp-area="" asp-controller="PvPBattle" asp-action="Room" asp-route-Id="8">PvP Battle</a>
                         </li>
 
+                        <li class="nav-item">
+
+                            <div class="dropdown">
+
+                                <button id="but" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Profile
+                                </button>
+
+                                <div class="dropdown-menu col-md-1 justify-content-center" aria-labelledby="dropdownMenu2">
+
+
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <p class="text-center">Hello</p>
+
+                                        <a id="userLink" class="nav-link text-dark border badge-danger col-md-12" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@((this.User.Identity.Name).Substring(0, (this.User.Identity.Name).IndexOf("@")))</a>
+                                        <hr />
+                                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">
+                                            <button type="submit" class="nav-link btn btn-link text-dark col-md-6 offset-3">Logout</button>
+                                        </form>
+                                    }
+
+                                </div>
+
+                            </div>
+
+                        </li>
+
                         @*<li class="nav-item">
             <partial name="_LoginPartial" />
         </li>*@
 
-                        @if (this.SignInManager.IsSignedIn(this.User))
-                        {
-                            <li class="nav-item">
-                                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-                                    <button type="button" class="btn btn-primary" style="margin:5px; margin-right:0px">MyProfile</button>
-                                    <div class="btn-group" role="group">
-                                        <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" style="margin:5px; margin-left:0px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                                        <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-                                            <a class="dropdown-item" asp-area="Administration" asp-controller="Dashboard" asp-action="Index" title="Admin">Admin</a>
-                                            <a class="dropdown-item" href="#">
-                                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">
-                                                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-                                                </form>
-                                            </a>
+                        @*@if (this.SignInManager.IsSignedIn(this.User))
+                            {
+                                <li class="nav-item">
+                                    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                                        <button type="button" class="btn btn-primary" style="margin:5px; margin-right:0px">MyProfile</button>
+                                        <div class="btn-group" role="group">
+                                            <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" style="margin:5px; margin-left:0px" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                                                <a class="dropdown-item" asp-area="Administration" asp-controller="Dashboard" asp-action="Index" title="Admin">Admin</a>
+                                                <a class="dropdown-item" href="#">
+                                                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@this.Url.Action("Index", "Home", new { area = string.Empty })">
+                                                        <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                                                    </form>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Login">Login</a>
-                            </li>
-                        }
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                                </li>
+                            }*@
 
                         @if (User.Identity.IsAuthenticated)
                         {
@@ -112,9 +149,10 @@
         </nav>
     </header>
 
-    <div class="">
+    <div class="" style="max-width: 1920px;">
         <partial name="_CookieConsentPartial" />
-        <main role="main">
+
+        <main role="main" class="">
             @this.RenderBody()
         </main>
     </div>
@@ -134,9 +172,6 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js" asp-append-version="true"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js" asp-append-version="true"></script>
-    <script src="~/js/site.min.js" asp-append-version="true"></script>
-    <script src="~/lib/popper/popper.js"></script>
-    <script src="~/js/lazy.js"></script>
     @await this.RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

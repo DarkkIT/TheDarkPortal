@@ -12,52 +12,54 @@
 
 @*<div id="wrapper">*@
 
+<div id="storebody">
+    <div class="col-md-6 offset-3">
+        <form asp-action="Index" method="get">
+            <div class="form-actions no-color col justify-content-center">
+                <p class="text-center " style="color: yellow">Find by name</p>
+                <p class="col-md-6 offset-3">
+                    <input class="col-md-12" type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
+                </p>
+                <p class=" row justify-content-center">
+                    <input type="submit" value="Search" class="btn btn-default" style="color: wheat;" />
+                    <a asp-action="Index" style="margin-top: 9px; color: yellow;">Back to Full List</a>
+                </p>
+            </div>
+        </form>
+    </div>
 
-<div class="col-md-6 offset-3">
-    <form asp-action="Index" method="get">
-        <div class="form-actions no-color col justify-content-center">
-            <p class="text-center " style="color: yellow">Find by name</p>
-            <p class="col-md-6 offset-3">
-                <input class="col-md-12" type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
-            </p>
-            <p class=" row justify-content-center">
-                <input type="submit" value="Search" class="btn btn-default" style="color: wheat;" />
-                <a asp-action="Index" style="margin-top: 9px; color: yellow;">Back to Full List</a>
-            </p>
-        </div>
-    </form>
-</div>
+    <div class=" col-md-6 offset-3 mb-5">
+        <div class="row justify-content-center">
 
-<div class=" col-md-6 offset-3 mb-5">
-    <div class="row justify-content-center">
-
-        @foreach (var card in Model.Cards)
-        {
-            <div class="">
-                <div class="card-view">
-                    <div class="card-img card-header cardModel">
-                        <img class="card-img" src="@card.ImagePath" alt="Image" />
-                    </div>
-
-                    <div class="card-stats-content">
-                        <div class="card-stats-content-head">
-                            <a href="">
-                                <h3 class="card-stats-title">@card.Name</h3>
-                            </a>
-                            <div class="ratings"><span><i class="fas fa-bolt"></i></span>@card.Power</div>
+            @foreach (var card in Model.Cards)
+            {
+                <div>
+                    <div class="card-view">
+                        <div class="card-img card-header cardModel">
+                            <img class="card-img" src="@card.ImagePath" alt="Image" />
                         </div>
 
+
+                        <div class="card-stats-content">
+                            <div class="card-stats-content-head">
+                                <a href="">
+                                    <h3 class="card-stats-title">@card.Name</h3>
+                                </a>
+                                <div class="ratings"><span><i class="fas fa-bolt"></i></span>@card.Power</div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 offset-3">
+                        <a class="btn btn-primary bouncy" asp-controller="Cards" asp-action="AddCardToMyCards" asp-route-id="@card.Id">Buy</a>
                     </div>
                 </div>
-                <div class="col-md-6 offset-3">
-                    <a class="btn btn-primary bouncy" asp-controller="Cards" asp-action="AddCardToMyCards" asp-route-id="@card.Id">Buy</a>
-                </div>
-            </div>
-        }
+            }
 
+        </div>
     </div>
+
+    <partial name="_PagingPartial" model="@Model" />
+
 </div>
-@*</div>*@
-
-<partial name="_PagingPartial" model="@Model" />
-

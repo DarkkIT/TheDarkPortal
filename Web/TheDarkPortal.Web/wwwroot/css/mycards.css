@@ -8,6 +8,7 @@
     color: #010b26;
 }
 
+
 #wrapper {
     width: 100%;
     position: relative;
@@ -16,6 +17,13 @@
 #wrapper div {
     max-width: 100%;
     position: relative;
+
+#mycardsbody {
+    margin-top: 5rem;
+}
+
+#storebody {
+    margin-top: 5rem;
 }
 
 .scrolling-wrapper {
@@ -27,9 +35,6 @@
 #scrollable {
     height: 33rem;
     overflow-y: scroll;
-}
-
-.bottom {
 }
 
 #myCardModel :hover {
