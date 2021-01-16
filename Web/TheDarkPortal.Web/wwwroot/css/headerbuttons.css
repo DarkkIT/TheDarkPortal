@@ -22,3 +22,15 @@
     border-bottom: none;
     background-color: transparent;
 }
+
+#but {
+    margin-top: 0px;
+    margin-left: 10px;
+    width: 65px;
+    height: 65px;
+}
+
+#userLink {
+    width: 105px;
+    height: 45px;
+}

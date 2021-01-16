@@ -1,3 +1,7 @@
 ﻿body {
     background: hsl(220, 10%, 12%);
 }
+
+#arenabody {
+    margin-top: 5rem;
+}

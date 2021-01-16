@@ -12,11 +12,11 @@
 
 
 
-<div class="row justify-content-around">
+<div id="battlebody" class="row justify-content-around">
 
     @*----------------Attacker---------------*@
 
-    <div class="col col-md-3 border border-dark m-1">
+    <div class="col col-md-2 m-1">
 
         @foreach (var card in Model.AttackerCards.Cards)
         {
@@ -115,28 +115,38 @@
 
     @*Middle conteiner*@
 
-    <div class="col-md-3 m-1 border border-dark">
+    <div class="col-md-3 m-1 ">
+
+    </div>
+
+    <div class="col-md-3 m-1 ">
 
     </div>
 
     @*----------------Defender---------------*@
 
-    <div class="col col-md-3 border border-dark m-1 d-flex align-items-end flex-column">
+    <div class="col col-md-2  m-1 d-flex align-items-end flex-column">
         @foreach (var card in Model.DefenderCards.Cards)
         {
             <div class="row">
 
+                @if (!card.HaveTakenTurn && !card.IsDestroyed)
+                {
+                    <p class="mt-2" style="color: orangered;"><i class="fas fa-angle-double-left fa-2x"></i></p>
+
+                }
+
                 <div class="flip-card-container" style="--hue: 220">
                     <div class="flip-card">
 
-                        <div class="card-front">
+                        <div id="notSelected" class="card-front">
                             <figure>
                                 <div class="img-bg"></div>
                                 <img src="@card.ImagePath" alt="Brohm Lake">
                             </figure>
                         </div>
 
-                        <div class="card-back">
+                        <div id="notSelected" class="card-back">
                             <figure>
                                 <div class="img-bg"></div>
                                 <img src="@card.ImagePath" alt="Brohm Lake">

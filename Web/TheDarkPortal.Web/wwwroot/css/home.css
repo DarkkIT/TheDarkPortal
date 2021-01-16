@@ -211,17 +211,6 @@ a p{
     top: 66.5%;
 }
 
-/*#main {
-    max-height: 1080px;
-    width: 1920px;
-    height: 1080px;*/
-/*border: 2px solid black;*/
-/*background: url(/images/Home/MapBattleMarkers.jpg);*/
-/*    background-repeat: no-repeat;
-    background-size: contain, cover;
-    position: relative;*/
-/*}*/
-
 #level1 {
     z-index: 2;
     /*background: url(/images/Home/ArenaButton.jpg);*/
