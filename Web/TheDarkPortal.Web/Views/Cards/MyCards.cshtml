@@ -12,16 +12,7 @@
     <link rel="stylesheet" href="~/css/mycards.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/mycardsbuttons.css" asp-append-version="true" />
 </head>
-@if (User.Identity.IsAuthenticated)
-{
 
-    @if (Model.Currencies != null)
-    {
-        <div>
-            <partial name="_UserCurrencyPartial" model="@Model.Currencies" />
-        </div>
-    }
-}
 
 
 

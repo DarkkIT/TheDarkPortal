@@ -4,16 +4,7 @@
     this.ViewData["Title"] = "Arena";
 }
 
-@if (User.Identity.IsAuthenticated)
-{
 
-    @if (Model.Currencies != null)
-    {
-        <div>
-            <partial name="_UserCurrencyPartial" model="@Model.Currencies" />
-        </div>
-    }
-}
 
 
 <head>

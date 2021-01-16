@@ -8,6 +8,16 @@
     color: #010b26;
 }
 
+#wrapper {
+    width: 100%;
+    position: relative;
+}
+
+#wrapper div {
+    max-width: 100%;
+    position: relative;
+}
+
 .scrolling-wrapper {
     overflow-x: scroll;
     overflow-y: hidden;
@@ -20,7 +30,6 @@
 }
 
 .bottom {
-
 }
 
 #myCardModel :hover {
@@ -38,6 +47,11 @@
     /*display: inline-block;*/
     /*transform: scale(0.7); */
 }
+
+/*    .card-view img {
+        max-width: 100%;
+        height: auto;
+    }*/
 
 .mainCard {
     width: 190px;
@@ -73,14 +87,14 @@
 }
 
 
-    .header-icon:hover {
-        background: rgba(0, 0, 0, 0.15);
-        font-size: 74px;
-        text-shadow: 0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-        opacity: 1;
-    }
+.header-icon:hover {
+    background: rgba(0, 0, 0, 0.15);
+    font-size: 74px;
+    text-shadow: 0px 0px 20px #6abcea, 0px 5px 30px #6ABCEA;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    opacity: 1;
+}
 
 
 .card-stats-content {
@@ -125,23 +139,22 @@
     text-align: center;
 }
 
-.stats-info:first-of-type {
-    text-align: left;
-}
+    .stats-info:first-of-type {
+        text-align: left;
+    }
 
-.stats-info:last-of-type {
-    text-align: right;
-}
+    .stats-info:last-of-type {
+        text-align: right;
+    }
 
-.stats-info label {
-    display: block;
-    color: rgba(0, 0, 0, 0.5);
-    margin-bottom: .5em;
-    font-size: 9px;
-}
+    .stats-info label {
+        display: block;
+        color: rgba(0, 0, 0, 0.5);
+        margin-bottom: .5em;
+        font-size: 9px;
+    }
 
-.stats-info span {
-    font-weight: 700;
-    font-size: 11px;
-}
-
+    .stats-info span {
+        font-weight: 700;
+        font-size: 11px;
+    }

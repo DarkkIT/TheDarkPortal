@@ -54,8 +54,8 @@
                         </li>
 
                         @*<li class="nav-item">
-                                <partial name="_LoginPartial" />
-                            </li>*@
+            <partial name="_LoginPartial" />
+        </li>*@
 
                         @if (this.SignInManager.IsSignedIn(this.User))
                         {
@@ -83,7 +83,28 @@
                             </li>
                         }
 
+                        @if (User.Identity.IsAuthenticated)
+                        {
 
+                            @if (Model.Currencies != null)
+                            {
+                                
+                                <li class="align-self-end">
+                                    <span class="currency-image-container">  <img src="~/images/Home/silver.png" /></span>
+                                    <span class="resource"> @Model.Currencies.Platinum </span>
+                                </li>
+
+                                <li class="align-self-end">
+                                    <span class="currency-image-container"> <img src="~/images/Home/CurrencyGold_icon.png" /></span>
+                                    <span class="resource"> @Model.Currencies.Gold </span>
+                                </li>
+
+                                <li class="align-self-end">
+                                    <span class="currency-image-container"><img src="~/images/Home/CurrencyCrystal_icon.png" /></span>
+                                    <span class="resource"> @Model.Currencies.Platinum </span>
+                                </li>
+                            }
+                        }
 
                     </ul>
                 </div>
@@ -93,31 +114,21 @@
 
     <div class="">
         <partial name="_CookieConsentPartial" />
-        <main role="main" class="pb-1 pt-4">
+        <main role="main">
             @this.RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted" style="height: 60px;">
+    @*<footer class="border-top footer text-muted" style="height: 60px;">
 
         <div class="row justify-content-around">
             <div>
                 <p>Footer</p>
             </div>
 
-            @if (User.Identity.IsAuthenticated)
-            {
-
-                @if (Model.Currencies != null)
-                {
-                    <div>
-                        <partial name="_UserCurrencyPartial" model="@Model.Currencies" />
-                    </div>
-                }
-            }
         </div>
 
-    </footer>
+    </footer>*@
 
     <script src="~/lib/jquery/dist/jquery.min.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js" asp-append-version="true"></script>

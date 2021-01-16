@@ -2,20 +2,225 @@
     max-height: 1080px;
 }
 
-.level :hover{
+/*.level :hover {
     transform: scale(1.08);
 }
+*/
+/*.container-fluid {
+    background-image: url("http://www.placecage.com/1000/800");
+    min-height: 400px;
+}*/
 
-#main {
-    max-height: 1080px;
-    width: 1920px;
-    height: 1080px;
-    /*border: 2px solid black;*/
-    background: url(/images/Home/MapBattleMarkers.jpg);
-    background-repeat: no-repeat;
-    background-size: contain, cover;
+#wrapper {
+    width: 100%;
+    max-width: 1920px; /*actual width of image-- behaves strangely if exceeding this*/
     position: relative;
 }
+
+#wrapper img {
+        max-width: 100%;
+    }
+
+/*level :hover{
+    text-decoration: none !important;
+}*/
+
+a p{
+    font-size: 12px;
+}
+
+#anchor-level1{
+    width: 2.7%;
+    height: 4.5%;
+    border: 2px solid red;
+    border-radius:50%;
+
+    position: absolute;
+    left: 9.2%;
+    top: 66.5%;
+}
+
+#anchor-level2 {
+    width: 2.7%;
+    height: 4.5%;
+    border: 2px solid red;
+    border-radius: 50%;
+
+    position: absolute;
+    left: 18.2%;
+    top: 50.5%;
+}
+
+#anchor-level3 {
+    width: 2.7%;
+    height: 4.5%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 23.4%;
+    top: 45.5%;
+}
+
+#anchor-level4 {
+    width: 2.7%;
+    height: 4.5%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 25.8%;
+    top: 60.95%;
+}
+
+#anchor-level5 {
+    width: 2.7%;
+    height: 4.5%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 30.75%;
+    top: 74.35%;
+}
+
+#anchor-level6 {
+    width: 8.1%;
+    height: 14%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 39.75%;
+    top: 48.38%;
+}
+
+#anchor-level7 {
+    width: 3.85%;
+    height: 6.75%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 35.0%;
+    top: 37.3%;
+}
+
+#anchor-level8 {
+    width: 3.85%;
+    height: 6.75%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 53.2%;
+    top: 60.35%;
+}
+
+#anchor-level9 {
+    width: 3.85%;
+    height: 6.75%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 54.9%;
+    top: 44.6%;
+}
+
+#anchor-level10 {
+    width: 3.85%;
+    height: 6.75%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 62.5%;
+    top: 34.2%;
+}
+
+#anchor-level11 {
+    width: 9.65%;
+    height: 16.5%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 65.25%;
+    top: 55.9%;
+}
+
+#anchor-level12 {
+    width: 4.9%;
+    height: 8.4%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 79%;
+    top: 61.5%;
+}
+
+#anchor-level13 {
+    width: 6.5%;
+    height: 11.4%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 75.9%;
+    top: 34%;
+}
+
+#anchor-level14 {
+    width: 7%;
+    height: 13%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 82.7%;
+    top: 17.5%;
+}
+
+#anchor-level15 {
+    width: 4.85%;
+    height: 8.5%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 19.1%;
+    top: 15.5%;
+}
+
+#anchor-level16 {
+    width: 4.85%;
+    height: 8.5%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 16.5%;
+    top: 28.5%;
+}
+
+#anchor-level17 {
+    width: 2.7%;
+    height: 4.5%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 9.2%;
+    top: 66.5%;
+}
+
+#anchor-level18 {
+    width: 2.7%;
+    height: 4.5%;
+    border: 2px solid red;
+    border-radius: 50%;
+    position: absolute;
+    left: 9.2%;
+    top: 66.5%;
+}
+
+/*#main {
+    max-height: 1080px;
+    width: 1920px;
+    height: 1080px;*/
+/*border: 2px solid black;*/
+/*background: url(/images/Home/MapBattleMarkers.jpg);*/
+/*    background-repeat: no-repeat;
+    background-size: contain, cover;
+    position: relative;*/
+/*}*/
 
 #level1 {
     z-index: 2;
