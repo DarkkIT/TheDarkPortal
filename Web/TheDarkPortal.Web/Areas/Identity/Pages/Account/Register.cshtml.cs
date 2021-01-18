@@ -16,6 +16,7 @@
     using Microsoft.AspNetCore.Mvc.RazorPages;
     using Microsoft.AspNetCore.WebUtilities;
     using Microsoft.Extensions.Logging;
+    using TheDarkPortal.Data.Common.Repositories;
     using TheDarkPortal.Data.Models;
 
     [AllowAnonymous]
@@ -25,17 +26,19 @@
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly IDeletableEntityRepository<ApplicationUser> appUserRepo;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender, IDeletableEntityRepository<ApplicationUser> appUserRepo)
         {
             this._userManager = userManager;
             this._signInManager = signInManager;
             this._logger = logger;
             this._emailSender = emailSender;
+            this.appUserRepo = appUserRepo;
         }
 
         [BindProperty]
@@ -79,9 +82,17 @@
         {
             returnUrl ??= this.Url.Content("~/");
             this.ExternalLogins = (await this._signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            var isNicknameAvailable = this.appUserRepo.All().FirstOrDefault(x => x.NickName == this.Input.Nickname);
+
+            if (isNicknameAvailable != null)
+            {
+                this.ModelState.AddModelError("", "This nickname is already taken!");
+                return this.Page();
+            }
 
             if (this.ModelState.IsValid)
             {
+
                 var user = new ApplicationUser { UserName = this.Input.Email, Email = this.Input.Email, NickName = this.Input.Nickname };
                 var result = await this._userManager.CreateAsync(user, this.Input.Password);
 
