@@ -15,8 +15,9 @@
 }
 
 #wrapper div {
-    max-width: 100%;
-    position: relative;
+        max-width: 100%;
+        position: relative;
+    }
 
 #mycardsbody {
     margin-top: 5rem;

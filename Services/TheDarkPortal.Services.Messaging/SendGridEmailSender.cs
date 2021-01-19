@@ -4,17 +4,19 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
-
+    using Microsoft.Extensions.Configuration;
     using SendGrid;
     using SendGrid.Helpers.Mail;
 
     public class SendGridEmailSender : IEmailSender
     {
         private readonly SendGridClient client;
+        private readonly IConfiguration configuration;
 
-        public SendGridEmailSender(string apiKey)
+        public SendGridEmailSender(IConfiguration configuration)
         {
-            this.client = new SendGridClient(apiKey);
+            this.configuration = configuration;
+            this.client = new SendGridClient(configuration["SendGridAPIKey"]);
         }
 
         public async Task SendEmailAsync(string from, string fromName, string to, string subject, string htmlContent, IEnumerable<EmailAttachment> attachments = null)
@@ -26,6 +28,7 @@
 
             var fromAddress = new EmailAddress(from, fromName);
             var toAddress = new EmailAddress(to);
+
             var message = MailHelper.CreateSingleEmail(fromAddress, toAddress, subject, null, htmlContent);
             if (attachments?.Any() == true)
             {
