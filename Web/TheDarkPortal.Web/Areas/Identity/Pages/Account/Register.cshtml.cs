@@ -93,7 +93,7 @@
             if (this.ModelState.IsValid)
             {
 
-                var user = new ApplicationUser { UserName = this.Input.Email, Email = this.Input.Email, NickName = this.Input.Nickname };
+                var user = new ApplicationUser { UserName = this.Input.Email, Email = this.Input.Email, NickName = this.Input.Nickname, Silver = 1000};
                 var result = await this._userManager.CreateAsync(user, this.Input.Password);
 
                 if (result.Succeeded)
